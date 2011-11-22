@@ -1,0 +1,233 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test
+END
+FTTesselation-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTTesselation-Test.cpp
+END
+FTExtrdGlyph-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTExtrdGlyph-Test.cpp
+END
+mmgr.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/mmgr.h
+END
+FTVector-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTVector-Test.cpp
+END
+FTPixmapGlyph-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTPixmapGlyph-Test.cpp
+END
+FTTextureGlyph-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTTextureGlyph-Test.cpp
+END
+FTLibrary-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTLibrary-Test.cpp
+END
+Fontdefs.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/Fontdefs.h
+END
+FTSize-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTSize-Test.cpp
+END
+FTCharToGlyphIndexMap-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTCharToGlyphIndexMap-Test.cpp
+END
+FTGLTextureFont-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTGLTextureFont-Test.cpp
+END
+FTCharmap-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTCharmap-Test.cpp
+END
+HPGCalc_afm.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/HPGCalc_afm.cpp
+END
+FTlayout-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTlayout-Test.cpp
+END
+HPGCalc_pfb.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/HPGCalc_pfb.cpp
+END
+FTGLExtrdFont.cpp-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTGLExtrdFont.cpp-Test.cpp
+END
+FTVectoriser-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTVectoriser-Test.cpp
+END
+FTGLBitmapFont-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTGLBitmapFont-Test.cpp
+END
+FTGlyphContainer-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTGlyphContainer-Test.cpp
+END
+FTPolyGlyph-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTPolyGlyph-Test.cpp
+END
+FTPoint-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTPoint-Test.cpp
+END
+FTContour-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTContour-Test.cpp
+END
+FTGLOutlineFont-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTGLOutlineFont-Test.cpp
+END
+FTBBox-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTBBox-Test.cpp
+END
+mmgr.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/mmgr.cpp
+END
+FTMesh-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTMesh-Test.cpp
+END
+nommgr.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/nommgr.h
+END
+FTFace-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTFace-Test.cpp
+END
+FTGLPolygonFont-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTGLPolygonFont-Test.cpp
+END
+FTFont-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTFont-Test.cpp
+END
+FTGLPixmapFont-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTGLPixmapFont-Test.cpp
+END
+FTList-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTList-Test.cpp
+END
+TestMain.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/TestMain.cpp
+END
+demo.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/demo.cpp
+END
+FTBitmapGlyph-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTBitmapGlyph-Test.cpp
+END
+FTOutlineGlyph-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTOutlineGlyph-Test.cpp
+END
+FTGlyph-Test.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/FTGlyph-Test.cpp
+END
+README.txt
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/test/README.txt
+END

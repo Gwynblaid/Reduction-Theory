@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svnroot/ftgl/!svn/ver/1263/trunk/src/FTFont
+END
+FTPolygonFontImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/ftgl/!svn/ver/1245/trunk/src/FTFont/FTPolygonFontImpl.h
+END
+FTOutlineFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/ftgl/!svn/ver/1214/trunk/src/FTFont/FTOutlineFont.cpp
+END
+FTFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/ftgl/!svn/ver/1256/trunk/src/FTFont/FTFont.cpp
+END
+FTExtrudeFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTFont/FTExtrudeFont.cpp
+END
+FTPixmapFontImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTFont/FTPixmapFontImpl.h
+END
+FTPolygonFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/ftgl/!svn/ver/1245/trunk/src/FTFont/FTPolygonFont.cpp
+END
+FTTextureFontImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTFont/FTTextureFontImpl.h
+END
+FTFontGlue.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/ftgl/!svn/ver/1259/trunk/src/FTFont/FTFontGlue.cpp
+END
+FTPixmapFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/ftgl/!svn/ver/1248/trunk/src/FTFont/FTPixmapFont.cpp
+END
+FTTextureFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/ftgl/!svn/ver/1263/trunk/src/FTFont/FTTextureFont.cpp
+END
+FTBufferFontImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTFont/FTBufferFontImpl.h
+END
+FTBitmapFontImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTFont/FTBitmapFontImpl.h
+END
+FTOutlineFontImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTFont/FTOutlineFontImpl.h
+END
+FTFontImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTFont/FTFontImpl.h
+END
+FTExtrudeFontImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTFont/FTExtrudeFontImpl.h
+END
+FTBufferFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/ftgl/!svn/ver/1263/trunk/src/FTFont/FTBufferFont.cpp
+END
+FTBitmapFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/ftgl/!svn/ver/1214/trunk/src/FTFont/FTBitmapFont.cpp
+END

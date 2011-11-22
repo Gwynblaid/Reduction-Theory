@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svnroot/ftgl/!svn/ver/1259/trunk/src/FTGlyph
+END
+FTTextureGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/ftgl/!svn/ver/1242/trunk/src/FTGlyph/FTTextureGlyph.cpp
+END
+FTBufferGlyphImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGlyph/FTBufferGlyphImpl.h
+END
+FTBitmapGlyphImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGlyph/FTBitmapGlyphImpl.h
+END
+FTOutlineGlyphImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGlyph/FTOutlineGlyphImpl.h
+END
+FTGlyphImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGlyph/FTGlyphImpl.h
+END
+FTExtrudeGlyphImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGlyph/FTExtrudeGlyphImpl.h
+END
+FTBufferGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ftgl/!svn/ver/1256/trunk/src/FTGlyph/FTBufferGlyph.cpp
+END
+FTBitmapGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ftgl/!svn/ver/1256/trunk/src/FTGlyph/FTBitmapGlyph.cpp
+END
+FTPolygonGlyphImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGlyph/FTPolygonGlyphImpl.h
+END
+FTOutlineGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/ftgl/!svn/ver/1256/trunk/src/FTGlyph/FTOutlineGlyph.cpp
+END
+FTGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/ftgl/!svn/ver/1256/trunk/src/FTGlyph/FTGlyph.cpp
+END
+FTExtrudeGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGlyph/FTExtrudeGlyph.cpp
+END
+FTPixmapGlyphImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGlyph/FTPixmapGlyphImpl.h
+END
+FTPolygonGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/ftgl/!svn/ver/1256/trunk/src/FTGlyph/FTPolygonGlyph.cpp
+END
+FTTextureGlyphImpl.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGlyph/FTTextureGlyphImpl.h
+END
+FTGlyphGlue.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/ftgl/!svn/ver/1259/trunk/src/FTGlyph/FTGlyphGlue.cpp
+END
+FTPixmapGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ftgl/!svn/ver/1235/trunk/src/FTGlyph/FTPixmapGlyph.cpp
+END

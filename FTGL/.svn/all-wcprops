@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svnroot/ftgl/!svn/ver/1247/trunk/src/FTGL
+END
+FTGLExtrdFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTGLExtrdFont.h
+END
+FTBufferFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTBufferFont.h
+END
+FTGLPolygonFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTGLPolygonFont.h
+END
+FTPixmapGlyph.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTPixmapGlyph.h
+END
+ftgl.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svnroot/ftgl/!svn/ver/1247/trunk/src/FTGL/ftgl.h
+END
+FTTextureGlyph.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTTextureGlyph.h
+END
+FTFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svnroot/ftgl/!svn/ver/1239/trunk/src/FTGL/FTFont.h
+END
+FTGLPixmapFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTGLPixmapFont.h
+END
+FTBuffer.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTBuffer.h
+END
+FTGLTextureFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTGLTextureFont.h
+END
+FTLayout.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTLayout.h
+END
+FTBufferGlyph.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTBufferGlyph.h
+END
+FTBitmapGlyph.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTBitmapGlyph.h
+END
+FTOutlineGlyph.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTOutlineGlyph.h
+END
+FTGlyph.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTGlyph.h
+END
+FTGLBitmapFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTGLBitmapFont.h
+END
+FTPolyGlyph.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTPolyGlyph.h
+END
+FTSimpleLayout.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/ftgl/!svn/ver/1237/trunk/src/FTGL/FTSimpleLayout.h
+END
+FTGLOutlineFont.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTGLOutlineFont.h
+END
+FTPoint.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTPoint.h
+END
+FTExtrdGlyph.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTExtrdGlyph.h
+END
+FTBBox.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svnroot/ftgl/!svn/ver/1207/trunk/src/FTGL/FTBBox.h
+END

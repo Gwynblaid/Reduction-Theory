@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src
+END
+FTLibrary.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTLibrary.cpp
+END
+FTTextureGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTTextureGlyph.cpp
+END
+FTFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTFont.cpp
+END
+FTGLPixmapFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTGLPixmapFont.cpp
+END
+FTGLTextureFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTGLTextureFont.cpp
+END
+FTSize.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTSize.cpp
+END
+FTCharmap.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTCharmap.cpp
+END
+FTBufferGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTBufferGlyph.cpp
+END
+FTBitmapGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTBitmapGlyph.cpp
+END
+FTGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTGlyph.cpp
+END
+FTGLBufferFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTGLBufferFont.cpp
+END
+FTOutlineGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTOutlineGlyph.cpp
+END
+FTVectoriser.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTVectoriser.cpp
+END
+FTGlyphContainer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTGlyphContainer.cpp
+END
+FTGLBitmapFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTGLBitmapFont.cpp
+END
+FTPolyGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTPolyGlyph.cpp
+END
+FTGLOutlineFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTGLOutlineFont.cpp
+END
+FTContour.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTContour.cpp
+END
+FTPoint.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTPoint.cpp
+END
+FTExtrdGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTExtrdGlyph.cpp
+END
+FTFace.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTFace.cpp
+END
+FTGLExtrdFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTGLExtrdFont.cpp
+END
+FTGLPolygonFont.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTGLPolygonFont.cpp
+END
+FTPixmapGlyph.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/ftgl/!svn/ver/872/tags/FTGL_2_1_2/src/FTPixmapGlyph.cpp
+END

@@ -15,6 +15,7 @@
 
 }
 
--(void)plotWithX:(CGFloat*)x y:(CGFloat*)y;
+-(void)plotWithX:(CGFloat*)x y:(CGFloat*)y withPointsNum:(NSInteger)point_num;
+-(void)drawGamma;
 
 @end

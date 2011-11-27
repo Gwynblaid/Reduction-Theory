@@ -18,6 +18,8 @@
 		F9903E1D14782CC700AE739A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9903E1B14782CB800AE739A /* OpenGL.framework */; };
 		F9903E2014782CFE00AE739A /* MyOpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F9903E1F14782CFE00AE739A /* MyOpenGLView.mm */; };
 		F992441F147943DD00049E8E /* MatrixOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F992441E147943DD00049E8E /* MatrixOperation.m */; };
+		F99365CC148253BF0059EACA /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = F99365CB148253BF0059EACA /* AppController.m */; };
+		F9B407AB14816A60003E9C95 /* ProbabilityDistribution.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B407AA14816A60003E9C95 /* ProbabilityDistribution.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +43,11 @@
 		F9903E1F14782CFE00AE739A /* MyOpenGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MyOpenGLView.mm; sourceTree = "<group>"; };
 		F992441D147943DD00049E8E /* MatrixOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatrixOperation.h; sourceTree = "<group>"; };
 		F992441E147943DD00049E8E /* MatrixOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatrixOperation.m; sourceTree = "<group>"; };
+		F99365CA148253BF0059EACA /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		F99365CB148253BF0059EACA /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		F99D90C7147ADFF900D24799 /* MathFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathFunctions.h; sourceTree = "<group>"; };
+		F9B407A914816A60003E9C95 /* ProbabilityDistribution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProbabilityDistribution.h; sourceTree = "<group>"; };
+		F9B407AA14816A60003E9C95 /* ProbabilityDistribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProbabilityDistribution.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,10 @@
 				F9903E1F14782CFE00AE739A /* MyOpenGLView.mm */,
 				F992441D147943DD00049E8E /* MatrixOperation.h */,
 				F992441E147943DD00049E8E /* MatrixOperation.m */,
+				F9B407A914816A60003E9C95 /* ProbabilityDistribution.h */,
+				F9B407AA14816A60003E9C95 /* ProbabilityDistribution.m */,
+				F99365CA148253BF0059EACA /* AppController.h */,
+				F99365CB148253BF0059EACA /* AppController.m */,
 			);
 			path = GoldenTriangle;
 			sourceTree = "<group>";
@@ -190,6 +200,8 @@
 				F9903E1014782C4F00AE739A /* GoldenTriangleAppDelegate.m in Sources */,
 				F9903E2014782CFE00AE739A /* MyOpenGLView.mm in Sources */,
 				F992441F147943DD00049E8E /* MatrixOperation.m in Sources */,
+				F9B407AB14816A60003E9C95 /* ProbabilityDistribution.m in Sources */,
+				F99365CC148253BF0059EACA /* AppController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

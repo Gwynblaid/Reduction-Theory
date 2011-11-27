@@ -12,6 +12,7 @@
 #include <FTGL/ftgl.h>
 #include <FTGL/FTGLBitmapFont.h>
 #include "MathFunctions.h"
+#include "ProbabilityDistribution.h"
 
 @interface MyOpenGLView()
 -(void)draw2DCoordinatesXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd;
@@ -20,6 +21,7 @@
 -(void)drawText:(NSString*)text inPoint:(CGPoint)textPoint withFontSize:(int)font_size;
 -(CGFloat)getStepInRange:(CGPoint)range;
 -(CGPoint)transformCoordinate:(CGPoint)point;
+//-(void)drawGamma;
 @end
 
 @implementation MyOpenGLView
@@ -68,8 +70,8 @@ static float max_delta = 0.05;
         
         if(delt> -0.8){
             glColor3f( 0.0, 0.0, 0.0);
-            [self drawText:[NSString stringWithFormat:@"%1.2f",curr_x] inPoint:CGPointMake(delt-step_delta/2, -0.95) withFontSize:12];
-            [self drawText:[NSString stringWithFormat:@"%1.2f",curr_y] inPoint:CGPointMake(-1, delt) withFontSize:12];
+            [self drawText:[NSString stringWithFormat:@"%1.1f",curr_x] inPoint:CGPointMake(delt-step_delta/6, -0.95) withFontSize:12];
+            [self drawText:[NSString stringWithFormat:@"%1.0f",curr_y] inPoint:CGPointMake(-0.97, delt) withFontSize:12];
         }
         curr_x+=delta_x;
         curr_y+=delta_y;
@@ -93,16 +95,17 @@ static float max_delta = 0.05;
     [self drawArrowInPoint:CGPointMake(0.9, 0.9) withColor:color andAngle:M_PI_2];
     [self drawArrowInPoint:CGPointMake(0.9, -0.9) withColor:color andAngle:0];
     glColor3f( 1.0, 0.0, 0.0);
-    [self drawText:@"X" inPoint:CGPointMake(0.92, -0.9) withFontSize:20];
-    [self drawText:@"Y" inPoint:CGPointMake(-0.89, 0.89) withFontSize:20];
+    [self drawText:@"T" inPoint:CGPointMake(0.92, -0.9) withFontSize:20];
+    [self drawText:@"N(t)" inPoint:CGPointMake(-0.89, 0.89) withFontSize:20];
     
-    CGPoint pt1 = [self transformCoordinate:CGPointMake(-2, 0)];
+    /*CGPoint pt1 = [self transformCoordinate:CGPointMake(-2, 0)];
     CGPoint pt2 = [self transformCoordinate:CGPointMake(-1.6, 0.2)];
     glColor3b(0, 1, 0);
     glBegin(GL_LINES);
     glVertex2f(pt1.x, pt1.y);
     glVertex2d(pt2.x, pt2.y);
-    glEnd();
+    glEnd();*/
+    //[self drawGamma];
     
 }
 
@@ -120,7 +123,7 @@ static float max_delta = 0.05;
             delta/=10;
         }
     }
-    return delta;
+    return pow(10.0, it-1);
 }
 
 -(void)drawArrowInPoint:(CGPoint)arrowPoint withColor:(CGFloat*)color andAngle:(CGFloat)ang{
@@ -195,16 +198,40 @@ static float max_delta = 0.05;
 }
 
 -(void)drawRect:(NSRect)dirtyRect{
-    glClearColor(1, 1, 1, 0);
+    /*glClearColor(1, 1, 1, 0);
     glClear(GL_COLOR_BUFFER_BIT);
-    [self draw2DCoordinatesXStart:-2.0 xEnd:2.0 yStart:-1.0 yEnd:1.0];
-    glFlush();
+    [self drawGamma];
+    glFlush();*/
 }
 
--(void)plotWithX:(CGFloat*)x y:(CGFloat*)y{
-    glClearColor(0.1, 1, 1, 0);
+-(void)plotWithX:(CGFloat*)x y:(CGFloat*)y withPointsNum:(NSInteger)point_num{
+    /*glClearColor(0.1, 1, 1, 0);
     glClear(GL_COLOR_BUFFER_BIT);
     [self draw2DCoordinatesXStart:-2.0 xEnd:2.0 yStart:-1.0 yEnd:1.0];
+    glFlush();*/
+}
+
+//must be moved in another class
+
+-(void)drawGamma{
+    glClearColor(1, 1, 1, 0);
+    glClear(GL_COLOR_BUFFER_BIT);
+    CGFloat* sv = [ProbabilityDistribution getGammaLowDistributionWithK:2 eta:1 andNumOfElements:11];
+    
+    CGFloat max_x = 0;
+    for(int i = 0; i < 11; ++i){
+        max_x+=sv[i];
+    }
+    glColor3f(0.5, 0.1, 0.1);
+    [self draw2DCoordinatesXStart:0 xEnd:max_x yStart:0.0 yEnd:10.0];
+    glBegin(GL_LINE_STRIP);
+    for(int i = 0; i < 11; ++i){
+        CGPoint pt = [self transformCoordinate:CGPointMake(i, i)];
+        glVertex2f(pt.x, pt.y);
+        pt = [self transformCoordinate:CGPointMake(i+1, i)];
+        glVertex2f(pt.x, pt.y);
+    }
+    glEnd();
     glFlush();
 }
 

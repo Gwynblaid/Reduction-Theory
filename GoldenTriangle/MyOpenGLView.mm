@@ -216,7 +216,7 @@ static float max_delta = 0.05;
 -(void)drawGamma{
     glClearColor(1, 1, 1, 0);
     glClear(GL_COLOR_BUFFER_BIT);
-    CGFloat* sv = [ProbabilityDistribution getGammaLowDistributionWithK:2 eta:1 andNumOfElements:11];
+    CGFloat* sv = [ProbabilityDistribution getGammaLowDistributionWithK:8.5 eta:1 andNumOfElements:11];
     
     CGFloat max_x = 0;
     for(int i = 0; i < 11; ++i){
@@ -225,10 +225,12 @@ static float max_delta = 0.05;
     glColor3f(0.5, 0.1, 0.1);
     [self draw2DCoordinatesXStart:0 xEnd:max_x yStart:0.0 yEnd:10.0];
     glBegin(GL_LINE_STRIP);
+    float start_x = 0;
     for(int i = 0; i < 11; ++i){
-        CGPoint pt = [self transformCoordinate:CGPointMake(i, i)];
+        CGPoint pt = [self transformCoordinate:CGPointMake(start_x, i)];
         glVertex2f(pt.x, pt.y);
-        pt = [self transformCoordinate:CGPointMake(i+1, i)];
+        start_x+=sv[i];
+        pt = [self transformCoordinate:CGPointMake(start_x, i)];
         glVertex2f(pt.x, pt.y);
     }
     glEnd();

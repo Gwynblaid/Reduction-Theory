@@ -12,6 +12,7 @@
 
 @interface AppController : NSObject{
     MyOpenGLView* _graphView;
+    NSInteger numGraphs;
 }
 
 @property (assign) IBOutlet MyOpenGLView* graphView;

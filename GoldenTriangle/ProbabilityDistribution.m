@@ -12,11 +12,6 @@ static const float eps = 0.0000001;
 
 @implementation ProbabilityDistribution
 
-float gammaF(float k, float eta, float x){
-    if(x<=0) return 0;
-    return powf(eta, k)*powf(x, k-1)*exp(-eta*x)/gamma(k);
-}
-
 - (id)init
 {
     self = [super init];
@@ -33,8 +28,10 @@ float gammaF(float k, float eta, float x){
     int k_int = (int)k;
     
     for(int i = 0; i < numElements; ++i){
+        result[i] = 0;
         for(int j = 0; j < k_int; ++j){
-            result[i]-=log(gammaF(k_int, 1, ((rand()+1)%1000)/100.0));
+            float x = (float)(rand()%10000+1)/10000.0;
+            result[i]-=logf(x);
         }
     }
     
@@ -44,8 +41,8 @@ float gammaF(float k, float eta, float x){
         for (int m = 0; m < numElements; ++m) {
             float xm,ym;
             do{
-            float v2m = gammaF(teta, 1, ((rand()+1)%100)/30.0);
-            float v2m1 = gammaF(teta, 1, ((rand()+1)%100)/30.0);
+            float v2m = rand()%10000/10000;
+            float v2m1 = rand()%10000/10000;
             if(v2m <= v0){
                 xm = powf((v2m1/v0),1/teta);
                 ym = v2m*powf(xm, teta-1);

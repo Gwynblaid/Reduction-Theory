@@ -12,7 +12,7 @@ enum{
     DRAW_GAMMA_GRAPH = 0,
     DRAW_NORMAL_GRAPH,
     DRAW_VEIBUL_GRAP
-}DrawGrafType;
+};
 
 @interface MyOpenGLView : NSOpenGLView{
     
@@ -21,7 +21,6 @@ enum{
 
 }
 
--(void)plotWithX:(CGFloat*)x y:(CGFloat*)y withPointsNum:(NSInteger)point_num;
 -(void)drawGrawWithGraphType:(ushort)graphType andGraphCount:(uint)graphCount;
 -(void)clearGraphWithXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd;
 

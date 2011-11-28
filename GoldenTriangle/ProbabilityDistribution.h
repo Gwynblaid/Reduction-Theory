@@ -11,5 +11,6 @@
 @interface ProbabilityDistribution : NSObject
 
 +(CGFloat*)getGammaLowDistributionWithK:(float)k eta:(float)eta andNumOfElements:(uint)numElements;
++(CGFloat*)getNormalyzeLowDistributionWithM:(float)m andSigma:(float)sigma andNumElements:(uint)numElements;
 
 @end

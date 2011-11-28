@@ -191,18 +191,7 @@ static float max_delta = 0.05;
 }
 
 -(void)drawRect:(NSRect)dirtyRect{
-    /*glClearColor(1, 1, 1, 0);
-    glClear(GL_COLOR_BUFFER_BIT);
-    [self drawGamma];
-    glFlush();*/
     [self clearGraphWithXStart:0 xEnd:100 yStart:0 yEnd:10];
-}
-
--(void)plotWithX:(CGFloat*)x y:(CGFloat*)y withPointsNum:(NSInteger)point_num{
-    /*glClearColor(0.1, 1, 1, 0);
-    glClear(GL_COLOR_BUFFER_BIT);
-    [self draw2DCoordinatesXStart:-2.0 xEnd:2.0 yStart:-1.0 yEnd:1.0];
-    glFlush();*/
 }
 
 -(void)clearGraphWithXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd{

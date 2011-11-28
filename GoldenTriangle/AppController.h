@@ -22,5 +22,6 @@
 @property (retain) IBOutlet NSComboBox* selectedGraph;
 
 -(IBAction) touchBulidGraphButton:(id)sender;
+-(IBAction) touchCleanButton:(id)sender;
 
 @end

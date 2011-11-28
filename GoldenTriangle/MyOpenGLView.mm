@@ -23,6 +23,8 @@
 -(CGPoint)transformCoordinate:(CGPoint)point;
 -(void)drawGamma;
 -(void)drawGammaCountGraph:(uint)count;
+-(void)drawNormalizeCountGraph:(uint)count;
+-(void)drawVeibulCountGraph:(uint)count;
 //-(void)drawGamma;
 @end
 
@@ -210,11 +212,14 @@ static float max_delta = 0.05;
             [self drawGammaCountGraph:graphCount];
             break;
         case DRAW_NORMAL_GRAPH:
+            [self drawNormalizeCountGraph:graphCount];
             break;
-        case DRAW_VEIBUL_GRAP:
+        case DRAW_VEIBUL_GRAPH:
+            [self drawVeibulCountGraph:graphCount];
             break;
         default:
             NSLog(@"Error, not valid type");
+            return;
             break;
     }
 }
@@ -250,7 +255,53 @@ static float max_delta = 0.05;
         for(int i = 0; i < 11; ++i){
             max_x+=sv[i];
         }
-        glColor3f(1/(float)i, 0, 0);
+        glColor3f(0, 1/(float)i, 0);
+        glBegin(GL_LINE_STRIP);
+        float start_x = 0;
+        for(int i = 0; i < 11; ++i){
+            CGPoint pt = [self transformCoordinate:CGPointMake(start_x, i)];
+            glVertex2f(pt.x, pt.y);
+            start_x+=sv[i];
+            pt = [self transformCoordinate:CGPointMake(start_x, i)];
+            glVertex2f(pt.x, pt.y);
+        }
+        glEnd();
+    }
+    glFlush();
+}
+
+-(void)drawNormalizeCountGraph:(uint)count{
+    for(uint i = 0 ;i < count; ++i){
+        CGFloat* sv = [ProbabilityDistribution getNormalyzeLowDistributionWithM:8 andSigma:1.6 andNumElements:11];
+        
+        CGFloat max_x = 0;
+        for(int i = 0; i < 11; ++i){
+            max_x+=sv[i];
+        }
+        glColor3f(0, 1/(float)i, 0);
+        glBegin(GL_LINE_STRIP);
+        float start_x = 0;
+        for(int i = 0; i < 11; ++i){
+            CGPoint pt = [self transformCoordinate:CGPointMake(start_x, i)];
+            glVertex2f(pt.x, pt.y);
+            start_x+=sv[i];
+            pt = [self transformCoordinate:CGPointMake(start_x, i)];
+            glVertex2f(pt.x, pt.y);
+        }
+        glEnd();
+    }
+    glFlush();
+}
+
+-(void)drawVeibulCountGraph:(uint)count{
+    for(uint i = 0 ;i < count; ++i){
+        CGFloat* sv = [ProbabilityDistribution getVeibulLowDistributionWithK:7 andLambda:10 andNumElements:11];
+        
+        CGFloat max_x = 0;
+        for(int i = 0; i < 11; ++i){
+            max_x+=sv[i];
+        }
+        glColor3f(0, 1/(float)i, 0);
         glBegin(GL_LINE_STRIP);
         float start_x = 0;
         for(int i = 0; i < 11; ++i){

@@ -11,7 +11,7 @@
 enum{
     DRAW_GAMMA_GRAPH = 0,
     DRAW_NORMAL_GRAPH,
-    DRAW_VEIBUL_GRAP
+    DRAW_VEIBUL_GRAPH
 };
 
 @interface MyOpenGLView : NSOpenGLView{

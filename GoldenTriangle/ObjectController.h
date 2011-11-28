@@ -8,6 +8,8 @@
 
 #import <AppKit/AppKit.h>
 
-@interface ObjectController : NSObjectController
+@interface ObjectController : NSObjectController{
+    
+}
 
 @end

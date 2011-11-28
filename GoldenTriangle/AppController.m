@@ -8,9 +8,12 @@
 
 #import "AppController.h"
 #import "MyOpenGLView.h"
+#import "StepperController.h"
 
 @implementation AppController
 @synthesize graphView = _graphView;
+@synthesize numGraphsStepperController = _numGraphsStepperController;
+@synthesize selectedGraph = _selectedGraph;
 
 - (id)init
 {
@@ -22,8 +25,12 @@
     return self;
 }
 
+-(void)awakeFromNib{
+    [_selectedGraph selectItemAtIndex:0];
+}
+
 -(IBAction) touchBulidGraphButton:(id)sender{
-    [_graphView drawGamma];
+    [_graphView drawGrawWithGraphType:[_selectedGraph indexOfSelectedItem] andGraphCount:_numGraphsStepperController.stepperValue];
 }
 
 @end

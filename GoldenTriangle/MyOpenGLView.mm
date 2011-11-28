@@ -21,12 +21,14 @@
 -(void)drawText:(NSString*)text inPoint:(CGPoint)textPoint withFontSize:(int)font_size;
 -(CGFloat)getStepInRange:(CGPoint)range;
 -(CGPoint)transformCoordinate:(CGPoint)point;
+-(void)drawGamma;
+-(void)drawGammaCountGraph:(uint)count;
 //-(void)drawGamma;
 @end
 
 @implementation MyOpenGLView
 
-static CGFloat step_delta = 1.9/12.0;
+static CGFloat step_delta = 1.9/11.0;
 
 static float max_delta = 0.05;
 
@@ -98,20 +100,11 @@ static float max_delta = 0.05;
     [self drawText:@"T" inPoint:CGPointMake(0.92, -0.9) withFontSize:20];
     [self drawText:@"N(t)" inPoint:CGPointMake(-0.89, 0.89) withFontSize:20];
     
-    /*CGPoint pt1 = [self transformCoordinate:CGPointMake(-2, 0)];
-    CGPoint pt2 = [self transformCoordinate:CGPointMake(-1.6, 0.2)];
-    glColor3b(0, 1, 0);
-    glBegin(GL_LINES);
-    glVertex2f(pt1.x, pt1.y);
-    glVertex2d(pt2.x, pt2.y);
-    glEnd();*/
-    //[self drawGamma];
-    
 }
 
 -(CGFloat)getStepInRange:(CGPoint)range{
     CGFloat delta = fabs(range.x)+fabs(range.y);
-    int it = 0;
+    /*int it = 0;
     if(delta < 1){
         while (delta < 1) {
             --it;
@@ -122,8 +115,8 @@ static float max_delta = 0.05;
             ++it;
             delta/=10;
         }
-    }
-    return pow(10.0, it-1);
+    }*/
+    return delta/10.0;
 }
 
 -(void)drawArrowInPoint:(CGPoint)arrowPoint withColor:(CGFloat*)color andAngle:(CGFloat)ang{
@@ -202,6 +195,7 @@ static float max_delta = 0.05;
     glClear(GL_COLOR_BUFFER_BIT);
     [self drawGamma];
     glFlush();*/
+    [self clearGraphWithXStart:0 xEnd:100 yStart:0 yEnd:10];
 }
 
 -(void)plotWithX:(CGFloat*)x y:(CGFloat*)y withPointsNum:(NSInteger)point_num{
@@ -211,11 +205,34 @@ static float max_delta = 0.05;
     glFlush();*/
 }
 
+-(void)clearGraphWithXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd{
+    glClearColor(1, 1, 1, 0);
+    glClear(GL_COLOR_BUFFER_BIT);
+    [self draw2DCoordinatesXStart:xStart xEnd:xEnd yStart:yStart yEnd:yEnd];
+    glFlush();
+}
+
+-(void)drawGrawWithGraphType:(ushort)graphType andGraphCount:(uint)graphCount{
+    if(!graphCount){
+        NSLog(@"graphCount nust be > 0");
+    }
+    switch (graphType) {
+        case DRAW_GAMMA_GRAPH:
+            [self drawGammaCountGraph:graphCount];
+            break;
+        case DRAW_NORMAL_GRAPH:
+            break;
+        case DRAW_VEIBUL_GRAP:
+            break;
+        default:
+            NSLog(@"Error, not valid type");
+            break;
+    }
+}
+
 //must be moved in another class
 
 -(void)drawGamma{
-    glClearColor(1, 1, 1, 0);
-    glClear(GL_COLOR_BUFFER_BIT);
     CGFloat* sv = [ProbabilityDistribution getGammaLowDistributionWithK:8.5 eta:1 andNumOfElements:11];
     
     CGFloat max_x = 0;
@@ -223,7 +240,6 @@ static float max_delta = 0.05;
         max_x+=sv[i];
     }
     glColor3f(0.5, 0.1, 0.1);
-    [self draw2DCoordinatesXStart:0 xEnd:max_x yStart:0.0 yEnd:10.0];
     glBegin(GL_LINE_STRIP);
     float start_x = 0;
     for(int i = 0; i < 11; ++i){
@@ -234,6 +250,29 @@ static float max_delta = 0.05;
         glVertex2f(pt.x, pt.y);
     }
     glEnd();
+    glFlush();
+}
+
+-(void)drawGammaCountGraph:(uint)count{
+    for(uint i = 0 ;i < count; ++i){
+        CGFloat* sv = [ProbabilityDistribution getGammaLowDistributionWithK:8.5 eta:1 andNumOfElements:11];
+        
+        CGFloat max_x = 0;
+        for(int i = 0; i < 11; ++i){
+            max_x+=sv[i];
+        }
+        glColor3f(1/(float)i, 0, 0);
+        glBegin(GL_LINE_STRIP);
+        float start_x = 0;
+        for(int i = 0; i < 11; ++i){
+            CGPoint pt = [self transformCoordinate:CGPointMake(start_x, i)];
+            glVertex2f(pt.x, pt.y);
+            start_x+=sv[i];
+            pt = [self transformCoordinate:CGPointMake(start_x, i)];
+            glVertex2f(pt.x, pt.y);
+        }
+        glEnd();
+    }
     glFlush();
 }
 

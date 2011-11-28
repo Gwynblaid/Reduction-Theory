@@ -9,13 +9,17 @@
 #import <Foundation/Foundation.h>
 
 @class MyOpenGLView;
+@class StepperController;
 
 @interface AppController : NSObject{
     MyOpenGLView* _graphView;
-    NSInteger numGraphs;
+    StepperController* _numGraphsStepperController;
+    NSComboBox* _selectedGraph;
 }
 
-@property (assign) IBOutlet MyOpenGLView* graphView;
+@property (retain) IBOutlet MyOpenGLView* graphView;
+@property (retain) IBOutlet StepperController* numGraphsStepperController;
+@property (retain) IBOutlet NSComboBox* selectedGraph;
 
 -(IBAction) touchBulidGraphButton:(id)sender;
 

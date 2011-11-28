@@ -21,6 +21,7 @@
 		F99365CC148253BF0059EACA /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = F99365CB148253BF0059EACA /* AppController.m */; };
 		F9B407AB14816A60003E9C95 /* ProbabilityDistribution.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B407AA14816A60003E9C95 /* ProbabilityDistribution.m */; };
 		F9CB191D14829B08005B81C2 /* ObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB191C14829B08005B81C2 /* ObjectController.m */; };
+		F9CB19211482A5B7005B81C2 /* StepperController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB19201482A5B7005B81C2 /* StepperController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		F9B407AA14816A60003E9C95 /* ProbabilityDistribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProbabilityDistribution.m; sourceTree = "<group>"; };
 		F9CB191B14829B08005B81C2 /* ObjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectController.h; sourceTree = "<group>"; };
 		F9CB191C14829B08005B81C2 /* ObjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectController.m; sourceTree = "<group>"; };
+		F9CB191F1482A5B7005B81C2 /* StepperController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepperController.h; sourceTree = "<group>"; };
+		F9CB19201482A5B7005B81C2 /* StepperController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepperController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				F9B407AA14816A60003E9C95 /* ProbabilityDistribution.m */,
 				F99365CA148253BF0059EACA /* AppController.h */,
 				F99365CB148253BF0059EACA /* AppController.m */,
+				F9CB191F1482A5B7005B81C2 /* StepperController.h */,
+				F9CB19201482A5B7005B81C2 /* StepperController.m */,
 				F9CB191B14829B08005B81C2 /* ObjectController.h */,
 				F9CB191C14829B08005B81C2 /* ObjectController.m */,
 			);
@@ -208,6 +213,7 @@
 				F9B407AB14816A60003E9C95 /* ProbabilityDistribution.m in Sources */,
 				F99365CC148253BF0059EACA /* AppController.m in Sources */,
 				F9CB191D14829B08005B81C2 /* ObjectController.m in Sources */,
+				F9CB19211482A5B7005B81C2 /* StepperController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

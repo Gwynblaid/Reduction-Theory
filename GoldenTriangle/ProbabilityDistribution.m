@@ -43,7 +43,7 @@ static const float eps = 0.0000001;
             do{
             float v2m = (rand()%10000+1)/10000.;
             float v2m1 = (rand()%10000+1)/10000.;
-            if(v2m <= v0){
+            if(v2m1 <= v0){
                 xm = powf((v2m1/v0),1/teta);
                 ym = v2m*powf(xm, teta-1);
             }else{
@@ -70,7 +70,7 @@ static const float eps = 0.0000001;
 +(CGFloat*)getVeibulLowDistributionWithK:(float)k andLambda:(float)lambda andNumElements:(uint)numElements{
     CGFloat* result = malloc(sizeof(CGFloat)*numElements);
     for(uint i = 0; i < numElements; ++i){
-        result[i] = fabsf(lambda*log(fabs(log(1-((rand()%10000+1)/10000.))))/log(k));
+        result[i] = lambda*powf(fabsf(logf(1-(rand()%10000+1)/10000.)),1./k);
     }
     return result;
 }

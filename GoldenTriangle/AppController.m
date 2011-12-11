@@ -14,6 +14,8 @@
 @synthesize graphView = _graphView;
 @synthesize numGraphsStepperController = _numGraphsStepperController;
 @synthesize selectedGraph = _selectedGraph;
+@synthesize parametr1 = _parametr1;
+@synthesize parametr2 = _parametr2;
 
 - (id)init
 {

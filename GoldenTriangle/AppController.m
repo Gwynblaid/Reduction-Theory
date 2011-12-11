@@ -32,7 +32,7 @@
 }
 
 -(IBAction) touchBulidGraphButton:(id)sender{
-    [_graphView drawGrawWithGraphType:[_selectedGraph indexOfSelectedItem] andGraphCount:_numGraphsStepperController.stepperValue];
+    [_graphView drawGrawWithGraphType:[_selectedGraph indexOfSelectedItem] andGraphCount:_numGraphsStepperController.stepperValue withParameter1:[self.parametr1.stringValue floatValue] andParametr2:[self.parametr2.stringValue floatValue]];
 }
 
 -(void)comboBoxSelectionDidChange:(NSNotification *)notification{

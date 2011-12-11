@@ -22,9 +22,9 @@
 -(CGFloat)getStepInRange:(CGPoint)range;
 -(CGPoint)transformCoordinate:(CGPoint)point;
 -(void)drawGamma;
--(void)drawGammaCountGraph:(uint)count;
--(void)drawNormalizeCountGraph:(uint)count;
--(void)drawVeibulCountGraph:(uint)count;
+-(void)drawGammaWithK:(float)k andEta:(float) eta countGraph:(uint)count;
+-(void)drawNormalizeWithM:(float)m andSigma:(float)sigma countGraph:(uint)count;
+-(void)drawVeibulWithK:(float)k andLambda:(float)lambda CountGraph:(uint)count;
 //-(void)drawGamma;
 @end
 
@@ -203,19 +203,24 @@ static float max_delta = 0.05;
     glFlush();
 }
 
--(void)drawGrawWithGraphType:(ushort)graphType andGraphCount:(uint)graphCount{
+-(void)drawGrawWithGraphType:(ushort)graphType andGraphCount:(uint)graphCount withParameter1:(float)parametr1 andParametr2:(float)parametr2{
     if(!graphCount){
         NSLog(@"graphCount nust be > 0");
+        return;
+    }
+    if(parametr1<0||parametr2 < 0){
+        NSLog(@"Envalid parameters");
+        return;
     }
     switch (graphType) {
         case DRAW_GAMMA_GRAPH:
-            [self drawGammaCountGraph:graphCount];
+            [self drawGammaWithK:parametr1 andEta:parametr2 countGraph:graphCount];
             break;
         case DRAW_NORMAL_GRAPH:
-            [self drawNormalizeCountGraph:graphCount];
+            [self drawNormalizeWithM:parametr1 andSigma:parametr2 countGraph:graphCount];
             break;
         case DRAW_VEIBUL_GRAPH:
-            [self drawVeibulCountGraph:graphCount];
+            [self drawVeibulWithK:parametr1 andLambda:parametr2 CountGraph:graphCount];
             break;
         default:
             NSLog(@"Error, not valid type");
@@ -247,9 +252,9 @@ static float max_delta = 0.05;
     glFlush();
 }
 
--(void)drawGammaCountGraph:(uint)count{
+-(void)drawGammaWithK:(float)k andEta:(float) eta countGraph:(uint)count{
     for(uint i = 0 ;i < count; ++i){
-        CGFloat* sv = [ProbabilityDistribution getGammaLowDistributionWithK:8.5 eta:1 andNumOfElements:11];
+        CGFloat* sv = [ProbabilityDistribution getGammaLowDistributionWithK:k eta:eta andNumOfElements:11];
         
         CGFloat max_x = 0;
         for(int i = 0; i < 11; ++i){
@@ -270,9 +275,9 @@ static float max_delta = 0.05;
     glFlush();
 }
 
--(void)drawNormalizeCountGraph:(uint)count{
+-(void)drawNormalizeWithM:(float)m andSigma:(float)sigma countGraph:(uint)count{
     for(uint i = 0 ;i < count; ++i){
-        CGFloat* sv = [ProbabilityDistribution getNormalyzeLowDistributionWithM:8 andSigma:1.6 andNumElements:11];
+        CGFloat* sv = [ProbabilityDistribution getNormalyzeLowDistributionWithM:m andSigma:sigma andNumElements:11];
         
         CGFloat max_x = 0;
         for(int i = 0; i < 11; ++i){
@@ -293,9 +298,9 @@ static float max_delta = 0.05;
     glFlush();
 }
 
--(void)drawVeibulCountGraph:(uint)count{
+-(void)drawVeibulWithK:(float)k andLambda:(float)lambda CountGraph:(uint)count{
     for(uint i = 0 ;i < count; ++i){
-        CGFloat* sv = [ProbabilityDistribution getVeibulLowDistributionWithK:7 andLambda:10 andNumElements:11];
+        CGFloat* sv = [ProbabilityDistribution getVeibulLowDistributionWithK:k andLambda:lambda andNumElements:11];
         
         CGFloat max_x = 0;
         for(int i = 0; i < 11; ++i){

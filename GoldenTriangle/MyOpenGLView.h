@@ -21,7 +21,7 @@ enum{
 
 }
 
--(void)drawGrawWithGraphType:(ushort)graphType andGraphCount:(uint)graphCount;
+-(void)drawGrawWithGraphType:(ushort)graphType andGraphCount:(uint)graphCount withParameter1:(float)parametr1 andParametr2:(float)parametr2;
 -(void)clearGraphWithXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd;
 
 @end

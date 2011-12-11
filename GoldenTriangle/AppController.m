@@ -35,6 +35,30 @@
     [_graphView drawGrawWithGraphType:[_selectedGraph indexOfSelectedItem] andGraphCount:_numGraphsStepperController.stepperValue];
 }
 
+-(void)comboBoxSelectionDidChange:(NSNotification *)notification{
+    self.parametr1.stringValue = @"";
+    self.parametr2.stringValue = @"";
+    switch ([_selectedGraph indexOfSelectedItem]) {
+        case DRAW_GAMMA_GRAPH:{
+            [self.parametr1.cell setPlaceholderString:@"k"];
+            [self.parametr2.cell setPlaceholderString:@"θ"];
+            break;
+        }
+        case DRAW_NORMAL_GRAPH:{
+            [self.parametr1.cell setPlaceholderString:@"m"];
+            [self.parametr2.cell setPlaceholderString:@"σ"];
+            break;
+        }
+        case DRAW_VEIBUL_GRAPH:{
+            [self.parametr1.cell setPlaceholderString:@"k"];
+            [self.parametr2.cell setPlaceholderString:@"λ"];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
 -(IBAction) touchCleanButton:(id)sender{
     [_graphView clearGraphWithXStart:0 xEnd:100.0 yStart:0 yEnd:10];
 }

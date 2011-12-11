@@ -11,7 +11,7 @@
 @class MyOpenGLView;
 @class StepperController;
 
-@interface AppController : NSObject{
+@interface AppController : NSObject<NSComboBoxDelegate>{
     MyOpenGLView* _graphView;
     StepperController* _numGraphsStepperController;
     NSComboBox* _selectedGraph;

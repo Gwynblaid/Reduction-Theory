@@ -1619,9 +1619,10 @@
 						<object class="NSButton" id="12078743">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{766, 19}, {122, 19}}</string>
+							<string key="NSFrame">{{689, 439}, {122, 19}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="349043706"/>
 							<string key="NSReuseIdentifierKey">_NS:1534</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="971281023">
@@ -1804,6 +1805,60 @@
 								<string key="NSCellIdentifier">_NS:1476</string>
 								<reference key="NSControlView" ref="276389954"/>
 								<bool key="NSDrawsBackground">YES</bool>
+								<reference key="NSBackgroundColor" ref="855289575"/>
+								<reference key="NSTextColor" ref="232355182"/>
+							</object>
+						</object>
+						<object class="NSButton" id="349043706">
+							<reference key="NSNextResponder" ref="439893737"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{619, 370}, {121, 32}}</string>
+							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="284671851"/>
+							<string key="NSReuseIdentifierKey">_NS:239</string>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSButtonCell" key="NSCell" id="971048883">
+								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags2">0</int>
+								<string key="NSContents">Write to file.</string>
+								<reference key="NSSupport" ref="375479242"/>
+								<string key="NSCellIdentifier">_NS:239</string>
+								<reference key="NSControlView" ref="349043706"/>
+								<int key="NSButtonFlags">1211912703</int>
+								<int key="NSButtonFlags2">2</int>
+								<object class="NSCustomResource" key="NSNormalImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">NSSwitch</string>
+								</object>
+								<object class="NSButtonImageSource" key="NSAlternateImage">
+									<string key="NSImageName">NSSwitch</string>
+								</object>
+								<string key="NSAlternateContents"/>
+								<string key="NSKeyEquivalent"/>
+								<int key="NSPeriodicDelay">200</int>
+								<int key="NSPeriodicInterval">25</int>
+							</object>
+						</object>
+						<object class="NSTextField" id="284671851">
+							<reference key="NSNextResponder" ref="439893737"/>
+							<int key="NSvFlags">-2147483380</int>
+							<string key="NSFrame">{{757, 376}, {131, 22}}</string>
+							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
+							<string key="NSReuseIdentifierKey">_NS:248</string>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSTextFieldCell" key="NSCell" id="974675355">
+								<int key="NSCellFlags">-1804468671</int>
+								<int key="NSCellFlags2">4195328</int>
+								<string key="NSContents">fileOutput.txt</string>
+								<reference key="NSSupport" ref="375479242"/>
+								<string key="NSPlaceholderString">file name </string>
+								<string key="NSCellIdentifier">_NS:248</string>
+								<reference key="NSControlView" ref="284671851"/>
+								<bool key="NSDrawsBackground">YES</bool>
+								<int key="NSTextBezelStyle">1</int>
 								<reference key="NSBackgroundColor" ref="855289575"/>
 								<reference key="NSTextColor" ref="232355182"/>
 							</object>
@@ -2649,6 +2704,30 @@
 					</object>
 					<int key="connectionID">651</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">fileNameTextField</string>
+						<reference key="source" ref="1072582640"/>
+						<reference key="destination" ref="284671851"/>
+					</object>
+					<int key="connectionID">656</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">clickWriteToFileCheckBox:</string>
+						<reference key="source" ref="1072582640"/>
+						<reference key="destination" ref="349043706"/>
+					</object>
+					<int key="connectionID">657</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">writeToFileCheckBox</string>
+						<reference key="source" ref="1072582640"/>
+						<reference key="destination" ref="349043706"/>
+					</object>
+					<int key="connectionID">658</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -3201,13 +3280,15 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="214165517"/>
 							<reference ref="837111629"/>
-							<reference ref="12078743"/>
 							<reference ref="311995382"/>
 							<reference ref="272316917"/>
 							<reference ref="469164174"/>
 							<reference ref="278544456"/>
 							<reference ref="276389954"/>
 							<reference ref="1057370519"/>
+							<reference ref="12078743"/>
+							<reference ref="349043706"/>
+							<reference ref="284671851"/>
 						</object>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -3868,6 +3949,34 @@
 						<reference key="object" ref="635632888"/>
 						<reference key="parent" ref="727023210"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">652</int>
+						<reference key="object" ref="349043706"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="971048883"/>
+						</object>
+						<reference key="parent" ref="439893737"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">653</int>
+						<reference key="object" ref="971048883"/>
+						<reference key="parent" ref="349043706"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">654</int>
+						<reference key="object" ref="284671851"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="974675355"/>
+						</object>
+						<reference key="parent" ref="439893737"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">655</int>
+						<reference key="object" ref="974675355"/>
+						<reference key="parent" ref="284671851"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -4052,6 +4161,10 @@
 					<string>648.IBNumberFormatterLocalizesFormatMetadataKey</string>
 					<string>648.IBNumberFormatterSampleNumberKey</string>
 					<string>648.IBPluginDependency</string>
+					<string>652.IBPluginDependency</string>
+					<string>653.IBPluginDependency</string>
+					<string>654.IBPluginDependency</string>
+					<string>655.IBPluginDependency</string>
 					<string>72.IBPluginDependency</string>
 					<string>73.IBPluginDependency</string>
 					<string>74.IBPluginDependency</string>
@@ -4260,6 +4373,10 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -4274,7 +4391,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">651</int>
+			<int key="maxID">658</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4286,11 +4403,13 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>clickWriteToFileCheckBox:</string>
 							<string>touchBulidGraphButton:</string>
 							<string>touchCleanButton:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -4299,11 +4418,16 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>clickWriteToFileCheckBox:</string>
 							<string>touchBulidGraphButton:</string>
 							<string>touchCleanButton:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">clickWriteToFileCheckBox:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 							<object class="IBActionInfo">
 								<string key="name">touchBulidGraphButton:</string>
 								<string key="candidateClassName">id</string>
@@ -4318,33 +4442,43 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>fileNameTextField</string>
 							<string>graphView</string>
 							<string>numGraphsStepperController</string>
 							<string>parametr1</string>
 							<string>parametr2</string>
 							<string>selectedGraph</string>
+							<string>writeToFileCheckBox</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSTextField</string>
 							<string>MyOpenGLView</string>
 							<string>StepperController</string>
 							<string>NSTextField</string>
 							<string>NSTextField</string>
 							<string>NSComboBox</string>
+							<string>NSButton</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>fileNameTextField</string>
 							<string>graphView</string>
 							<string>numGraphsStepperController</string>
 							<string>parametr1</string>
 							<string>parametr2</string>
 							<string>selectedGraph</string>
+							<string>writeToFileCheckBox</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">fileNameTextField</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">graphView</string>
 								<string key="candidateClassName">MyOpenGLView</string>
@@ -4364,6 +4498,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">selectedGraph</string>
 								<string key="candidateClassName">NSComboBox</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">writeToFileCheckBox</string>
+								<string key="candidateClassName">NSButton</string>
 							</object>
 						</object>
 					</object>
@@ -4498,11 +4636,13 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>NSMenuCheckmark</string>
 				<string>NSMenuMixedState</string>
+				<string>NSSwitch</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>{9, 8}</string>
 				<string>{7, 2}</string>
+				<string>{15, 15}</string>
 			</object>
 		</object>
 	</data>

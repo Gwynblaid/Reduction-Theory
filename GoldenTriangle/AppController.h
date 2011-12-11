@@ -17,6 +17,8 @@
     NSComboBox* _selectedGraph;
     NSTextField* _parametr1;
     NSTextField* _parametr2;
+    NSButton* _writeToFileCheckBox;
+    NSTextField* _fileNameTextField;
 }
 
 @property (retain) IBOutlet MyOpenGLView* graphView;
@@ -26,7 +28,11 @@
 @property (retain) IBOutlet NSTextField* parametr1;
 @property (retain) IBOutlet NSTextField* parametr2;
 
+@property (retain) IBOutlet NSButton* writeToFileCheckBox;
+@property (retain) IBOutlet NSTextField* fileNameTextField;
+
 -(IBAction) touchBulidGraphButton:(id)sender;
 -(IBAction) touchCleanButton:(id)sender;
+-(IBAction) clickWriteToFileCheckBox:(id)sender;
 
 @end

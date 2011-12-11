@@ -16,6 +16,8 @@
 @synthesize selectedGraph = _selectedGraph;
 @synthesize parametr1 = _parametr1;
 @synthesize parametr2 = _parametr2;
+@synthesize writeToFileCheckBox = _writeToFileCheckBox;
+@synthesize fileNameTextField = _fileNameTextField;
 
 - (id)init
 {
@@ -32,6 +34,8 @@
 }
 
 -(IBAction) touchBulidGraphButton:(id)sender{
+    _graphView.writeToFile = self.writeToFileCheckBox.state;
+    _graphView.fileName = self.fileNameTextField.stringValue;
     [_graphView drawGrawWithGraphType:[_selectedGraph indexOfSelectedItem] andGraphCount:_numGraphsStepperController.stepperValue withParameter1:[self.parametr1.stringValue floatValue] andParametr2:[self.parametr2.stringValue floatValue]];
 }
 
@@ -61,6 +65,11 @@
 
 -(IBAction) touchCleanButton:(id)sender{
     [_graphView clearGraphWithXStart:0 xEnd:10.0 yStart:0 yEnd:10];
+}
+
+-(IBAction) clickWriteToFileCheckBox:(id)sender{
+    NSLog(@"%d",_writeToFileCheckBox.state);
+    [self.fileNameTextField setHidden:!self.writeToFileCheckBox.state];
 }
 
 @end

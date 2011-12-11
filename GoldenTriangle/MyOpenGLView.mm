@@ -13,6 +13,8 @@
 #include <FTGL/FTGLBitmapFont.h>
 #include "MathFunctions.h"
 #include "ProbabilityDistribution.h"
+#import  <objc/objc.h>
+#import  <objc/Object.h>
 
 @interface MyOpenGLView()
 -(void)draw2DCoordinatesXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd;
@@ -21,18 +23,25 @@
 -(void)drawText:(NSString*)text inPoint:(CGPoint)textPoint withFontSize:(int)font_size;
 -(CGFloat)getStepInRange:(CGPoint)range;
 -(CGPoint)transformCoordinate:(CGPoint)point;
--(void)drawGamma;
--(void)drawGammaWithK:(float)k andEta:(float) eta countGraph:(uint)count;
--(void)drawNormalizeWithM:(float)m andSigma:(float)sigma countGraph:(uint)count;
--(void)drawVeibulWithK:(float)k andLambda:(float)lambda CountGraph:(uint)count;
+-(void)drawGraphWithParametr1:(float)parametr1 parametr2:(float)parametr2 countGraph:(uint)count andSelector:(SEL)selector;
 //-(void)drawGamma;
 @end
 
 @implementation MyOpenGLView
 
+@synthesize writeToFile = _writeToFile;
+@synthesize fileName = _fileName;
+
 static CGFloat step_delta = 1.9/11.0;
 
 static float max_delta = 0.05;
+
+-(NSString*)fileName{
+    if(!_fileName){
+        _fileName = @"Output.txt";
+    }
+    return _fileName;
+}
 
 -(CGPoint)transformCoordinate:(CGPoint)point{
     return CGPointMake((point.x-startPointCoordinates.x)/(endPointCoordinates.x - startPointCoordinates.x)*(1-step_delta+0.9)-0.9, (point.y-startPointCoordinates.y)/(endPointCoordinates.y - startPointCoordinates.y)*(1-step_delta+0.9)-0.9);
@@ -214,13 +223,13 @@ static float max_delta = 0.05;
     }
     switch (graphType) {
         case DRAW_GAMMA_GRAPH:
-            [self drawGammaWithK:parametr1 andEta:parametr2 countGraph:graphCount];
+            [self drawGraphWithParametr1:parametr1 parametr2:parametr2 countGraph:graphCount andSelector:@selector(getGammaLowDistributionWithK:eta:andNumOfElements:)];
             break;
         case DRAW_NORMAL_GRAPH:
-            [self drawNormalizeWithM:parametr1 andSigma:parametr2 countGraph:graphCount];
+            [self drawGraphWithParametr1:parametr1 parametr2:parametr2 countGraph:graphCount andSelector:@selector(getNormalyzeLowDistributionWithM:andSigma:andNumElements:)];
             break;
         case DRAW_VEIBUL_GRAPH:
-            [self drawVeibulWithK:parametr1 andLambda:parametr2 CountGraph:graphCount];
+            [self drawGraphWithParametr1:parametr1 parametr2:parametr2 countGraph:graphCount andSelector:@selector(getVeibulLowDistributionWithK:andLambda:andNumElements:)];
             break;
         default:
             NSLog(@"Error, not valid type");
@@ -229,34 +238,29 @@ static float max_delta = 0.05;
     }
 }
 
-//must be moved in another class
-
--(void)drawGamma{
-    CGFloat* sv = [ProbabilityDistribution getGammaLowDistributionWithK:8.5 eta:1 andNumOfElements:11];
-    
-    CGFloat max_x_temp = 0;
-    for(int i = 0; i < 11; ++i){
-        max_x_temp+=sv[i];
-    }
-    glColor3f(0.5, 0.1, 0.1);
-    glBegin(GL_LINE_STRIP);
-    float start_x = 0;
-    for(int i = 0; i < 11; ++i){
-        CGPoint pt = [self transformCoordinate:CGPointMake(start_x, i)];
-        glVertex2f(pt.x, pt.y);
-        start_x+=sv[i];
-        pt = [self transformCoordinate:CGPointMake(start_x, i)];
-        glVertex2f(pt.x, pt.y);
-    }
-    glEnd();
-    glFlush();
-}
-
--(void)drawGammaWithK:(float)k andEta:(float) eta countGraph:(uint)count{
+-(void)drawGraphWithParametr1:(float)parametr1 parametr2:(float)parametr2 countGraph:(uint)count andSelector:(SEL)selector{
+    NSString* resultToFile = @"";
     max_x = 0;
+    uint parametr3 = 11;
     CGFloat** sv_mat = new CGFloat*[count];
+    if(![ProbabilityDistribution respondsToSelector:selector]) return;
     for(uint i = 0 ;i < count; ++i){
-        CGFloat* sv = [ProbabilityDistribution getGammaLowDistributionWithK:k eta:eta andNumOfElements:11];
+        Method method = class_getClassMethod([ProbabilityDistribution class], selector);
+        struct objc_method_description* desc = method_getDescription(method);
+        if (desc == NULL || desc->name == NULL)
+            return;
+        
+        NSMethodSignature* sig = [NSMethodSignature signatureWithObjCTypes:desc->types];
+        CGFloat* sv = nil;
+        NSInvocation* invoc = [NSInvocation invocationWithMethodSignature:sig];
+        [invoc setTarget:[ProbabilityDistribution class]];
+        [invoc setSelector:selector];
+        //[invoc setArgument:sv atIndex:1];
+        [invoc setArgument:&parametr1 atIndex:2];
+        [invoc setArgument:&parametr2 atIndex:3];
+        [invoc setArgument:&parametr3 atIndex:4];
+        [invoc invoke];
+        [invoc getReturnValue:&sv];
         sv_mat[i] = sv;
         CGFloat max_x_temp = 0;
         for(int i = 0; i < 11; ++i){
@@ -278,74 +282,19 @@ static float max_delta = 0.05;
             start_x+=sv_mat[i][j];
             pt = [self transformCoordinate:CGPointMake(start_x, j)];
             glVertex2f(pt.x, pt.y);
+            resultToFile = [resultToFile stringByAppendingFormat:@"[%d:%f] ",j,start_x];
         }
+        resultToFile = [resultToFile stringByAppendingFormat:@"\n\n"];
         glEnd();
     }
     glFlush();
-}
-
--(void)drawNormalizeWithM:(float)m andSigma:(float)sigma countGraph:(uint)count{
-    max_x = 0;
-    CGFloat** sv_mat = new CGFloat*[count];
-    for(uint i = 0 ;i < count; ++i){
-        CGFloat* sv = [ProbabilityDistribution getNormalyzeLowDistributionWithM:m andSigma:sigma andNumElements:11];
-        sv_mat[i] = sv;
-        CGFloat max_x_temp = 0;
-        for(int i = 0; i < 11; ++i){
-            max_x_temp+=sv[i];
-        }
-        if(max_x_temp>max_x){
-            max_x = max_x_temp;
+    if(_writeToFile){
+        NSError* err = nil;
+        [resultToFile writeToFile:self.fileName atomically:YES encoding:NSUTF8StringEncoding error:&err];
+        if(err){
+            NSLog(@"error: %@",err);
         }
     }
-    [self clearGraphWithXStart:0 xEnd:max_x yStart:0 yEnd:10];
-    
-    for(uint i = 0; i < count; ++i){
-        float start_x = 0;
-        glColor3f(0, 1/(float)i, 0);
-        glBegin(GL_LINE_STRIP);
-        for(int j = 0; j < 11; ++j){
-            CGPoint pt = [self transformCoordinate:CGPointMake(start_x, j)];
-            glVertex2f(pt.x, pt.y);
-            start_x+=sv_mat[i][j];
-            pt = [self transformCoordinate:CGPointMake(start_x, j)];
-            glVertex2f(pt.x, pt.y);
-        }
-        glEnd();
-    }
-    glFlush();
-}
-
--(void)drawVeibulWithK:(float)k andLambda:(float)lambda CountGraph:(uint)count{
-    max_x = 0;
-    CGFloat** sv_mat = new CGFloat*[count];
-    for(uint i = 0 ;i < count; ++i){
-        CGFloat* sv = [ProbabilityDistribution getVeibulLowDistributionWithK:k andLambda:lambda andNumElements:11];
-        sv_mat[i] = sv;
-        CGFloat max_x_temp = 0;
-        for(int i = 0; i < 11; ++i){
-            max_x_temp+=sv[i];
-        }
-        if(max_x_temp>max_x){
-            max_x = max_x_temp;
-        }
-    }
-    [self clearGraphWithXStart:0 xEnd:max_x yStart:0 yEnd:10];
-    
-    for(uint i = 0; i < count; ++i){
-        float start_x = 0;
-        glColor3f(0, 1/(float)i, 0);
-        glBegin(GL_LINE_STRIP);
-        for(int j = 0; j < 11; ++j){
-            CGPoint pt = [self transformCoordinate:CGPointMake(start_x, j)];
-            glVertex2f(pt.x, pt.y);
-            start_x+=sv_mat[i][j];
-            pt = [self transformCoordinate:CGPointMake(start_x, j)];
-            glVertex2f(pt.x, pt.y);
-        }
-        glEnd();
-    }
-    glFlush();
 }
 
 @end

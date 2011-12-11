@@ -19,6 +19,7 @@
 		F9903E2014782CFE00AE739A /* MyOpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F9903E1F14782CFE00AE739A /* MyOpenGLView.mm */; };
 		F992441F147943DD00049E8E /* MatrixOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F992441E147943DD00049E8E /* MatrixOperation.m */; };
 		F99365CC148253BF0059EACA /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = F99365CB148253BF0059EACA /* AppController.m */; };
+		F9941F1614950A4000851A8F /* libobjc.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F9941F1514950A4000851A8F /* libobjc.A.dylib */; };
 		F999D46F148BC70600B8D105 /* CheckNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F999D46E148BC70600B8D105 /* CheckNumberFormatter.m */; };
 		F9B407AB14816A60003E9C95 /* ProbabilityDistribution.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B407AA14816A60003E9C95 /* ProbabilityDistribution.m */; };
 		F9CB191D14829B08005B81C2 /* ObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB191C14829B08005B81C2 /* ObjectController.m */; };
@@ -48,6 +49,7 @@
 		F992441E147943DD00049E8E /* MatrixOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatrixOperation.m; sourceTree = "<group>"; };
 		F99365CA148253BF0059EACA /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		F99365CB148253BF0059EACA /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		F9941F1514950A4000851A8F /* libobjc.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.A.dylib; path = usr/lib/libobjc.A.dylib; sourceTree = SDKROOT; };
 		F999D46D148BC70600B8D105 /* CheckNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckNumberFormatter.h; sourceTree = "<group>"; };
 		F999D46E148BC70600B8D105 /* CheckNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckNumberFormatter.m; sourceTree = "<group>"; };
 		F99D90C7147ADFF900D24799 /* MathFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathFunctions.h; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9941F1614950A4000851A8F /* libobjc.A.dylib in Frameworks */,
 				F9903DFD14782C4F00AE739A /* Cocoa.framework in Frameworks */,
 				F9903E1D14782CC700AE739A /* OpenGL.framework in Frameworks */,
 				F98A2D24147993640062B0A0 /* libfreetype.a in Frameworks */,
@@ -77,6 +80,7 @@
 		F9903DED14782C4F00AE739A = {
 			isa = PBXGroup;
 			children = (
+				F9941F1514950A4000851A8F /* libobjc.A.dylib */,
 				F98A2D22147993640062B0A0 /* libfreetype.a */,
 				F98A2D23147993640062B0A0 /* libftgl.a */,
 				F9903E0214782C4F00AE739A /* GoldenTriangle */,
@@ -122,9 +126,9 @@
 				F9903E1114782C4F00AE739A /* MainMenu.xib */,
 				F9903E0314782C4F00AE739A /* Supporting Files */,
 				F9903E1E14782CFE00AE739A /* MyOpenGLView.h */,
+				F9903E1F14782CFE00AE739A /* MyOpenGLView.mm */,
 				F992441D147943DD00049E8E /* MatrixOperation.h */,
 				F992441E147943DD00049E8E /* MatrixOperation.m */,
-				F9903E1F14782CFE00AE739A /* MyOpenGLView.mm */,
 				F9B407A914816A60003E9C95 /* ProbabilityDistribution.h */,
 				F9B407AA14816A60003E9C95 /* ProbabilityDistribution.m */,
 				F99365CA148253BF0059EACA /* AppController.h */,

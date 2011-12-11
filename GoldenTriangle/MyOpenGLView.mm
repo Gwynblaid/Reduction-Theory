@@ -193,7 +193,7 @@ static float max_delta = 0.05;
 }
 
 -(void)drawRect:(NSRect)dirtyRect{
-    [self clearGraphWithXStart:0 xEnd:100 yStart:0 yEnd:10];
+    [self clearGraphWithXStart:0 xEnd:10 yStart:0 yEnd:10];
 }
 
 -(void)clearGraphWithXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd{
@@ -234,9 +234,9 @@ static float max_delta = 0.05;
 -(void)drawGamma{
     CGFloat* sv = [ProbabilityDistribution getGammaLowDistributionWithK:8.5 eta:1 andNumOfElements:11];
     
-    CGFloat max_x = 0;
+    CGFloat max_x_temp = 0;
     for(int i = 0; i < 11; ++i){
-        max_x+=sv[i];
+        max_x_temp+=sv[i];
     }
     glColor3f(0.5, 0.1, 0.1);
     glBegin(GL_LINE_STRIP);
@@ -253,21 +253,30 @@ static float max_delta = 0.05;
 }
 
 -(void)drawGammaWithK:(float)k andEta:(float) eta countGraph:(uint)count{
+    max_x = 0;
+    CGFloat** sv_mat = new CGFloat*[count];
     for(uint i = 0 ;i < count; ++i){
         CGFloat* sv = [ProbabilityDistribution getGammaLowDistributionWithK:k eta:eta andNumOfElements:11];
-        
-        CGFloat max_x = 0;
+        sv_mat[i] = sv;
+        CGFloat max_x_temp = 0;
         for(int i = 0; i < 11; ++i){
-            max_x+=sv[i];
+            max_x_temp+=sv[i];
         }
+        if(max_x_temp>max_x){
+            max_x = max_x_temp;
+        }
+    }
+    [self clearGraphWithXStart:0 xEnd:max_x yStart:0 yEnd:10];
+    
+    for(uint i = 0; i < count; ++i){
+        float start_x = 0;
         glColor3f(0, 1/(float)i, 0);
         glBegin(GL_LINE_STRIP);
-        float start_x = 0;
-        for(int i = 0; i < 11; ++i){
-            CGPoint pt = [self transformCoordinate:CGPointMake(start_x, i)];
+        for(int j = 0; j < 11; ++j){
+            CGPoint pt = [self transformCoordinate:CGPointMake(start_x, j)];
             glVertex2f(pt.x, pt.y);
-            start_x+=sv[i];
-            pt = [self transformCoordinate:CGPointMake(start_x, i)];
+            start_x+=sv_mat[i][j];
+            pt = [self transformCoordinate:CGPointMake(start_x, j)];
             glVertex2f(pt.x, pt.y);
         }
         glEnd();
@@ -276,21 +285,30 @@ static float max_delta = 0.05;
 }
 
 -(void)drawNormalizeWithM:(float)m andSigma:(float)sigma countGraph:(uint)count{
+    max_x = 0;
+    CGFloat** sv_mat = new CGFloat*[count];
     for(uint i = 0 ;i < count; ++i){
         CGFloat* sv = [ProbabilityDistribution getNormalyzeLowDistributionWithM:m andSigma:sigma andNumElements:11];
-        
-        CGFloat max_x = 0;
+        sv_mat[i] = sv;
+        CGFloat max_x_temp = 0;
         for(int i = 0; i < 11; ++i){
-            max_x+=sv[i];
+            max_x_temp+=sv[i];
         }
+        if(max_x_temp>max_x){
+            max_x = max_x_temp;
+        }
+    }
+    [self clearGraphWithXStart:0 xEnd:max_x yStart:0 yEnd:10];
+    
+    for(uint i = 0; i < count; ++i){
+        float start_x = 0;
         glColor3f(0, 1/(float)i, 0);
         glBegin(GL_LINE_STRIP);
-        float start_x = 0;
-        for(int i = 0; i < 11; ++i){
-            CGPoint pt = [self transformCoordinate:CGPointMake(start_x, i)];
+        for(int j = 0; j < 11; ++j){
+            CGPoint pt = [self transformCoordinate:CGPointMake(start_x, j)];
             glVertex2f(pt.x, pt.y);
-            start_x+=sv[i];
-            pt = [self transformCoordinate:CGPointMake(start_x, i)];
+            start_x+=sv_mat[i][j];
+            pt = [self transformCoordinate:CGPointMake(start_x, j)];
             glVertex2f(pt.x, pt.y);
         }
         glEnd();
@@ -299,21 +317,30 @@ static float max_delta = 0.05;
 }
 
 -(void)drawVeibulWithK:(float)k andLambda:(float)lambda CountGraph:(uint)count{
+    max_x = 0;
+    CGFloat** sv_mat = new CGFloat*[count];
     for(uint i = 0 ;i < count; ++i){
         CGFloat* sv = [ProbabilityDistribution getVeibulLowDistributionWithK:k andLambda:lambda andNumElements:11];
-        
-        CGFloat max_x = 0;
+        sv_mat[i] = sv;
+        CGFloat max_x_temp = 0;
         for(int i = 0; i < 11; ++i){
-            max_x+=sv[i];
+            max_x_temp+=sv[i];
         }
+        if(max_x_temp>max_x){
+            max_x = max_x_temp;
+        }
+    }
+    [self clearGraphWithXStart:0 xEnd:max_x yStart:0 yEnd:10];
+    
+    for(uint i = 0; i < count; ++i){
+        float start_x = 0;
         glColor3f(0, 1/(float)i, 0);
         glBegin(GL_LINE_STRIP);
-        float start_x = 0;
-        for(int i = 0; i < 11; ++i){
-            CGPoint pt = [self transformCoordinate:CGPointMake(start_x, i)];
+        for(int j = 0; j < 11; ++j){
+            CGPoint pt = [self transformCoordinate:CGPointMake(start_x, j)];
             glVertex2f(pt.x, pt.y);
-            start_x+=sv[i];
-            pt = [self transformCoordinate:CGPointMake(start_x, i)];
+            start_x+=sv_mat[i][j];
+            pt = [self transformCoordinate:CGPointMake(start_x, j)];
             glVertex2f(pt.x, pt.y);
         }
         glEnd();

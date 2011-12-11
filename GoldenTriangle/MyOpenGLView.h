@@ -18,6 +18,7 @@ enum{
     
     CGPoint startPointCoordinates;
     CGPoint endPointCoordinates;
+    float max_x;
 
 }
 

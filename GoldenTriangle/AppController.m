@@ -60,7 +60,7 @@
 }
 
 -(IBAction) touchCleanButton:(id)sender{
-    [_graphView clearGraphWithXStart:0 xEnd:100.0 yStart:0 yEnd:10];
+    [_graphView clearGraphWithXStart:0 xEnd:10.0 yStart:0 yEnd:10];
 }
 
 @end

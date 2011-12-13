@@ -22,6 +22,9 @@ static const float eps = 0.0000001;
     return self;
 }
 
+#pragma mark -
+#pragma mark destribution
+
 +(CGFloat*)getGammaLowDistributionWithK:(float)k eta:(float)eta andNumOfElements:(uint)numElements{
     CGFloat* result = malloc(sizeof(CGFloat)*numElements);
     
@@ -73,6 +76,24 @@ static const float eps = 0.0000001;
         result[i] = lambda*powf(fabsf(logf(1-(rand()%10000+1)/10000.)),1./k);
     }
     return result;
+}
+
+#pragma mark -
+#pragma mark density
+
+
+-(double)getGammaDensityWithK:(float)k eta:(float)eta andX:(float)x{
+    if(x<0)return 0;
+    return pow(x, k-1)*exp(-x/eta)/(pow(eta, k)*gamma(k));
+}
+
+-(double)getNormalyzeDensityWithM:(float)m sigma:(float)sigma andX:(float)x{
+    return exp(-pow(x-m, 2)/(2*sigma*sigma))/(sqrt(2*M_PI)*sigma);
+}
+
+-(double)getVeibulDensity:(float)k lambda:(float)lambda andX:(float)x{
+    if(x<0)return 0;
+    return (k/lambda)*pow(x/lambda, k-1)*exp(-x/lambda);
 }
 
 @end

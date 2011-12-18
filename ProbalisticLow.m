@@ -39,7 +39,9 @@
     NSInvocation* invokation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:descr->types]];
     [invokation setTarget:_selectorClass];
     [invokation setSelector:_F];
-    [invokation setArgument:&x atIndex:2];
+    [invokation setArgument:&_parametr1 atIndex:2];
+    [invokation setArgument:&_parametr2 atIndex:3];
+    [invokation setArgument:&x atIndex:4];
     [invokation invoke];
     [invokation getReturnValue:&result];
     
@@ -58,7 +60,9 @@
     NSInvocation* invokation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:descr->types]];
     [invokation setTarget:_selectorClass];
     [invokation setSelector:_f];
-    [invokation setArgument:&x atIndex:2];
+    [invokation setArgument:&_parametr1 atIndex:2];
+    [invokation setArgument:&_parametr2 atIndex:3];
+    [invokation setArgument:&x atIndex:4];
     [invokation invoke];
     [invokation getReturnValue:&result];
     

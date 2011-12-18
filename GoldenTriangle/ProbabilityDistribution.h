@@ -14,8 +14,12 @@
 +(CGFloat*)getNormalyzeLowDistributionWithM:(float)m andSigma:(float)sigma andNumElements:(uint)numElements;
 +(CGFloat*)getVeibulLowDistributionWithK:(float)k andLambda:(float)lambda andNumElements:(uint)numElements;
 
--(double)getGammaDensityWithK:(float)k eta:(float)eta andX:(float)x;
--(double)getNormalyzeDensityWithM:(float)m sigma:(float)sigma andX:(float)x;
--(double)getVeibulDensity:(float)k lambda:(float)lambda andX:(float)x;
++(double)getGammaDensityWithK:(float)k eta:(float)eta andX:(float)x;
++(double)getNormalyzeDensityWithM:(float)m sigma:(float)sigma andX:(float)x;
++(double)getVeibulDensity:(float)k lambda:(float)lambda andX:(float)x;
+
++(double)getGammaDestributionFunctionWithK:(float)k eta:(float)eta andX:(float)x;
++(double)getNormalyzeDestributionFunctionWithM:(float)m eta:(float)eta andX:(float)x;
++(double)getVeibulDestributionFunctionWithK:(float)k lambda:(float)lambda andX:(float)x;
 
 @end

@@ -82,18 +82,30 @@ static const float eps = 0.0000001;
 #pragma mark density
 
 
--(double)getGammaDensityWithK:(float)k eta:(float)eta andX:(float)x{
++(double)getGammaDensityWithK:(float)k eta:(float)eta andX:(float)x{
     if(x<0)return 0;
     return pow(x, k-1)*exp(-x/eta)/(pow(eta, k)*gamma(k));
 }
 
--(double)getNormalyzeDensityWithM:(float)m sigma:(float)sigma andX:(float)x{
++(double)getNormalyzeDensityWithM:(float)m sigma:(float)sigma andX:(float)x{
     return exp(-pow(x-m, 2)/(2*sigma*sigma))/(sqrt(2*M_PI)*sigma);
 }
 
--(double)getVeibulDensity:(float)k lambda:(float)lambda andX:(float)x{
++(double)getVeibulDensity:(float)k lambda:(float)lambda andX:(float)x{
     if(x<0)return 0;
     return (k/lambda)*pow(x/lambda, k-1)*exp(-x/lambda);
+}
+
++(double)getGammaDestributionFunctionWithK:(float)k eta:(float)eta andX:(float)x{
+    return 0;
+}
+
++(double)getNormalyzeDestributionFunctionWithM:(float)m eta:(float)eta andX:(float)x{
+    return 0;
+}
+
++(double)getVeibulDestributionFunctionWithK:(float)k lambda:(float)lambda andX:(float)x{
+    return 1 - exp(pow(-x/lambda, k));
 }
 
 @end

@@ -24,6 +24,7 @@
 		F9B407AB14816A60003E9C95 /* ProbabilityDistribution.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B407AA14816A60003E9C95 /* ProbabilityDistribution.m */; };
 		F9CB191D14829B08005B81C2 /* ObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB191C14829B08005B81C2 /* ObjectController.m */; };
 		F9CB19211482A5B7005B81C2 /* StepperController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB19201482A5B7005B81C2 /* StepperController.m */; };
+		F9CFDB9B149DEF3C0089C072 /* ProbalisticLow.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CFDB9A149DEF3C0089C072 /* ProbalisticLow.m */; };
 		F9E9E2B91497CBC100791C1D /* MathMehods.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E9E2B81497CBC100791C1D /* MathMehods.m */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,8 @@
 		F9CB191C14829B08005B81C2 /* ObjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectController.m; sourceTree = "<group>"; };
 		F9CB191F1482A5B7005B81C2 /* StepperController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepperController.h; sourceTree = "<group>"; };
 		F9CB19201482A5B7005B81C2 /* StepperController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepperController.m; sourceTree = "<group>"; };
+		F9CFDB99149DEF3C0089C072 /* ProbalisticLow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProbalisticLow.h; sourceTree = "<group>"; };
+		F9CFDB9A149DEF3C0089C072 /* ProbalisticLow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProbalisticLow.m; sourceTree = "<group>"; };
 		F9E9E2B71497CBC100791C1D /* MathMehods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathMehods.h; sourceTree = "<group>"; };
 		F9E9E2B81497CBC100791C1D /* MathMehods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathMehods.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +86,8 @@
 		F9903DED14782C4F00AE739A = {
 			isa = PBXGroup;
 			children = (
+				F9CFDB99149DEF3C0089C072 /* ProbalisticLow.h */,
+				F9CFDB9A149DEF3C0089C072 /* ProbalisticLow.m */,
 				F9941F1514950A4000851A8F /* libobjc.A.dylib */,
 				F98A2D22147993640062B0A0 /* libfreetype.a */,
 				F98A2D23147993640062B0A0 /* libftgl.a */,
@@ -230,6 +235,7 @@
 				F9CB19211482A5B7005B81C2 /* StepperController.m in Sources */,
 				F999D46F148BC70600B8D105 /* CheckNumberFormatter.m in Sources */,
 				F9E9E2B91497CBC100791C1D /* MathMehods.m in Sources */,
+				F9CFDB9B149DEF3C0089C072 /* ProbalisticLow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

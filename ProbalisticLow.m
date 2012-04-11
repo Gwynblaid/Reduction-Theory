@@ -13,7 +13,7 @@
 @implementation ProbalisticLow
 @synthesize parametr1 = _parametr1;
 @synthesize parametr2 = _parametr2;
-@synthesize f = _f;
+@synthesize f_m = _f;
 @synthesize F = _F;
 @synthesize selectorClass = _selectorClass;
 
@@ -27,14 +27,14 @@
     return self;
 }
 
--(CGFloat)getFWithX:(CGFloat)x{
-    float result;
+-(double)getFWithX:(double)x{
+    double result;
     
     Method method = class_getClassMethod(_selectorClass, _F);
     struct objc_method_description* descr = method_getDescription(method);
     if(descr == NULL || descr->name == NULL){
         NSLog(@"Error: can't get method description");
-        return nil;
+        return 0;
     }
     NSInvocation* invokation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:descr->types]];
     [invokation setTarget:_selectorClass];
@@ -44,18 +44,17 @@
     [invokation setArgument:&x atIndex:4];
     [invokation invoke];
     [invokation getReturnValue:&result];
-    
     return result;
 }
 
--(CGFloat)getfWithX:(CGFloat)x{
-    float result;
+-(double)getfWithX:(double)x{
+    double result;
     
     Method method = class_getClassMethod(_selectorClass, _f);
     struct objc_method_description* descr = method_getDescription(method);
     if(descr == NULL || descr->name == NULL){
         NSLog(@"Error: can't get method description");
-        return nil;
+        return 0;
     }
     NSInvocation* invokation = [NSInvocation invocationWithMethodSignature:[NSMethodSignature signatureWithObjCTypes:descr->types]];
     [invokation setTarget:_selectorClass];
@@ -65,8 +64,15 @@
     [invokation setArgument:&x atIndex:4];
     [invokation invoke];
     [invokation getReturnValue:&result];
-    
     return result;
+}
+
+-(double)getFWithX:(double)x andT:(double)t{
+    return [self getFWithX:(x-t)];
+}
+
+-(double)getfWithX:(double)x andT:(double)t{
+    return [self getfWithX:(x-t)];
 }
 
 @end

@@ -15,6 +15,9 @@
 #include "ProbabilityDistribution.h"
 #import  <objc/objc.h>
 #import  <objc/Object.h>
+#import "ProbalisticLow.h"
+#import "MathMehods.h"
+#import "TestData.h"
 
 @interface MyOpenGLView()
 -(void)draw2DCoordinatesXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd;
@@ -147,6 +150,7 @@ static float max_delta = 0.05;
     glDrawArrays(GL_LINE_STRIP, 0, 3);
     glDisableClientState(GL_VERTEX_ARRAY);
     
+    \
 }
 
 -(void)drawDottedLineWithStartPoint:(CGPoint)startPoint EndPoint:(CGPoint)endPoint andLineColor:(CGFloat*)color{
@@ -221,16 +225,27 @@ static float max_delta = 0.05;
         NSLog(@"Envalid parameters");
         return;
     }
+    if(low == nil){
+        low = [[ProbalisticLow alloc] init];
+        low.selectorClass = [ProbabilityDistribution class];
+    }
     switch (graphType) {
         case DRAW_GAMMA_GRAPH:
+            low.f_m = @selector(getGammaDensityWithK:eta:andX:);
+            low.F = @selector(getGammaDestributionFunctionWithK:eta:andX:);
             [self drawGraphWithParametr1:parametr1 parametr2:parametr2 countGraph:graphCount andSelector:@selector(getGammaLowDistributionWithK:eta:andNumOfElements:)];
             break;
         case DRAW_NORMAL_GRAPH:
+            low.f_m = @selector(getNormalyzeDensityWithM:sigma:andX:);
+            low.F = @selector(getNormalyzeDestributionFunctionWithM:eta:andX:);
             [self drawGraphWithParametr1:parametr1 parametr2:parametr2 countGraph:graphCount andSelector:@selector(getNormalyzeLowDistributionWithM:andSigma:andNumElements:)];
             break;
-        case DRAW_VEIBUL_GRAPH:
+        case DRAW_VEIBUL_GRAPH:{
+            low.f_m = @selector(getVeibulDensity:lambda:andX:);
+            low.F = @selector(getVeibulDestributionFunctionWithK:lambda:andX:);;
             [self drawGraphWithParametr1:parametr1 parametr2:parametr2 countGraph:graphCount andSelector:@selector(getVeibulLowDistributionWithK:andLambda:andNumElements:)];
             break;
+        }
         default:
             NSLog(@"Error, not valid type");
             return;
@@ -288,6 +303,20 @@ static float max_delta = 0.05;
         glEnd();
     }
     glFlush();
+    
+    const double del = 0.2;
+    //solve IE
+    low.parametr1 = parametr1;
+    low.parametr2 = parametr2;
+    //TestData* testData = [[TestData alloc] init];
+    CGFloat* y = [MathMehods solveEquationVolteraWithKernel:@selector(getfWithX:andT:) f:@selector(getFWithX:) selectorTarget:low
+                                                   isStatic:NO withEndPoint:max_x lambda:1 andStep:del];
+    CGFloat* x = new CGFloat[int(max_x/del)];
+    for(int i = 0; i < int(max_x/del); ++i){
+        x[i] = i*del;
+    }
+    [self plotGraphWithXArray:x andYArray:y andNumPoints:int(max_x/del)];
+    
     if(_writeToFile){
         NSError* err = nil;
         [resultToFile writeToFile:self.fileName atomically:YES encoding:NSUTF8StringEncoding error:&err];
@@ -295,6 +324,17 @@ static float max_delta = 0.05;
             NSLog(@"error: %@",err);
         }
     }
+}
+
+-(void)plotGraphWithXArray:(CGFloat*)xArray andYArray:(CGFloat*)yArray andNumPoints:(uint)numPoints{
+    glColor3f(1, 0, 0);
+    glBegin(GL_LINE_STRIP);
+    for(uint i = 0; i < numPoints; ++i){
+        CGPoint pt = [self transformCoordinate:CGPointMake(xArray[i], yArray[i])];
+        glVertex2f(pt.x,pt.y);
+    }
+    glEnd();
+    glFlush();
 }
 
 @end

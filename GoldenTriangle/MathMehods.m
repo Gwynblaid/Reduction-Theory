@@ -7,6 +7,7 @@
 //
 
 #import "MathMehods.h"
+//#import "TestData.h"
 #import  <objc/objc.h>
 #import  <objc/Object.h>
 
@@ -22,11 +23,13 @@
     return self;
 }
 
-+(CGFloat*)solveEquationVolteraWithKernel:(SEL)kernel f:(SEL)f selectorTarget:(id)selTarget isStatic:(BOOL)isStatic withEndPoint:(float)point lambda:(float)lambda andStep:(float)h{
++(double*)solveEquationVolteraWithKernel:(SEL)kernel f:(SEL)f selectorTarget:(id)selTarget isStatic:(BOOL)isStatic withEndPoint:(double)point lambda:(double)lambda andStep:(double)h{
     
     //init kernel and f invocation
     NSInvocation* kernelInvocation = nil;
     NSInvocation* fInvocation = nil;
+    NSMethodSignature* sig1;
+    NSMethodSignature* sig2;
     if(isStatic){
         Method method1 = class_getInstanceMethod(selTarget, kernel);
         Method method2 = class_getInstanceMethod(selTarget, f);
@@ -36,54 +39,61 @@
         struct objc_method_description* desc2 = method_getDescription(method2);
         if (desc2 == NULL || desc2->name == NULL)
             return nil;
-        NSMethodSignature* sig1 = [NSMethodSignature signatureWithObjCTypes:desc1->types];
-        NSMethodSignature* sig2 = [NSMethodSignature signatureWithObjCTypes:desc2->types];
-        kernelInvocation = [NSInvocation invocationWithMethodSignature:sig1];
-        fInvocation = [NSInvocation invocationWithMethodSignature:sig2];
+        sig1 = [NSMethodSignature signatureWithObjCTypes:desc1->types];
+        sig2 = [NSMethodSignature signatureWithObjCTypes:desc2->types];
     }else{
-        NSMethodSignature* sig1 = [selTarget methodSignatureForSelector:kernel];
-        NSMethodSignature* sig2 = [selTarget methodSignatureForSelector:f];
-        kernelInvocation = [NSInvocation invocationWithMethodSignature:sig1];
-        fInvocation = [NSInvocation invocationWithMethodSignature:sig2];
+        sig1 = [selTarget methodSignatureForSelector:kernel];
+        sig2 = [selTarget methodSignatureForSelector:f];
+        
     }
-    [kernelInvocation setTarget:selTarget];
+    kernelInvocation = [NSInvocation invocationWithMethodSignature:sig1];
+    fInvocation = [NSInvocation invocationWithMethodSignature:sig2];
     [fInvocation setTarget:selTarget];
+    [kernelInvocation setTarget:selTarget];
     [kernelInvocation setSelector:kernel];
     [fInvocation setSelector:f];
     
-    int numSteps = point/h+1;
-    float x = 0, t = 0, Kij = 0;
-    CGFloat* result = malloc(sizeof(CGFloat)*numSteps);
+    int numSteps = point/h;
+    double x = 0, t = 0, Kij = 0;
+    double* result = malloc(sizeof(double)*numSteps);
     [fInvocation setArgument:&x atIndex:2];
     [fInvocation invoke];
     [fInvocation getReturnValue:&result[0]];
+    
+    NSLog(@"Result[0]: %f", result[0]);
     for(int i = 1; i < numSteps; ++i){
         x = i*h;
+        //NSLog(@"X: %f",x);
         [fInvocation setArgument:&x atIndex:2];
         [fInvocation invoke];
         [fInvocation getReturnValue:&result[i]];
+        //NSLog(@"result[i]: %f", result[i]);
         t = 0;
         [kernelInvocation setArgument:&x atIndex:2];
         [kernelInvocation setArgument:&t atIndex:3];
         [kernelInvocation invoke];
         [kernelInvocation getReturnValue:&Kij];
+        //NSLog(@"Kij: %f",Kij);
         result[i]+=lambda*Kij*h*result[0]/2.f;
-        float s = 0;
-        for(int j = 1; j < i-1; ++j){
-            t+=h;
+        double s = 0;
+        for(int j = 1; j < i; ++j){
+            t=h*j;
             [kernelInvocation setArgument:&x atIndex:2];
             [kernelInvocation setArgument:&t atIndex:3];
             [kernelInvocation invoke];
             [kernelInvocation getReturnValue:&Kij];
             s+=Kij*result[j];
+            //NSLog(@"Kij: %f",Kij);
         }
         s*=(h*lambda);
+        //NSLog(@"S: %f",s);
         t = x;
         [kernelInvocation setArgument:&x atIndex:2];
         [kernelInvocation setArgument:&t atIndex:3];
         [kernelInvocation invoke];
         [kernelInvocation getReturnValue:&Kij];
         result[i] = (result[i]+s)/(1-lambda*h*Kij/2.);
+        NSLog(@"result[i]: %f",result[i]);
     }
     return result;
 }

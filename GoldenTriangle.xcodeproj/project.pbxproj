@@ -20,6 +20,7 @@
 		F992441F147943DD00049E8E /* MatrixOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F992441E147943DD00049E8E /* MatrixOperation.m */; };
 		F99365CC148253BF0059EACA /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = F99365CB148253BF0059EACA /* AppController.m */; };
 		F9941F1614950A4000851A8F /* libobjc.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F9941F1514950A4000851A8F /* libobjc.A.dylib */; };
+		F995595B14BB840B00AA1E13 /* TestData.m in Sources */ = {isa = PBXBuildFile; fileRef = F995595A14BB840B00AA1E13 /* TestData.m */; };
 		F999D46F148BC70600B8D105 /* CheckNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F999D46E148BC70600B8D105 /* CheckNumberFormatter.m */; };
 		F9B407AB14816A60003E9C95 /* ProbabilityDistribution.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B407AA14816A60003E9C95 /* ProbabilityDistribution.m */; };
 		F9CB191D14829B08005B81C2 /* ObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB191C14829B08005B81C2 /* ObjectController.m */; };
@@ -52,6 +53,8 @@
 		F99365CA148253BF0059EACA /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		F99365CB148253BF0059EACA /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		F9941F1514950A4000851A8F /* libobjc.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.A.dylib; path = usr/lib/libobjc.A.dylib; sourceTree = SDKROOT; };
+		F995595914BB840B00AA1E13 /* TestData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestData.h; sourceTree = "<group>"; };
+		F995595A14BB840B00AA1E13 /* TestData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestData.m; sourceTree = "<group>"; };
 		F999D46D148BC70600B8D105 /* CheckNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckNumberFormatter.h; sourceTree = "<group>"; };
 		F999D46E148BC70600B8D105 /* CheckNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckNumberFormatter.m; sourceTree = "<group>"; };
 		F99D90C7147ADFF900D24799 /* MathFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathFunctions.h; sourceTree = "<group>"; };
@@ -86,6 +89,8 @@
 		F9903DED14782C4F00AE739A = {
 			isa = PBXGroup;
 			children = (
+				F995595914BB840B00AA1E13 /* TestData.h */,
+				F995595A14BB840B00AA1E13 /* TestData.m */,
 				F9CFDB99149DEF3C0089C072 /* ProbalisticLow.h */,
 				F9CFDB9A149DEF3C0089C072 /* ProbalisticLow.m */,
 				F9941F1514950A4000851A8F /* libobjc.A.dylib */,
@@ -236,6 +241,7 @@
 				F999D46F148BC70600B8D105 /* CheckNumberFormatter.m in Sources */,
 				F9E9E2B91497CBC100791C1D /* MathMehods.m in Sources */,
 				F9CFDB9B149DEF3C0089C072 /* ProbalisticLow.m in Sources */,
+				F995595B14BB840B00AA1E13 /* TestData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,11 +328,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GoldenTriangle/GoldenTriangle-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = "/usr/local/**";
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/include/**",
+					/usr/local,
+				);
 				INFOPLIST_FILE = "GoldenTriangle/GoldenTriangle-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
-					"/usr/local/**",
+					"/usr/local/lib/**",
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../libfreetype\"",
@@ -346,11 +355,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GoldenTriangle/GoldenTriangle-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = "/usr/local/**";
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/include/**",
+					/usr/local,
+				);
 				INFOPLIST_FILE = "GoldenTriangle/GoldenTriangle-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
-					"/usr/local/**",
+					"/usr/local/lib/**",
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../libfreetype\"",

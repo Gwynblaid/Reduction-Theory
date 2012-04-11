@@ -8,7 +8,7 @@
 
 #import "ProbabilityDistribution.h"
 
-static const float eps = 0.0000001;
+static const double eps = 0.0000001;
 
 @implementation ProbabilityDistribution
 
@@ -33,19 +33,19 @@ static const float eps = 0.0000001;
     for(int i = 0; i < numElements; ++i){
         result[i] = 0;
         for(int j = 0; j < k_int; ++j){
-            float x = (float)(rand()%10000+1)/10000.0;
+            double x = (double)(rand()%10000+1)/10000.0;
             result[i]-=logf(x);
         }
     }
     
     if(k-k_int>eps){
-        float teta = k-k_int;
-        float v0 = M_E/(M_E+teta);
+        double teta = k-k_int;
+        double v0 = M_E/(M_E+teta);
         for (int m = 0; m < numElements; ++m) {
-            float xm,ym;
+            double xm,ym;
             do{
-            float v2m = (rand()%10000+1)/10000.;
-            float v2m1 = (rand()%10000+1)/10000.;
+            double v2m = (rand()%10000+1)/10000.;
+            double v2m1 = (rand()%10000+1)/10000.;
             if(v2m1 <= v0){
                 xm = powf((v2m1/v0),1/teta);
                 ym = v2m*powf(xm, teta-1);
@@ -82,30 +82,33 @@ static const float eps = 0.0000001;
 #pragma mark density
 
 
-+(double)getGammaDensityWithK:(float)k eta:(float)eta andX:(float)x{
++(double)getGammaDensityWithK:(double)k eta:(double)eta andX:(double)x{
     if(x<0)return 0;
     return pow(x, k-1)*exp(-x/eta)/(pow(eta, k)*gamma(k));
 }
 
-+(double)getNormalyzeDensityWithM:(float)m sigma:(float)sigma andX:(float)x{
++(double)getNormalyzeDensityWithM:(double)m sigma:(double)sigma andX:(double)x{
     return exp(-pow(x-m, 2)/(2*sigma*sigma))/(sqrt(2*M_PI)*sigma);
 }
 
-+(double)getVeibulDensity:(float)k lambda:(float)lambda andX:(float)x{
++(double)getVeibulDensity:(double)k lambda:(double)lambda andX:(double)x{
     if(x<0)return 0;
-    return (k/lambda)*pow(x/lambda, k-1)*exp(-x/lambda);
+    double res = (k/lambda)*pow(x/lambda, k-1)*exp(-x/lambda);
+    return res;
 }
 
-+(double)getGammaDestributionFunctionWithK:(float)k eta:(float)eta andX:(float)x{
++(double)getGammaDestributionFunctionWithK:(double)k eta:(double)eta andX:(double)x{
     return 0;
 }
 
-+(double)getNormalyzeDestributionFunctionWithM:(float)m eta:(float)eta andX:(float)x{
++(double)getNormalyzeDestributionFunctionWithM:(double)m eta:(double)eta andX:(double)x{
     return 0;
 }
 
-+(double)getVeibulDestributionFunctionWithK:(float)k lambda:(float)lambda andX:(float)x{
-    return 1 - exp(pow(-x/lambda, k));
++(double)getVeibulDestributionFunctionWithK:(double)k lambda:(double)lambda andX:(double)x{
+    double res = 1 - exp(-pow(x/lambda, k));
+    //NSLog(@"%f", res);
+    return res;
 }
 
 @end

@@ -9,20 +9,22 @@
 #import <Foundation/Foundation.h>
 
 @interface ProbalisticLow : NSObject{
-    float _parametr1;
-    float _parametr2;
+    double _parametr1;
+    double _parametr2;
     SEL _F;
     SEL _f;
     Class _selectorClass;
 }
 
-@property (assign) float parametr1;
-@property (assign) float parametr2;
+@property (assign) double parametr1;
+@property (assign) double parametr2;
 @property (assign) Class selectorClass;
 @property (assign) SEL F;
-@property (assign) SEL f;
+@property (assign) SEL f_m;
 
--(CGFloat)getFWithX:(CGFloat)x;
--(CGFloat)getfWithX:(CGFloat)x;
+-(double)getFWithX:(double)x;
+-(double)getfWithX:(double)x;
+-(double)getFWithX:(double)x andT:(double)t;
+-(double)getfWithX:(double)x andT:(double)t;
 
 @end

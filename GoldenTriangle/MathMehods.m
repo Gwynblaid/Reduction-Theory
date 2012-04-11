@@ -98,4 +98,51 @@
     return result;
 }
 
++(double)simpsonFromFunction:(SEL)fun selectorTarget:(id)selTarget isStatic:(BOOL)isStatic withBorder:(CGPoint)border andHalfNumSteps:(NSInteger) numSteps{
+    double h = (border.y - border.x)/(numSteps*2);
+    double res = 150;
+    NSInvocation* funInvocation = nil;
+    NSMethodSignature* funSignature = nil;
+    if(isStatic){
+        Method method = class_getClassMethod(selTarget, fun);
+        struct objc_method_description* description = method_getDescription(method);
+        if(description == NULL || description -> name == NULL){
+            NSLog(@"Error: can't create description");
+            return 0;
+        }
+        funSignature = [NSMethodSignature signatureWithObjCTypes:description->types];
+    }else{
+        funSignature = [selTarget methodSignatureForSelector:fun];
+    }
+    funInvocation = [NSInvocation invocationWithMethodSignature:funSignature];
+    [funInvocation setTarget:selTarget];
+    [funInvocation setSelector:fun];
+    double x = border.x;
+    [funInvocation setArgument:&x atIndex:2];
+    [funInvocation invoke];
+    double partRes;
+    [funInvocation getReturnValue:&partRes];
+    res = partRes;
+    for(int i = 1; i < numSteps*2; i+=2){
+        x = border.x + i*h;
+        [funInvocation setArgument:&x atIndex:2];
+        [funInvocation invoke];
+        [funInvocation getReturnValue:&partRes];
+        res+=(4.*partRes);
+    }
+    for(int i = 2; i < numSteps*2; i+=2){
+         x = border.x + i*h;
+        [funInvocation setArgument:&x atIndex:2];
+        [funInvocation invoke];
+        [funInvocation getReturnValue:&partRes];
+        res+=(2.*partRes);
+    }
+    x = border.y;
+    [funInvocation setArgument:&x atIndex:2];
+    [funInvocation invoke];
+    [funInvocation getReturnValue:&partRes];
+    res+=partRes;
+    return res*(h/3.);
+}
+
 @end

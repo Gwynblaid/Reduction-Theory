@@ -34,4 +34,8 @@ enum{
 -(void)clearGraphWithXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd;
 -(void)plotGraphWithXArray:(CGFloat*)xArray andYArray:(CGFloat*)yArray andNumPoints:(uint)numPoints;
 
+//test data
+
+-(double)sin:(double)x;
+
 @end

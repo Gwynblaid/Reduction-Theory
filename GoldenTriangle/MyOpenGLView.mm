@@ -149,8 +149,6 @@ static float max_delta = 0.05;
     glVertexPointer(3, GL_FLOAT, 0, arrow_coordinates);
     glDrawArrays(GL_LINE_STRIP, 0, 3);
     glDisableClientState(GL_VERTEX_ARRAY);
-    
-    \
 }
 
 -(void)drawDottedLineWithStartPoint:(CGPoint)startPoint EndPoint:(CGPoint)endPoint andLineColor:(CGFloat*)color{
@@ -207,6 +205,8 @@ static float max_delta = 0.05;
 
 -(void)drawRect:(NSRect)dirtyRect{
     [self clearGraphWithXStart:0 xEnd:10 yStart:0 yEnd:10];
+    double res = [MathMehods simpsonFromFunction:@selector(sin:) selectorTarget:self isStatic:NO withBorder:CGPointMake(0, M_PI) andHalfNumSteps:10000000];
+    NSLog(@"Sin int ot 0 do Pi: %f",res);
 }
 
 -(void)clearGraphWithXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd{
@@ -335,6 +335,10 @@ static float max_delta = 0.05;
     }
     glEnd();
     glFlush();
+}
+
+-(double)sin:(double)x{
+    return sin(x);
 }
 
 @end

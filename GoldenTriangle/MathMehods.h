@@ -13,4 +13,5 @@
 //kernel must be implement in same class and have same mode like f
 +(double*)solveEquationVolteraWithKernel:(SEL)kernel f:(SEL)f selectorTarget:(id)selTarget isStatic:(BOOL)isStatic withEndPoint:(double)point lambda:(double)lambda andStep:(double)h;
 
++(double)simpsonFromFunction:(SEL)fun selectorTarget:(id)selTarget isStatic:(BOOL)isStatic withBorder:(CGPoint)border andHalfNumSteps:(NSInteger) numSteps;
 @end

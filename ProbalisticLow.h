@@ -14,6 +14,8 @@
     SEL _F;
     SEL _f;
     Class _selectorClass;
+    NSInvocation* _fInvocation;
+    NSInvocation* _FInvocation;
 }
 
 @property (assign) double parametr1;

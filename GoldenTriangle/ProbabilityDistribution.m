@@ -7,6 +7,8 @@
 //
 
 #import "ProbabilityDistribution.h"
+#import "ProbalisticLow.h"
+#import "MathMehods.h"
 
 static const double eps = 0.0000001;
 
@@ -98,11 +100,21 @@ static const double eps = 0.0000001;
 }
 
 +(double)getGammaDestributionFunctionWithK:(double)k eta:(double)eta andX:(double)x{
-    return 0;
+    ProbalisticLow* low = [ProbalisticLow new];
+    low.f_m = @selector(getGammaDensityWithK:eta:andX:);
+    low.parametr1 = k;
+    low.parametr2 = eta;
+    low.selectorClass = [ProbabilityDistribution class];
+    return [MathMehods simpsonFromFunction:@selector(getfWithX:) selectorTarget:low isStatic:NO withBorder:CGPointMake(0.0, x) andHalfNumSteps:10000];
 }
 
 +(double)getNormalyzeDestributionFunctionWithM:(double)m eta:(double)eta andX:(double)x{
-    return 0;
+    ProbalisticLow* low = [ProbalisticLow new];
+    low.f_m = @selector(getNormalyzeDensityWithM:sigma:andX:);
+    low.parametr1 = m;
+    low.parametr2 = eta;
+    low.selectorClass = [ProbabilityDistribution class];
+    return [MathMehods simpsonFromFunction:@selector(getfWithX:) selectorTarget:low isStatic:NO withBorder:CGPointMake(0.0, x) andHalfNumSteps:10000];
 }
 
 +(double)getVeibulDestributionFunctionWithK:(double)k lambda:(double)lambda andX:(double)x{

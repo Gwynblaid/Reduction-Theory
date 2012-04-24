@@ -19,6 +19,10 @@
 #import "MathMehods.h"
 #import "TestData.h"
 
+static double a = 0;
+static double k = 0;
+static double b = 0;
+
 @interface MyOpenGLView()
 -(void)draw2DCoordinatesXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd;
 -(void)drawDottedLineWithStartPoint:(CGPoint)startPoint EndPoint:(CGPoint)endPoint andLineColor:(CGFloat*)color;
@@ -38,6 +42,7 @@
 static CGFloat step_delta = 1.9/11.0;
 
 static float max_delta = 0.05;
+static double eps = 0.00001;
 
 -(NSString*)fileName{
     if(!_fileName){
@@ -205,8 +210,17 @@ static float max_delta = 0.05;
 
 -(void)drawRect:(NSRect)dirtyRect{
     [self clearGraphWithXStart:0 xEnd:10 yStart:0 yEnd:10];
-    double res = [MathMehods simpsonFromFunction:@selector(sin:) selectorTarget:self isStatic:NO withBorder:CGPointMake(0, M_PI) andHalfNumSteps:10000000];
-    NSLog(@"Sin int ot 0 do Pi: %f",res);
+    //test
+    if(a == 0){
+        double h = 0.0001, endPoint = 1;
+        int numSteps = endPoint / h;
+        NSString* resString = @"x: c - a\n";
+        double * chisRes = [MathMehods solveEquationVolteraWithKernel:@selector(kernelWithX:andT:) f:@selector(fX:) selectorTarget:self isStatic:NO withEndPoint:endPoint lambda:1 andStep:h];
+        for(int i = 0; i <= numSteps; ++i){
+            resString = [resString stringByAppendingFormat:@"%f: %f - %f\n",i*h,chisRes[i],[self solution:i*h]];
+        }
+        [resString writeToFile:@"result" atomically:YES encoding:NSUTF8StringEncoding error:nil];
+    }
 }
 
 -(void)clearGraphWithXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd{
@@ -337,8 +351,27 @@ static float max_delta = 0.05;
     glFlush();
 }
 
+#pragma mark - 
+#pragma mark TestDataSimpson
+
 -(double)sin:(double)x{
-    return sin(x);
+    return sin(a - x) * x;
+}
+
+#pragma mark - 
+#pragma mark TestDataSumm
+
+-(double)kernelWithX:(double)x andT:(double)t{
+    return sin(t-x);
+}
+
+-(double)fX:(double)x{
+    return x;
+}
+
+-(double)solution:(double)x{
+    a = x;
+    return x-1./sqrt(2.)*[MathMehods simpsonFromFunction:@selector(sin:) selectorTarget:self isStatic:NO withBorder:CGPointMake(0, a) andHalfNumSteps:100000];
 }
 
 @end

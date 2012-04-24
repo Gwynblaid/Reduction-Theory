@@ -118,9 +118,12 @@ static const double eps = 0.0000001;
 }
 
 +(double)getVeibulDestributionFunctionWithK:(double)k lambda:(double)lambda andX:(double)x{
-    double res = 1 - exp(-pow(x/lambda, k));
-    //NSLog(@"%f", res);
-    return res;
+    ProbalisticLow* low = [ProbalisticLow new];
+    low.f_m = @selector(getVeibulDensity:lambda:andX:);
+    low.parametr1 = k;
+    low.parametr2 = lambda;
+    low.selectorClass = [ProbabilityDistribution class];
+    return [MathMehods simpsonFromFunction:@selector(getfWithX:) selectorTarget:low isStatic:NO withBorder:CGPointMake(0.0, x) andHalfNumSteps:10000];
 }
 
 @end

@@ -17,4 +17,12 @@ int sign(float dig){
     return 0;
 }
 
+double sh(double x){
+    return (exp(x) - exp(-x)) / 2.;
+}
+
+double ch(double x){
+    return (exp(x) + exp(-x)) / 2.;
+}
+
 #endif

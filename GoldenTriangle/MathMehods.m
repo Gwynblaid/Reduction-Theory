@@ -55,13 +55,13 @@
     
     int numSteps = point/h;
     double x = 0, t = 0, Kij = 0;
-    double* result = malloc(sizeof(double)*numSteps);
+    double* result = malloc(sizeof(double)*(numSteps+1));
     [fInvocation setArgument:&x atIndex:2];
     [fInvocation invoke];
     [fInvocation getReturnValue:&result[0]];
     
     NSLog(@"Result[0]: %f", result[0]);
-    for(int i = 1; i < numSteps; ++i){
+    for(int i = 1; i <= numSteps; ++i){
         x = i*h;
         //NSLog(@"X: %f",x);
         [fInvocation setArgument:&x atIndex:2];
@@ -93,7 +93,7 @@
         [kernelInvocation invoke];
         [kernelInvocation getReturnValue:&Kij];
         result[i] = (result[i]+s)/(1-lambda*h*Kij/2.);
-        NSLog(@"result[i]: %f",result[i]);
+        NSLog(@"result in %f: %f",i*h,result[i]);
     }
     return result;
 }

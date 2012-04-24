@@ -34,8 +34,13 @@ enum{
 -(void)clearGraphWithXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd;
 -(void)plotGraphWithXArray:(CGFloat*)xArray andYArray:(CGFloat*)yArray andNumPoints:(uint)numPoints;
 
-//test data
-
+//test data for Simpson
 -(double)sin:(double)x;
+
+//test data for Summ
+
+-(double)kernelWithX:(double)x andT:(double)t;
+-(double)fX:(double)x;
+-(double)solution:(double)x; 
 
 @end

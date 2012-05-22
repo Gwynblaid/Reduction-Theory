@@ -32,6 +32,12 @@ static double b = 0;
 -(CGPoint)transformCoordinate:(CGPoint)point;
 -(void)drawGraphWithParametr1:(float)parametr1 parametr2:(float)parametr2 countGraph:(uint)count andSelector:(SEL)selector;
 //-(void)drawGamma;
+
+
+-(double)normalizeSolution:(double)x;
+-(double)gammaSolution:(double)x;
+-(double)veibulSolution:(double)x;
+-(double)normilizeInt:(double)x;
 @end
 
 @implementation MyOpenGLView
@@ -211,16 +217,25 @@ static double eps = 0.00001;
 -(void)drawRect:(NSRect)dirtyRect{
     [self clearGraphWithXStart:0 xEnd:10 yStart:0 yEnd:10];
     //test
-    if(a == 0){
+    /*if(a == 0){
+        a = 1;
+        b = 1;
+        ProbalisticLow* gammaLow = [ProbalisticLow new];
+        gammaLow.f_m = @selector(getGammaDensityWithK:eta:andX:);
+        gammaLow.F = @selector(getGammaDestributionFunctionWithK:eta:andX:);
+        gammaLow.parametr1 = a;
+        gammaLow.parametr2 = b;
+        gammaLow.selectorClass = [ProbabilityDistribution class];
         double h = 0.0001, endPoint = 1;
         int numSteps = endPoint / h;
         NSString* resString = @"x: c - a\n";
-        double * chisRes = [MathMehods solveEquationVolteraWithKernel:@selector(kernelWithX:andT:) f:@selector(fX:) selectorTarget:self isStatic:NO withEndPoint:endPoint lambda:1 andStep:h];
+        double * chisRes = [MathMehods solveEquationVolteraWithKernel:@selector(getfWithX:andT:) f:@selector(getFWithX:) selectorTarget:gammaLow
+                                                             isStatic:NO withEndPoint:endPoint lambda:1 andStep:h];
         for(int i = 0; i <= numSteps; ++i){
             resString = [resString stringByAppendingFormat:@"%f: %f - %f\n",i*h,chisRes[i],[self solution:i*h]];
         }
         [resString writeToFile:@"result" atomically:YES encoding:NSUTF8StringEncoding error:nil];
-    }
+    }*/
 }
 
 -(void)clearGraphWithXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd{
@@ -323,13 +338,24 @@ static double eps = 0.00001;
     low.parametr1 = parametr1;
     low.parametr2 = parametr2;
     //TestData* testData = [[TestData alloc] init];
-    CGFloat* y = [MathMehods solveEquationVolteraWithKernel:@selector(getfWithX:andT:) f:@selector(getFWithX:) selectorTarget:low
-                                                   isStatic:NO withEndPoint:max_x lambda:1 andStep:del];
+    CGFloat* z = [MathMehods solveEquationVolteraWithKernel:@selector(getfWithX:andT:) f:@selector(getFWithX:) selectorTarget:low
+                                                isStatic:NO withEndPoint:max_x lambda:1 andStep:del];
+    a = parametr2;
     CGFloat* x = new CGFloat[int(max_x/del)];
+    CGFloat* y = new CGFloat[int(max_x/del)];
     for(int i = 0; i < int(max_x/del); ++i){
         x[i] = i*del;
+        y[i] = [self solution:x[i]];
     }
-    [self plotGraphWithXArray:x andYArray:y andNumPoints:int(max_x/del)];
+    MyGLColor* color = new MyGLColor;
+    color -> red = 1;
+    color -> green = 0;
+    color -> blue = 0;
+    [self plotGraphWithXArray:x andYArray:y andNumPoints:int(max_x/del) withColor:*color];
+    color ->blue = 1;
+    [self plotGraphWithXArray:x andYArray:z andNumPoints:int(max_x/del) withColor:*color];
+    
+    
     
     if(_writeToFile){
         NSError* err = nil;
@@ -340,8 +366,8 @@ static double eps = 0.00001;
     }
 }
 
--(void)plotGraphWithXArray:(CGFloat*)xArray andYArray:(CGFloat*)yArray andNumPoints:(uint)numPoints{
-    glColor3f(1, 0, 0);
+-(void)plotGraphWithXArray:(CGFloat*)xArray andYArray:(CGFloat*)yArray andNumPoints:(uint)numPoints withColor:(struct MyGLColor)color{
+    glColor3f(color.red, color.green, color.blue);
     glBegin(GL_LINE_STRIP);
     for(uint i = 0; i < numPoints; ++i){
         CGPoint pt = [self transformCoordinate:CGPointMake(xArray[i], yArray[i])];
@@ -354,8 +380,38 @@ static double eps = 0.00001;
 #pragma mark - 
 #pragma mark TestDataSimpson
 
--(double)sin:(double)x{
-    return sin(a - x) * x;
+-(double)testFun:(double)x{
+    /*double m = a;
+    double sigma = k;
+    return exp(-pow(x-k*m, 2)/(2*sigma))/(sqrt(2*M_PI*sigma));*/
+    return [self normalizeSolution:x];
+}
+
+-(double)normilizeInt:(double)x{
+    return exp(-x*x/2) * (1. / sqrt(2. * M_PI));
+}
+
+-(double)normalizeSolution:(double)x{
+    int k = 1;
+    return 0;
+    double m = a;
+    double S = 0;
+    double pr = [MathMehods simpsonFromFunction:@selector(normilizeInt:) selectorTarget:self isStatic:NO withBorder:CGPointMake(0, (x - k * m) / sqrt(k)) andHalfNumSteps:100000];
+    
+    while (pr > eps) {
+        S+=pr;
+        ++k;
+        pr = [MathMehods simpsonFromFunction:@selector(normilizeInt:) selectorTarget:self isStatic:NO withBorder:CGPointMake(0, (x - k * m) / sqrt(k)) andHalfNumSteps:100000];
+    }
+    return S;
+}
+
+-(double)gammaSolution:(double)x{
+    
+}
+
+-(double)veibulSolution:(double)x{
+    
 }
 
 #pragma mark - 
@@ -370,8 +426,7 @@ static double eps = 0.00001;
 }
 
 -(double)solution:(double)x{
-    a = x;
-    return x-1./sqrt(2.)*[MathMehods simpsonFromFunction:@selector(sin:) selectorTarget:self isStatic:NO withBorder:CGPointMake(0, a) andHalfNumSteps:100000];
+    return [self normalizeSolution:x];
 }
 
 @end

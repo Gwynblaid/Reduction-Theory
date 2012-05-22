@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F98A2D24147993640062B0A0 /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F98A2D22147993640062B0A0 /* libfreetype.a */; };
 		F98A2D25147993640062B0A0 /* libftgl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F98A2D23147993640062B0A0 /* libftgl.a */; };
+		F98FBA1C156B21AD00C672AD /* CoefficientsOfPreparing.m in Sources */ = {isa = PBXBuildFile; fileRef = F98FBA1B156B21AD00C672AD /* CoefficientsOfPreparing.m */; };
 		F9903DFD14782C4F00AE739A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9903DFC14782C4F00AE739A /* Cocoa.framework */; };
 		F9903E0714782C4F00AE739A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9903E0514782C4F00AE739A /* InfoPlist.strings */; };
 		F9903E0914782C4F00AE739A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F9903E0814782C4F00AE739A /* main.m */; };
@@ -32,6 +33,8 @@
 /* Begin PBXFileReference section */
 		F98A2D22147993640062B0A0 /* libfreetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfreetype.a; path = ../../../../../usr/local/lib/libfreetype.a; sourceTree = "<group>"; };
 		F98A2D23147993640062B0A0 /* libftgl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libftgl.a; path = ../../../../../usr/local/lib/libftgl.a; sourceTree = "<group>"; };
+		F98FBA1A156B21AD00C672AD /* CoefficientsOfPreparing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoefficientsOfPreparing.h; sourceTree = "<group>"; };
+		F98FBA1B156B21AD00C672AD /* CoefficientsOfPreparing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoefficientsOfPreparing.m; sourceTree = "<group>"; };
 		F9903DF814782C4F00AE739A /* GoldenTriangle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldenTriangle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9903DFC14782C4F00AE739A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F9903DFF14782C4F00AE739A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -154,6 +157,8 @@
 				F999D46E148BC70600B8D105 /* CheckNumberFormatter.m */,
 				F9E9E2B71497CBC100791C1D /* MathMehods.h */,
 				F9E9E2B81497CBC100791C1D /* MathMehods.m */,
+				F98FBA1A156B21AD00C672AD /* CoefficientsOfPreparing.h */,
+				F98FBA1B156B21AD00C672AD /* CoefficientsOfPreparing.m */,
 			);
 			path = GoldenTriangle;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 				F9E9E2B91497CBC100791C1D /* MathMehods.m in Sources */,
 				F9CFDB9B149DEF3C0089C072 /* ProbalisticLow.m in Sources */,
 				F995595B14BB840B00AA1E13 /* TestData.m in Sources */,
+				F98FBA1C156B21AD00C672AD /* CoefficientsOfPreparing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

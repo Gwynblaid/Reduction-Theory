@@ -145,4 +145,36 @@
     return res*(h/3.);
 }
 
++(double)fluctionFromFunction:(SEL)fun selectorTarget:(id)selTarget isStatic:(BOOL)isStatic withParametr:(double)x{
+    NSInvocation* funInvocation = nil;
+    NSMethodSignature* funSig = nil;
+    if(isStatic){
+        Method method = class_getClassMethod(selTarget, fun);
+        struct objc_method_description* description = method_getDescription(method);
+        if(description == NULL || description -> name == NULL){
+            NSLog(@"Error: can't create description");
+            return 0;
+        }
+        funSig = [NSMethodSignature signatureWithObjCTypes:description->types];
+    }else{
+        funSig = [selTarget methodSignatureForSelector:fun];
+    }
+    funInvocation = [NSInvocation invocationWithMethodSignature:funSig];
+    [funInvocation setSelector:fun];
+    [funInvocation setTarget:selTarget];
+    double h = 0.0000000001;
+    double xe = x + h;
+    double xs = x;
+    
+    [funInvocation setArgument:&xe atIndex:2];
+    [funInvocation invoke];
+    [funInvocation getReturnValue:&xe];
+    
+    [funInvocation setArgument:&xs atIndex:2];
+    [funInvocation invoke];
+    [funInvocation getReturnValue:&xs];
+    
+    return (xe - xs)/h;
+}
+
 @end

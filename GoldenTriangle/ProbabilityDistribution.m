@@ -87,6 +87,7 @@ static const double eps = 0.0000001;
 +(double)getGammaDensityWithK:(double)k eta:(double)eta andX:(double)x{
     if(x<0)return 0;
     return pow(x, k-1)*exp(-x/eta)/(pow(eta, k)*gamma(k));
+    //return pow(k, eta)*pow(x, eta -1) * exp(-k * x) / gamma(eta);
 }
 
 +(double)getNormalyzeDensityWithM:(double)m sigma:(double)sigma andX:(double)x{

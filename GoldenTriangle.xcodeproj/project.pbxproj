@@ -18,6 +18,7 @@
 		F9903E1314782C4F00AE739A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F9903E1114782C4F00AE739A /* MainMenu.xib */; };
 		F9903E1D14782CC700AE739A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9903E1B14782CB800AE739A /* OpenGL.framework */; };
 		F9903E2014782CFE00AE739A /* MyOpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F9903E1F14782CFE00AE739A /* MyOpenGLView.mm */; };
+		F990C6551572F339000BB8E0 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F990C6541572F339000BB8E0 /* CustomTextField.m */; };
 		F992441F147943DD00049E8E /* MatrixOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F992441E147943DD00049E8E /* MatrixOperation.m */; };
 		F99365CC148253BF0059EACA /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = F99365CB148253BF0059EACA /* AppController.m */; };
 		F9941F1614950A4000851A8F /* libobjc.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F9941F1514950A4000851A8F /* libobjc.A.dylib */; };
@@ -51,6 +52,8 @@
 		F9903E1B14782CB800AE739A /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		F9903E1E14782CFE00AE739A /* MyOpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOpenGLView.h; sourceTree = "<group>"; };
 		F9903E1F14782CFE00AE739A /* MyOpenGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MyOpenGLView.mm; sourceTree = "<group>"; };
+		F990C6531572F339000BB8E0 /* CustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextField.h; sourceTree = "<group>"; };
+		F990C6541572F339000BB8E0 /* CustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTextField.m; sourceTree = "<group>"; };
 		F992441D147943DD00049E8E /* MatrixOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatrixOperation.h; sourceTree = "<group>"; };
 		F992441E147943DD00049E8E /* MatrixOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatrixOperation.m; sourceTree = "<group>"; };
 		F99365CA148253BF0059EACA /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 				F9E9E2B81497CBC100791C1D /* MathMehods.m */,
 				F98FBA1A156B21AD00C672AD /* CoefficientsOfPreparing.h */,
 				F98FBA1B156B21AD00C672AD /* CoefficientsOfPreparing.m */,
+				F990C6531572F339000BB8E0 /* CustomTextField.h */,
+				F990C6541572F339000BB8E0 /* CustomTextField.m */,
 			);
 			path = GoldenTriangle;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				F9CFDB9B149DEF3C0089C072 /* ProbalisticLow.m in Sources */,
 				F995595B14BB840B00AA1E13 /* TestData.m in Sources */,
 				F98FBA1C156B21AD00C672AD /* CoefficientsOfPreparing.m in Sources */,
+				F990C6551572F339000BB8E0 /* CustomTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

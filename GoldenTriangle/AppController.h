@@ -8,11 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+#import "CustomTextField.h"
+
 @class MyOpenGLView;
 @class StepperController;
 @class CoefficientsOfPreparing;
 
-@interface AppController : NSObject<NSComboBoxDelegate>{
+@interface AppController : NSObject<NSComboBoxDelegate, NSTextFieldDelegate>{
+    
+    NSView* _mainWindow;
+    
     MyOpenGLView* _graphView;
     StepperController* _numGraphsStepperController;
     NSComboBox* _selectedGraph;
@@ -29,6 +34,8 @@
     NSTextField* _parametrT;
     
 }
+
+@property (retain) IBOutlet NSView* mainWindow;
 
 @property (retain) IBOutlet MyOpenGLView* graphView;
 @property (retain) IBOutlet StepperController* numGraphsStepperController;

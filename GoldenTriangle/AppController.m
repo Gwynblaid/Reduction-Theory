@@ -27,6 +27,7 @@
 @synthesize calculationCoeffModule = _calculationCoeffModule;
 @synthesize parametrT = _parametrT;
 @synthesize parametrX = _parametrX;
+@synthesize mainWindow = _mainWindow;
 
 - (id)init
 {
@@ -99,7 +100,6 @@
 }
 
 -(IBAction) clickWriteToFileCheckBox:(id)sender{
-    NSLog(@"%d",_writeToFileCheckBox.state);
     [self.fileNameTextField setHidden:!self.writeToFileCheckBox.state];
 }
 
@@ -169,5 +169,10 @@
     NSLog(@"Result of calculations: %f", [self.calculationCoeffModule calculateNonstationaryAvailabilityFactorWithT:[self.parametrT doubleValue]]);
     
 }
+
+-(void)controlTextDidEndEditing:(NSNotification *)obj{
+    [self.mainWindow.window makeFirstResponder:self.mainWindow];
+}
+
 
 @end

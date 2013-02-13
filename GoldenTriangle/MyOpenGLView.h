@@ -35,7 +35,7 @@ struct MyGLColor{
 }
 
 @property (assign) BOOL writeToFile;
-@property (retain) NSString* fileName;
+@property (retain, nonatomic) NSString* fileName;
 
 -(void)drawGrawWithGraphType:(ushort)  graphType andGraphCount:(uint)graphCount withParameter1:(float)parametr1 andParametr2:(float)parametr2;
 -(void)clearGraphWithXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd;

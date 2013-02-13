@@ -26,9 +26,9 @@
 
 @property (assign) double parametr1;
 @property (assign) double parametr2;
-@property (assign) Class selectorClass;
-@property (assign) SEL F;
-@property (assign) SEL f_m;
+@property (assign, nonatomic) Class selectorClass;
+@property (assign, nonatomic) SEL F;
+@property (assign, nonatomic) SEL f_m;
 @property (retain) ProbalisticLow* lowG;
 @property (assign) double sm;
 

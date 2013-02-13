@@ -9,6 +9,13 @@
 #ifndef GoldenTriangle_MathFunctions_h
 #define GoldenTriangle_MathFunctions_h
 
+#include <math.h>
+
+int sign(float dig);
+double sh(double x);
+double ch(double x);
+
+
 int sign(float dig){
     if(dig < 0)
         return -1;
@@ -24,5 +31,6 @@ double sh(double x){
 double ch(double x){
     return (exp(x) + exp(-x)) / 2.;
 }
+
 
 #endif

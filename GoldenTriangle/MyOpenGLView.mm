@@ -21,8 +21,6 @@
 #import "CoefficientsOfPreparing.h"
 
 static double a = 0;
-static double k = 0;
-static double b = 0;
 
 @interface MyOpenGLView()
 -(void)draw2DCoordinatesXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd;
@@ -35,15 +33,12 @@ static double b = 0;
 //-(void)drawGamma;
 
 -(double)normalizeSolution:(double)x;
--(double)gammaSolution:(double)x;
--(double)veibulSolution:(double)x;
 -(double)normilizeInt:(double)x;
 @end
 
 @implementation MyOpenGLView
 
 @synthesize writeToFile = _writeToFile;
-@synthesize fileName = _fileName;
 
 static CGFloat step_delta = 1.9/11.0;
 
@@ -421,14 +416,6 @@ static double eps = 0.00001;
         pr = [MathMehods simpsonFromFunction:@selector(normilizeInt:) selectorTarget:self isStatic:NO withBorder:CGPointMake(0, (x - k * m) / sqrt(k)) andHalfNumSteps:100000];
     }
     return S;
-}
-
--(double)gammaSolution:(double)x{
-    
-}
-
--(double)veibulSolution:(double)x{
-    
 }
 
 #pragma mark - 

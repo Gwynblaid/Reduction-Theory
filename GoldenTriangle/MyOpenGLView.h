@@ -21,6 +21,7 @@ struct MyGLColor{
 };
 
 @class ProbalisticLow;
+@class CoefficientsOfPreparing;
 
 @interface MyOpenGLView : NSOpenGLView{
     
@@ -39,6 +40,7 @@ struct MyGLColor{
 -(void)drawGrawWithGraphType:(ushort)  graphType andGraphCount:(uint)graphCount withParameter1:(float)parametr1 andParametr2:(float)parametr2;
 -(void)clearGraphWithXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd;
 -(void)plotGraphWithXArray:(CGFloat*)xArray andYArray:(CGFloat*)yArray andNumPoints:(uint)numPoints withColor:(struct MyGLColor)color;
+-(void)drawGraphForCoefficient:(CoefficientsOfPreparing *)coefData andEndingT:(double)t;
 
 //test data for Simpson
 -(double)testFun:(double)x;

@@ -9,6 +9,7 @@
 #import "ProbalisticLow.h"
 #import  <objc/objc.h>
 #import  <objc/Object.h>
+#import "MathMehods.h"
 
 @implementation ProbalisticLow
 @synthesize parametr1 = _parametr1;
@@ -16,6 +17,8 @@
 @synthesize f_m = _f;
 @synthesize F = _F;
 @synthesize selectorClass = _selectorClass;
+@synthesize lowG = _lowG;
+@synthesize sm = _sm;
 
 -(void)setF:(SEL)F{
     _F = F;
@@ -79,9 +82,15 @@
     self = [super init];
     if (self) {
         // Initialization code here.
+        lastRes = 0;
+        lastPoint = 0;
     }
     
     return self;
+}
+
+-(double)getFWithLineFrom:(double)x{
+    return 1 - [self getFWithX:x];
 }
 
 -(double)getFWithX:(double)x{
@@ -91,6 +100,7 @@
     [_FInvocation setArgument:&x atIndex:4];
     [_FInvocation invoke];
     [_FInvocation getReturnValue:&result];
+    if(result > 1) return 1;
     return result;
 }
 
@@ -110,6 +120,22 @@
 
 -(double)getfWithX:(double)x andT:(double)t{
     return [self getfWithX:(x-t)];
+}
+
+-(double)getfdg:(double)x{
+    //2double dg = [MathMehods fluctionFromFunction:@selector(getfWithX:) selectorTarget:self.lowG isStatic:NO withParametr:x];
+    return [self getfWithX:s - x] * [self.lowG getfWithX:x];// [self.lowG getfWithX:x];
+}
+
+-(double)getfdgWithX:(double)x andT:(double)t{
+    s = x - t; 
+    return [MathMehods simpsonFromFunction:@selector(getfdg:) selectorTarget:self isStatic:NO withBorder:CGPointMake(0, s) andHalfNumSteps:500];
+    return lastRes;
+}
+
+-(double)getsmF:(double)x{
+    double F = [self getFWithX:(self.sm + x)];
+    return 1 - F;
 }
 
 @end

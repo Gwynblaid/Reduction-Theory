@@ -10,6 +10,7 @@
 #import "ProbalisticLow.h"
 #import "MathMehods.h"
 
+const double eps = 0.0001;
 
 @interface CoefficientsOfPreparing()
 //additional functions
@@ -19,6 +20,8 @@
 -(double)complexFunctionFxG:(double)x;
 -(double)intComplexFunction:(double)x;
 -(double)kernelWithX:(double)x andT:(double)t;
+-(void)getNu;
+-(void)getMu;
 @end
 
 @implementation CoefficientsOfPreparing
@@ -27,44 +30,78 @@
 @synthesize FLow = _FLow;
 @synthesize x = _parametrX;
 @synthesize t = _parametrT;
+@synthesize step = _step;
+
+-(void)getNu{
+    if(nu >= 0) return;
+    double rightBorder = 2;
+    while ([self.FLow getFWithLineFrom:rightBorder] > eps) {
+        rightBorder*=2;
+    }
+    NSLog(@"%f",rightBorder);
+    nu = [MathMehods simpsonFromFunction:@selector(getFWithLineFrom:) selectorTarget:self.FLow isStatic:NO withBorder:CGPointMake(0, rightBorder) andHalfNumSteps:500];
+}
+
+-(void)getMu{
+    if(mu >= 0) return;
+    double rightBorder = 2;
+    while ([self.GLow getFWithLineFrom:rightBorder] > eps) {
+        rightBorder*=2;
+    }
+    NSLog(@"%f",rightBorder);
+    mu =  [MathMehods simpsonFromFunction:@selector(getFWithLineFrom:) selectorTarget:self.GLow isStatic:NO withBorder:CGPointMake(0, rightBorder) andHalfNumSteps:500];
+}
 
 - (id)init
 {
     self = [super init];
     if (self) {
         // Initialization code here.
+        nu = -1;
+        mu = -1;
+        _step = 0.01;
     }
     
     return self;
 }
 
 // нестационарный коэффициент готовности
--(double)calculateNonstationaryAvailabilityFactorWithT:(double)t{
+-(double *)calculateNonstationaryAvailabilityFactorWithT:(double)t{
     self.t = t;
-    return 1 - [self.FLow getFWithX:(self.x + t)] + [MathMehods simpsonFromFunction:@selector(intToNonestationary:) selectorTarget:self isStatic:NO withBorder:CGPointMake(0, t) andHalfNumSteps:100000];
+    self.FLow.lowG = self.GLow;
+    self.FLow.sm  = self.x;
+    
+    return [MathMehods solveEquationVolteraWithKernel:@selector(getfdgWithX:andT:) f:@selector(getsmF:) selectorTarget:self.FLow isStatic:NO withEndPoint:t lambda:1 andStep:self.step];
 }
 
 //  нестационарный оперативный коэффициент готовности
--(double)calculateNonstationaryOpperativeAvailabilityFactorWithT:(double)t{
-    double temp_x = self.x;
+-(double * )calculateNonstationaryOpperativeAvailabilityFactorWithT:(double)t{
+    /*double temp_x = self.x;
     self.x = 0;
     double res = [self calculateNonstationaryAvailabilityFactorWithT:t];
-    self.x = temp_x;
-    return res;
+    self.x = temp_x;*/
+    return nil;
 }
 
 // стационарный коэффициент готовности
 -(double)calculateStationaryAvailabilityFactorWithT:(double)t{
-    return 0; 
+    
+    double rightBorder = 2;
+    while ([self.FLow getFWithLineFrom:rightBorder] > eps) {
+        rightBorder*=2;
+    }
+    NSLog(@"%f",rightBorder);
+    double chis =  [MathMehods simpsonFromFunction:@selector(getFWithLineFrom:) selectorTarget:self.FLow isStatic:NO withBorder:CGPointMake(t, rightBorder) andHalfNumSteps:500];
+    [self getNu];
+    [self getMu];
+    return chis/(nu + mu); 
 }
 
 //  стационарный оперативный коэффициент готовности
 -(double)calculateStationaryOpperativeAvailabilityFactorWithT:(double)t{
-    double temp_x = self.x;
-    self.x = 0;
-    double res = [self calculateStationaryAvailabilityFactorWithT:t];
-    self.x = temp_x;
-    return res;
+    [self getNu];
+    [self getMu];
+    return nu/(nu + mu);
 }
 
 //private methods

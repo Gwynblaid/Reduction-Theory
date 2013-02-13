@@ -10,6 +10,7 @@
 		F98A2D24147993640062B0A0 /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F98A2D22147993640062B0A0 /* libfreetype.a */; };
 		F98A2D25147993640062B0A0 /* libftgl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F98A2D23147993640062B0A0 /* libftgl.a */; };
 		F98FBA1C156B21AD00C672AD /* CoefficientsOfPreparing.m in Sources */ = {isa = PBXBuildFile; fileRef = F98FBA1B156B21AD00C672AD /* CoefficientsOfPreparing.m */; };
+		F98FDD471592D37500C904BC /* Gamma.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F98FDD451592D37500C904BC /* Gamma.cpp */; };
 		F9903DFD14782C4F00AE739A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9903DFC14782C4F00AE739A /* Cocoa.framework */; };
 		F9903E0714782C4F00AE739A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F9903E0514782C4F00AE739A /* InfoPlist.strings */; };
 		F9903E0914782C4F00AE739A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F9903E0814782C4F00AE739A /* main.m */; };
@@ -24,7 +25,7 @@
 		F9941F1614950A4000851A8F /* libobjc.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F9941F1514950A4000851A8F /* libobjc.A.dylib */; };
 		F995595B14BB840B00AA1E13 /* TestData.m in Sources */ = {isa = PBXBuildFile; fileRef = F995595A14BB840B00AA1E13 /* TestData.m */; };
 		F999D46F148BC70600B8D105 /* CheckNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F999D46E148BC70600B8D105 /* CheckNumberFormatter.m */; };
-		F9B407AB14816A60003E9C95 /* ProbabilityDistribution.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B407AA14816A60003E9C95 /* ProbabilityDistribution.m */; };
+		F9B407AB14816A60003E9C95 /* ProbabilityDistribution.mm in Sources */ = {isa = PBXBuildFile; fileRef = F9B407AA14816A60003E9C95 /* ProbabilityDistribution.mm */; };
 		F9CB191D14829B08005B81C2 /* ObjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB191C14829B08005B81C2 /* ObjectController.m */; };
 		F9CB19211482A5B7005B81C2 /* StepperController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CB19201482A5B7005B81C2 /* StepperController.m */; };
 		F9CFDB9B149DEF3C0089C072 /* ProbalisticLow.m in Sources */ = {isa = PBXBuildFile; fileRef = F9CFDB9A149DEF3C0089C072 /* ProbalisticLow.m */; };
@@ -36,6 +37,8 @@
 		F98A2D23147993640062B0A0 /* libftgl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libftgl.a; path = ../../../../../usr/local/lib/libftgl.a; sourceTree = "<group>"; };
 		F98FBA1A156B21AD00C672AD /* CoefficientsOfPreparing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoefficientsOfPreparing.h; sourceTree = "<group>"; };
 		F98FBA1B156B21AD00C672AD /* CoefficientsOfPreparing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoefficientsOfPreparing.m; sourceTree = "<group>"; };
+		F98FDD451592D37500C904BC /* Gamma.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gamma.cpp; sourceTree = "<group>"; };
+		F98FDD461592D37500C904BC /* Gamma.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gamma.h; sourceTree = "<group>"; };
 		F9903DF814782C4F00AE739A /* GoldenTriangle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoldenTriangle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9903DFC14782C4F00AE739A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F9903DFF14782C4F00AE739A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -65,7 +68,7 @@
 		F999D46E148BC70600B8D105 /* CheckNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckNumberFormatter.m; sourceTree = "<group>"; };
 		F99D90C7147ADFF900D24799 /* MathFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathFunctions.h; sourceTree = "<group>"; };
 		F9B407A914816A60003E9C95 /* ProbabilityDistribution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProbabilityDistribution.h; sourceTree = "<group>"; };
-		F9B407AA14816A60003E9C95 /* ProbabilityDistribution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProbabilityDistribution.m; sourceTree = "<group>"; };
+		F9B407AA14816A60003E9C95 /* ProbabilityDistribution.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ProbabilityDistribution.mm; sourceTree = "<group>"; };
 		F9CB191B14829B08005B81C2 /* ObjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectController.h; sourceTree = "<group>"; };
 		F9CB191C14829B08005B81C2 /* ObjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectController.m; sourceTree = "<group>"; };
 		F9CB191F1482A5B7005B81C2 /* StepperController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepperController.h; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 				F99D90C7147ADFF900D24799 /* MathFunctions.h */,
 				F9903E0E14782C4F00AE739A /* GoldenTriangleAppDelegate.h */,
 				F9903E0F14782C4F00AE739A /* GoldenTriangleAppDelegate.m */,
+				F98FDD451592D37500C904BC /* Gamma.cpp */,
+				F98FDD461592D37500C904BC /* Gamma.h */,
 				F9903E1114782C4F00AE739A /* MainMenu.xib */,
 				F9903E0314782C4F00AE739A /* Supporting Files */,
 				F9903E1E14782CFE00AE739A /* MyOpenGLView.h */,
@@ -149,7 +154,7 @@
 				F992441D147943DD00049E8E /* MatrixOperation.h */,
 				F992441E147943DD00049E8E /* MatrixOperation.m */,
 				F9B407A914816A60003E9C95 /* ProbabilityDistribution.h */,
-				F9B407AA14816A60003E9C95 /* ProbabilityDistribution.m */,
+				F9B407AA14816A60003E9C95 /* ProbabilityDistribution.mm */,
 				F99365CA148253BF0059EACA /* AppController.h */,
 				F99365CB148253BF0059EACA /* AppController.m */,
 				F9CB191F1482A5B7005B81C2 /* StepperController.h */,
@@ -183,9 +188,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F9903DF714782C4F00AE739A /* GoldenTriangle */ = {
+		F9903DF714782C4F00AE739A /* Reduction Theory */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F9903E1614782C4F00AE739A /* Build configuration list for PBXNativeTarget "GoldenTriangle" */;
+			buildConfigurationList = F9903E1614782C4F00AE739A /* Build configuration list for PBXNativeTarget "Reduction Theory" */;
 			buildPhases = (
 				F9903DF414782C4F00AE739A /* Sources */,
 				F9903DF514782C4F00AE739A /* Frameworks */,
@@ -195,7 +200,7 @@
 			);
 			dependencies = (
 			);
-			name = GoldenTriangle;
+			name = "Reduction Theory";
 			productName = GoldenTriangle;
 			productReference = F9903DF814782C4F00AE739A /* GoldenTriangle.app */;
 			productType = "com.apple.product-type.application";
@@ -217,7 +222,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F9903DF714782C4F00AE739A /* GoldenTriangle */,
+				F9903DF714782C4F00AE739A /* Reduction Theory */,
 			);
 		};
 /* End PBXProject section */
@@ -244,7 +249,7 @@
 				F9903E1014782C4F00AE739A /* GoldenTriangleAppDelegate.m in Sources */,
 				F9903E2014782CFE00AE739A /* MyOpenGLView.mm in Sources */,
 				F992441F147943DD00049E8E /* MatrixOperation.m in Sources */,
-				F9B407AB14816A60003E9C95 /* ProbabilityDistribution.m in Sources */,
+				F9B407AB14816A60003E9C95 /* ProbabilityDistribution.mm in Sources */,
 				F99365CC148253BF0059EACA /* AppController.m in Sources */,
 				F9CB191D14829B08005B81C2 /* ObjectController.m in Sources */,
 				F9CB19211482A5B7005B81C2 /* StepperController.m in Sources */,
@@ -254,6 +259,7 @@
 				F995595B14BB840B00AA1E13 /* TestData.m in Sources */,
 				F98FBA1C156B21AD00C672AD /* CoefficientsOfPreparing.m in Sources */,
 				F990C6551572F339000BB8E0 /* CustomTextField.m in Sources */,
+				F98FDD471592D37500C904BC /* Gamma.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,7 +403,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F9903E1614782C4F00AE739A /* Build configuration list for PBXNativeTarget "GoldenTriangle" */ = {
+		F9903E1614782C4F00AE739A /* Build configuration list for PBXNativeTarget "Reduction Theory" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F9903E1714782C4F00AE739A /* Debug */,

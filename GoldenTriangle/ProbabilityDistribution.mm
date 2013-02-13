@@ -9,6 +9,7 @@
 #import "ProbabilityDistribution.h"
 #import "ProbalisticLow.h"
 #import "MathMehods.h"
+#import "Gamma.h"
 
 static const double eps = 0.0000001;
 
@@ -28,7 +29,7 @@ static const double eps = 0.0000001;
 #pragma mark destribution
 
 +(CGFloat*)getGammaLowDistributionWithK:(float)k eta:(float)eta andNumOfElements:(uint)numElements{
-    CGFloat* result = malloc(sizeof(CGFloat)*numElements);
+    CGFloat* result = new CGFloat[numElements];
     
     int k_int = (int)k;
     
@@ -38,6 +39,9 @@ static const double eps = 0.0000001;
             double x = (double)(rand()%10000+1)/10000.0;
             result[i]-=logf(x);
         }
+        NSLog(@"%f",result[i]);
+        result[i]*=(1./eta);
+        NSLog(@"%f",result[i]);
     }
     
     if(k-k_int>eps){
@@ -65,7 +69,7 @@ static const double eps = 0.0000001;
 }
 
 +(CGFloat*)getNormalyzeLowDistributionWithM:(float)m andSigma:(float)sigma andNumElements:(uint)numElements{
-    CGFloat* result = malloc(sizeof(CGFloat)*numElements);
+    CGFloat* result = new CGFloat[numElements];
     for(uint i = 0; i < numElements; ++i){
         result[i] = m+(cos(2*M_PI*((rand()%10000+1)/10000.))*sqrtf(-2*log((rand()%10000+1)/10000.)))*sigma;
     }
@@ -73,7 +77,7 @@ static const double eps = 0.0000001;
 }
 
 +(CGFloat*)getVeibulLowDistributionWithK:(float)k andLambda:(float)lambda andNumElements:(uint)numElements{
-    CGFloat* result = malloc(sizeof(CGFloat)*numElements);
+    CGFloat* result =  new CGFloat[numElements];
     for(uint i = 0; i < numElements; ++i){
         result[i] = lambda*powf(fabsf(logf(1-(rand()%10000+1)/10000.)),1./k);
     }
@@ -86,7 +90,7 @@ static const double eps = 0.0000001;
 
 +(double)getGammaDensityWithK:(double)k eta:(double)eta andX:(double)x{
     if(x<0)return 0;
-    return pow(x, k-1)*exp(-x/eta)/(pow(eta, k)*gamma(k));
+    return pow(x, k-1)*exp(-x/eta)/(pow(eta, k)*Gamma(k));
     //return pow(k, eta)*pow(x, eta -1) * exp(-k * x) / gamma(eta);
 }
 
@@ -96,7 +100,7 @@ static const double eps = 0.0000001;
 
 +(double)getVeibulDensity:(double)k lambda:(double)lambda andX:(double)x{
     if(x<0)return 0;
-    double res = (k/lambda)*pow(x/lambda, k-1)*exp(-x/lambda);
+    double res = (k/lambda)*pow(x/lambda, k-1)*exp(-pow(x/lambda,k));
     return res;
 }
 
@@ -106,7 +110,7 @@ static const double eps = 0.0000001;
     low.parametr1 = k;
     low.parametr2 = eta;
     low.selectorClass = [ProbabilityDistribution class];
-    return [MathMehods simpsonFromFunction:@selector(getfWithX:) selectorTarget:low isStatic:NO withBorder:CGPointMake(0.0, x) andHalfNumSteps:10000];
+    return [MathMehods simpsonFromFunction:@selector(getfWithX:) selectorTarget:low isStatic:NO withBorder:CGPointMake(0.0, x) andHalfNumSteps:5000];
 }
 
 +(double)getNormalyzeDestributionFunctionWithM:(double)m eta:(double)eta andX:(double)x{
@@ -115,7 +119,7 @@ static const double eps = 0.0000001;
     low.parametr1 = m;
     low.parametr2 = eta;
     low.selectorClass = [ProbabilityDistribution class];
-    return [MathMehods simpsonFromFunction:@selector(getfWithX:) selectorTarget:low isStatic:NO withBorder:CGPointMake(0.0, x) andHalfNumSteps:10000];
+    return [MathMehods simpsonFromFunction:@selector(getfWithX:) selectorTarget:low isStatic:NO withBorder:CGPointMake(0.0, x) andHalfNumSteps:5000];
 }
 
 +(double)getVeibulDestributionFunctionWithK:(double)k lambda:(double)lambda andX:(double)x{
@@ -124,7 +128,7 @@ static const double eps = 0.0000001;
     low.parametr1 = k;
     low.parametr2 = lambda;
     low.selectorClass = [ProbabilityDistribution class];
-    return [MathMehods simpsonFromFunction:@selector(getfWithX:) selectorTarget:low isStatic:NO withBorder:CGPointMake(0.0, x) andHalfNumSteps:10000];
+    return [MathMehods simpsonFromFunction:@selector(getfWithX:) selectorTarget:low isStatic:NO withBorder:CGPointMake(0.0, x) andHalfNumSteps:5000];
 }
 
 @end

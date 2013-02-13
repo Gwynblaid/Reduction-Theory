@@ -17,16 +17,19 @@
     double _parametrX;
     double _parametrT;
     double tempParametr;
-    
+    double mu;
+    double nu;
+    double _step;
 }
 
 @property (nonatomic, retain) ProbalisticLow* FLow;
 @property (nonatomic, retain) ProbalisticLow* GLow;
 @property (nonatomic, assign) double x;
 @property (nonatomic, assign) double t;
+@property (assign) double step;
 
--(double)calculateNonstationaryAvailabilityFactorWithT:(double)t; // нестационарный коэффициент готовности
--(double)calculateNonstationaryOpperativeAvailabilityFactorWithT:(double)t; //  нестационарный оперативный коэффициент готовности
+-(double *)calculateNonstationaryAvailabilityFactorWithT:(double)t; // нестационарный коэффициент готовности
+-(double *)calculateNonstationaryOpperativeAvailabilityFactorWithT:(double)t; //  нестационарный оперативный коэффициент готовности
 
 -(double)calculateStationaryAvailabilityFactorWithT:(double)t; // стационарный коэффициент готовности
 -(double)calculateStationaryOpperativeAvailabilityFactorWithT:(double)t; // стационарный оперативный коэффициент готовности

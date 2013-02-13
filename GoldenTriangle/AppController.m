@@ -28,6 +28,7 @@
 @synthesize parametrT = _parametrT;
 @synthesize parametrX = _parametrX;
 @synthesize mainWindow = _mainWindow;
+@synthesize graph2View = _graph2View;
 
 - (id)init
 {
@@ -166,7 +167,9 @@
     assert(![self.parametrX.stringValue isEqualToString:@""]);
     assert(![self.parametrT.stringValue isEqualToString:@""]);
     self.calculationCoeffModule.x = [self.parametrX doubleValue];
-    NSLog(@"Result of calculations: %f", [self.calculationCoeffModule calculateNonstationaryAvailabilityFactorWithT:[self.parametrT doubleValue]]);
+    //NSLog(@"Result of calculations: %f", [self.calculationCoeffModule calculateStationaryOpperativeAvailabilityFactorWithT:0]);
+    //NSLog(@"Result of calculations: %f", [self.calculationCoeffModule calculateStationaryAvailabilityFactorWithT:[self.parametrX.stringValue doubleValue]]);
+    [self.graph2View drawGraphForCoefficient:self.calculationCoeffModule andEndingT:[self.parametrT.stringValue doubleValue]];
     
 }
 

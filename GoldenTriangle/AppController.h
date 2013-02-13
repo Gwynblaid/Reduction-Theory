@@ -19,6 +19,7 @@
     NSView* _mainWindow;
     
     MyOpenGLView* _graphView;
+    MyOpenGLView* _graph2View;
     StepperController* _numGraphsStepperController;
     NSComboBox* _selectedGraph;
     NSComboBox* _selectedDistribution2;
@@ -38,6 +39,7 @@
 @property (retain) IBOutlet NSView* mainWindow;
 
 @property (retain) IBOutlet MyOpenGLView* graphView;
+@property (retain) IBOutlet MyOpenGLView* graph2View;
 @property (retain) IBOutlet StepperController* numGraphsStepperController;
 @property (retain) IBOutlet NSComboBox* selectedGraph;
 @property (retain) IBOutlet NSComboBox* selectedDistribution2;

@@ -18,6 +18,7 @@
 #import "ProbalisticLow.h"
 #import "MathMehods.h"
 #import "TestData.h"
+#import "CoefficientsOfPreparing.h"
 
 static double a = 0;
 static double k = 0;
@@ -32,7 +33,6 @@ static double b = 0;
 -(CGPoint)transformCoordinate:(CGPoint)point;
 -(void)drawGraphWithParametr1:(float)parametr1 parametr2:(float)parametr2 countGraph:(uint)count andSelector:(SEL)selector;
 //-(void)drawGamma;
-
 
 -(double)normalizeSolution:(double)x;
 -(double)gammaSolution:(double)x;
@@ -98,7 +98,7 @@ static double eps = 0.00001;
         if(delt> -0.8){
             glColor3f( 0.0, 0.0, 0.0);
             [self drawText:[NSString stringWithFormat:@"%1.1f",curr_x] inPoint:CGPointMake(delt-step_delta/6, -0.95) withFontSize:12];
-            [self drawText:[NSString stringWithFormat:@"%1.0f",curr_y] inPoint:CGPointMake(-0.97, delt) withFontSize:12];
+            [self drawText:[NSString stringWithFormat:@"%1.1f",curr_y] inPoint:CGPointMake(-0.97, delt) withFontSize:12];
         }
         curr_x+=delta_x;
         curr_y+=delta_y;
@@ -123,7 +123,7 @@ static double eps = 0.00001;
     [self drawArrowInPoint:CGPointMake(0.9, -0.9) withColor:color andAngle:0];
     glColor3f( 1.0, 0.0, 0.0);
     [self drawText:@"T" inPoint:CGPointMake(0.92, -0.9) withFontSize:20];
-    [self drawText:@"N(t)" inPoint:CGPointMake(-0.89, 0.89) withFontSize:20];
+    [self drawText:@"Kx" inPoint:CGPointMake(-0.89, 0.89) withFontSize:20];
     
 }
 
@@ -215,7 +215,7 @@ static double eps = 0.00001;
 }
 
 -(void)drawRect:(NSRect)dirtyRect{
-    [self clearGraphWithXStart:0 xEnd:10 yStart:0 yEnd:10];
+    //[self clearGraphWithXStart:0 xEnd:10 yStart:0 yEnd:10];
     //test
     /*if(a == 0){
         a = 1;
@@ -280,6 +280,24 @@ static double eps = 0.00001;
             return;
             break;
     }
+}
+
+-(void)drawGraphForCoefficient:(CoefficientsOfPreparing *)coefData andEndingT:(double)t{
+    //glColor3f(1.,0. , 0.);
+    [self clearGraphWithXStart:0 xEnd:t yStart:0 yEnd:1];
+    double h = coefData.step;
+    uint numStep = t/h + 1;
+    double* X = (double *)malloc(sizeof(double) * numStep);
+    for(int i = 0; i < numStep; ++i){
+        X[i] = i * h;
+    }
+    double* Y = [coefData calculateNonstationaryAvailabilityFactorWithT:t];
+    //glClear(GL_COLOR_BUFFER_BIT);
+    MyGLColor* color = new MyGLColor;
+    color -> red = 1;
+    color -> green = 0;
+    color -> blue = 0;
+    [self plotGraphWithXArray:X andYArray:Y andNumPoints:numStep withColor:*color];
 }
 
 -(void)drawGraphWithParametr1:(float)parametr1 parametr2:(float)parametr2 countGraph:(uint)count andSelector:(SEL)selector{
@@ -351,8 +369,7 @@ static double eps = 0.00001;
     color -> red = 1;
     color -> green = 0;
     color -> blue = 0;
-    [self plotGraphWithXArray:x andYArray:y andNumPoints:int(max_x/del) withColor:*color];
-    color ->blue = 1;
+    //[self plotGraphWithXArray:x andYArray:y andNumPoints:int(max_x/del) withColor:*color];
     [self plotGraphWithXArray:x andYArray:z andNumPoints:int(max_x/del) withColor:*color];
     
     

@@ -40,7 +40,7 @@ static const double eps = 0.0000001;
             result[i]-=logf(x);
         }
         NSLog(@"%f",result[i]);
-        result[i]*=(1./eta);
+        result[i]*=eta;
         NSLog(@"%f",result[i]);
     }
     
@@ -61,7 +61,7 @@ static const double eps = 0.0000001;
             }
             }while (ym>powf(xm, teta-1)*exp(-xm));
             result[m]+=xm;
-            result[m]/=eta;
+            //result[m]*=eta;
         }
     }
     

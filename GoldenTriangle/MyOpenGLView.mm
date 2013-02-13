@@ -119,7 +119,8 @@ static double eps = 0.00001;
     glColor3f( 1.0, 0.0, 0.0);
     [self drawText:@"T" inPoint:CGPointMake(0.92, -0.9) withFontSize:20];
     [self drawText:@"Kx" inPoint:CGPointMake(-0.89, 0.89) withFontSize:20];
-    
+    delete []color;
+    delete []colorDottedLines;
 }
 
 -(CGFloat)getStepInRange:(CGPoint)range{
@@ -136,6 +137,7 @@ static double eps = 0.00001;
             delta/=10;
         }
     }*/
+    
     return delta/10.0;
 }
 
@@ -196,6 +198,7 @@ static double eps = 0.00001;
     }
     glRasterPos2f( textPoint.x, textPoint.y); 
     font->Render( [text cStringUsingEncoding:NSUTF8StringEncoding] );
+    delete font;
 }
 
 
@@ -293,6 +296,9 @@ static double eps = 0.00001;
     color -> green = 0;
     color -> blue = 0;
     [self plotGraphWithXArray:X andYArray:Y andNumPoints:numStep withColor:*color];
+    delete color;
+    delete []X;
+    delete []Y;
 }
 
 -(void)drawGraphWithParametr1:(float)parametr1 parametr2:(float)parametr2 countGraph:(uint)count andSelector:(SEL)selector{
@@ -345,7 +351,10 @@ static double eps = 0.00001;
         glEnd();
     }
     glFlush();
-    
+    for (uint i = 0; i < count; ++i) {
+        delete [] sv_mat[i];
+    }
+    delete []sv_mat;
     const double del = 0.2;
     //solve IE
     low.parametr1 = parametr1;
@@ -366,7 +375,9 @@ static double eps = 0.00001;
     color -> blue = 0;
     //[self plotGraphWithXArray:x andYArray:y andNumPoints:int(max_x/del) withColor:*color];
     [self plotGraphWithXArray:x andYArray:z andNumPoints:int(max_x/del) withColor:*color];
-    
+    delete [] x;
+    delete [] y;
+    delete color;
     
     
     if(_writeToFile){

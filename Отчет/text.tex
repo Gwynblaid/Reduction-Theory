@@ -308,9 +308,9 @@ K(t) = \int_0^t \int_0^{t - x_1}\widehat{\omega}(x_1, x_2)) d x_2 d x_1, где
 
 {\bfseries \textit{Определение.}} Пусть $\{\tau_n\}$ - NHPP-процесс (неоднородный пуассоновский процесс) с интенсивностью $\lambda(t)$. Неоднородным гамма-процессом кратности $k$ называется процесс, образованный точками потока $\{\tau_{kn}\}$, т.е. точками $\tau_{k}, \tau_{2k}, \tau_{3k}, ...$
 
-Предположим что наблюдается каждое $k-ое$ событие и каждое $k-ое$ событие есть ударная точка, т.е. отказ происходит только при возникновении каждого $k-ого$ события. Таким образом IGP является практически разреженным NHPP-процессом, от которого остается каждая $k-ая$ точка.
+Предположим что наблюдается каждое $k$-ое событие и каждое $k$-ое событие есть ударная точка, т.е. отказ происходит только при возникновении каждого $k$-ого события. Таким образом IGP является практически разреженным NHPP-процессом, от которого остается каждая $k-ая$ точка.
 
-Если $\tau_1 < \tau_2 < ... < \tau_n$ - времена первых $n - отказов$  IGP, то их совместная плотность распределения определяется следующим образом:
+Если $\tau_1 < \tau_2 < ... < \tau_n$ - времена первых $n $- отказов  IGP, то их совместная плотность распределения определяется следующим образом:
 \begin{equation}
 f_{\tau_1,..,\tau_n}(t_1, ..., t_n) = [\prod_{i=1}^n \lambda(t_i) (\Lambda(t_i) - \Lambda(t_{i-1}))^{k-1}] \frac{e^{-\Lambda(t_n)}}{\Gamma^n(k)}.
 \end{equation}
@@ -319,7 +319,7 @@ $\Lambda(t)$ - среднее число ударных нагрузок к мо
 
 {\bfseries \textit{Свойства:} }
 \begin{enumerate}
-\item $\{\tau_n\} - IGP(\alpha, \lambda(.))-процесс, если \Lambda(\tau_i) - \Lambda(\tau_{i-1}); i = 1,2,...,n - независимы и имеют гамма-распределение \Gamma(\alpha, 1).$ 
+\item $\{\tau_n\} - IGP(\alpha, \lambda(.))$-процесс, если $\Lambda(\tau_i) - \Lambda(\tau_{i-1}); i = 1,2,...,n $- независимы и имеют гамма-распределение $\Gamma(\alpha, 1).$ 
 \item $\Lambda(\tau_j) \sim \Gamma(\alpha j, 1)$
 \item $\frac{\Lambda(\tau_j)}{\Lambda(\tau_n)} \sim Bt(\alpha j, \alpha(n - j)) и не зависит от \tau_n.$
 \end{enumerate}
@@ -333,6 +333,83 @@ $\Lambda(t)$ - среднее число ударных нагрузок к мо
 {\bfseries Процесс восстановления с трендом (TRP)}
 
 {\bfseries \textit{Определение.}} Пусть $\lambda(t)$ - неотрицательная неслучайная функция, определенная на $\mathbb{R}_+$ и пусть $\Lambda(t) = \int_0^t      \lambda(u) d u.$ Процесс $\tau_1, \tau_2, ...$ называется процессом восстановления с трендом TRP ($F, \lambda(.))$, если $\Lambda(\tau_1), \Lambda(\tau_2), ...$ является обычным процессом восстановления, т.е. $\Lambda(\tau_1), \Lambda(\tau_2) - \Lambda(\tau_1), ...$ - независимые одинаково распределенные случайные величины с функцией распределения $F(x)$ и математическим ожиданием равным 1. Функция $\lambda(t)$ называется трендом процесса.
+
+Интенсивность потока отказов $\lambda(t) = \lim_{\Delta t \to 0} \frac{M(\xi[t, t + \Delta t] | H_t)}{\Delta t} $ не полностью описывает точечный процесс, следовательно, для такого рода характеристики необходимое более детальное описание.
+
+{\bfseries \textit{Определение.}} Процесс интенсивности (стохастическая интенсивность) $\lambda_t, t \geqslant 0$, соответствующий обычному точечному процессу $\xi_t, t \geqslant 0$, определяется как предел
+\begin{equation}
+\lambda_t = \lim_{\Delta t \to 0} \frac{ P(\xi[t, t + \Delta t] = 1 | H_t)}{\Delta t} = \lim_{\Delta t to 0} \frac{ M(\xi[t, t + \Delta t] = 1 | H_t)}{\Delta t} 
+\end{equation}
+где $H_t = \{\xi_S : 0 \leqslant s < t\}$ - история точечного процесса на промежутке $[0; t)$, т.е. множество всех точечных событий на промежутке $[0; t)$.
+
+{\bfseries \textit{Определение.}} Условная функция интенсивности (CIF), соответствующая обычному точечному процессу $\xi_t, t \geqslant 0$, определяется для каждого фиксированного $t$ как предел
+\begin{equation}
+\lambda_t = \lim_{\Delta t \to 0} \frac{ P(\xi[t, t + \Delta t] = 1 | H(t))}{\Delta t} = \lim_{\Delta t to 0} \frac{ M(\xi[t, t + \Delta t] = 1 | H(t))}{\Delta t} 
+\end{equation}
+где $H(t)$ - реализация истории точечного процесса на промежутке $[0; t)$, т.е. множество всех точечных событий, которые произошли на промежутке $[0; t)$.
+
+Интенсивность потока отказов можно рассматривать как математическое ожидание интенсивности процесса, усредненную по всему пространству возможных историй, т.е.
+\begin{equation}
+\lambda(t) = M\lambda_t
+\end{equation}
+
+{\bfseries \textit{Определение.}} Пусть $\eta$ - обсолютно непрерывная случайная наработка на отказ. Интенсивностью отказов называется функция
+\begin{equation}
+\lambda_\eta(t) = \lim_{\Delta t to 0} \frac{P(t < \eta \leqslant t + \Delta t | \eta > t)}{\Delta t} = \frac{f_\eta(t)}{1 - F_\eta(t)}
+\end{equation}
+
+{\bfseries \textit{Свойства:} }
+
+\begin{enumerate}
+
+\item Для NHPP - процесса
+\begin{equation}
+\lambda_t = \lambda (t | H(t)) = \lambda_{\Delta_1} (t) = \lambda (t).
+\end{equation}
+
+\item Для TRP - процесса
+\begin{equation}
+\lambda_t = \lambda(t | H(t)) = \lambda_\Delta(\Lambda(t) - \Lambda(\tau_{\xi_t})) \lambda(t).
+\end{equation}
+
+\item Для обычного RP - процесса
+\begin{equation}
+\lambda_t = \lambda(t | H(t)) = \lambda_\Delta(t - \tau_{\xi_t}).
+\end{equation}
+
+\end{enumerate}
+
+{\bfseries Теорема (УЗБЧ для TRP).} Пусть $M\Lambda(\tau_1) = a < \infty, D\Lambda(\tau_1) = \sigma^2 < \infty$, тогда при ${t \to \infty} \frac{\xi_t}{\Lambda(t)}$ сходится к $\frac{1}{a}$ почти наверное, т.е.
+\begin{equation}
+P(\lim_{t \to \infty}  \frac{\xi_t}{\Lambda(t)} = \frac{1}{a}) = 1.
+\end{equation}
+
+{\bfseries Теорема (Интегральная теорема для TRP).} При ${t \to \infty}$, отношение ${\frac{\gamma(t)}{\Lambda(t)} \to \frac{1}{a}}$, где $a = M\Lambda(\tau_1)$. 
+
+{\bfseries Теорема(ЦПТ для TRP).} Пусть $M\Lambda(\tau_1) =  a < \infty, D\Lambda(\tau_1) = \sigma^2 < \infty$, тогда при $ {t \to \infty} \forall \in \mathbb{R} $ вероятность
+\begin{equation}
+P(\frac{\xi_t - \frac{u}{a}}{\sqrt{\frac{u\sigma^2}{a^3}}} < x) \to \Phi(x).
+\end{equation}
+
+{\bfseries Теорема (узловая теорема для TRP).} Пусть распределение $\Lambda(\tau_1)$ не является арифметическим и $M\Lambda(\tau_1) = a, Q(x)$ - любая неотрицательная функция, определенная при положительных $x$, невозрастающая и интегрируемая в пределах $(0, \infty)$. Тогда выполняется соотношение
+
+\begin{equation}
+\lim_{t \to \infty} \int_0^{\Lambda^{-1}(t)} Q(t - \Lambda(x)) d\Upsilon(x) = \frac{1}{a} \int_0^\infty Q(x) d x.
+\end{equation}
+
+В случае арифметического распределения $\Lambda(\tau_1)$  с шагом $h$ выполняется соотношение
+
+\begin{equation}
+\lim_{n \to \infty} \int_0^{\Lambda^{-1}(t + nh)} Q(t + nh - \Lambda(x)) d\Upsilon(x) = \frac{h}{a} \sum_{k = 0}^\infty Q(t + kh) .
+\end{equation}
+
+{\bfseries Теорема.} Если $F(t)$ не является арифметическим распределением и $M\Lambda(\tau_1) = a$, то для любого действительного $h$ выполняется соотношение
+
+ \begin{equation}
+\lim_{t \to \infty} (\Upsilon(\Lambda^{-1}(u + h)) - \Upsilon(t)) = \frac{h}{a}.
+\end{equation}
+
+Модель TRP-процесса достаточно нова и требует многочисленных исследований. Работы современных авторов посвящены оцениванию функции тренда процесса.
 
 \begin{center}
 \item\subsection{Метод конечных сумм}

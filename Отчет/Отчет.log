@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  14 FEB 2013 13:36
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  14 FEB 2013 14:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1091,7 +1091,7 @@ Overfull \hbox (42.7837pt too wide) in alignment at lines 28--31
  []
 
 
-Overfull \hbox (37.06805pt too wide) in alignment at lines 38--41
+Overfull \hbox (41.25359pt too wide) in alignment at lines 38--41
 [][][] 
  []
 
@@ -1191,18 +1191,18 @@ Missing character: There is no � in font cmr12!
 Missing character: There is no � in font cmr12!
 Missing character: There is no � in font cmr12!
 Missing character: There is no � in font cmr12!
-[12] [13] [14] [15] [16] [17] [18] <Log.png, id=322, 678.535pt x 79.29625pt>
+[12] [13] [14] [15] [16] [17] [18] <Log.png, id=322, 451.6875pt x 53.19875pt>
 File: Log.png Graphic file (type png)
 
 <use Log.png>
 Package pdftex.def Info: Log.png used on input line 544.
-(pdftex.def)             Requested size: 678.53334pt x 79.29604pt.
+(pdftex.def)             Requested size: 451.68639pt x 53.19861pt.
 
-Overfull \hbox (215.98622pt too wide) in paragraph at lines 544--546
+Underfull \hbox (badness 10000) in paragraph at lines 544--546
 [][]
  []
 
-<SampleProgramm.png, id=323, 501.875pt x 360.34625pt>
+<SampleProgramm.png, id=324, 501.875pt x 360.34625pt>
 File: SampleProgramm.png Graphic file (type png)
  <use SampleProgramm.png>
 Package pdftex.def Info: SampleProgramm.png used on input line 550.
@@ -1249,7 +1249,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 560.
 
-<3-1.png, id=338, 451.6875pt x 328.22626pt>
+<3-1.png, id=339, 451.6875pt x 328.22626pt>
 File: 3-1.png Graphic file (type png)
  <use 3-1.png>
 Package pdftex.def Info: 3-1.png used on input line 563.
@@ -1259,7 +1259,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 563--565
 [][]
  []
 
-<3-2.png, id=339, 433.62pt x 312.2064pt>
+<3-2.png, id=340, 433.62pt x 312.2064pt>
 File: 3-2.png Graphic file (type png)
  <use 3-2.png>
 Package pdftex.def Info: 3-2.png used on input line 566.
@@ -1269,7 +1269,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 566--568
 [][]
  []
 
-<3-3.png, id=340, 433.62pt x 312.2064pt> [21
+<3-3.png, id=341, 433.62pt x 312.2064pt> [21
 
  <./3-1.png>]
 File: 3-3.png Graphic file (type png)
@@ -1281,7 +1281,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 569--571
 [][]
  []
 
-<3-4.png, id=346, 433.62pt x 313.17pt>
+<3-4.png, id=347, 433.62pt x 313.17pt>
 File: 3-4.png Graphic file (type png)
  <use 3-4.png>
 Package pdftex.def Info: 3-4.png used on input line 572.
@@ -1291,7 +1291,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 572--574
 [][]
  []
 
-<3-5.png, id=347, 433.62pt x 313.17pt> [22 <./3-2.png> <./3-3.png>]
+<3-5.png, id=348, 433.62pt x 313.17pt> [22 <./3-2.png> <./3-3.png>]
 File: 3-5.png Graphic file (type png)
 
 <use 3-5.png>
@@ -1302,7 +1302,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 575--577
 [][]
  []
 
-<3-6.png, id=354, 433.62pt x 313.17pt>
+<3-6.png, id=355, 433.62pt x 313.17pt>
 File: 3-6.png Graphic file (type png)
  <use 3-6.png>
 Package pdftex.def Info: 3-6.png used on input line 578.
@@ -1312,7 +1312,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 578--580
 [][]
  []
 
-<3-7.png, id=355, 433.62pt x 314.1336pt> [23 <./3-4.png> <./3-5.png>]
+<3-7.png, id=356, 433.62pt x 314.1336pt> [23 <./3-4.png> <./3-5.png>]
 File: 3-7.png Graphic file (type png)
 
 <use 3-7.png>
@@ -1323,7 +1323,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 581--583
 [][]
  []
 
-<3-8.png, id=362, 433.62pt x 313.17pt>
+<3-8.png, id=363, 433.62pt x 313.17pt>
 File: 3-8.png Graphic file (type png)
  <use 3-8.png>
 Package pdftex.def Info: 3-8.png used on input line 584.
@@ -1333,7 +1333,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 584--586
 [][]
  []
 
-<3-9.png, id=363, 451.6875pt x 324.21124pt> [24 <./3-6.png> <./3-7.png>]
+<3-9.png, id=364, 451.6875pt x 324.21124pt> [24 <./3-6.png> <./3-7.png>]
 File: 3-9.png Graphic file (type png)
 
 <use 3-9.png>
@@ -1356,7 +1356,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 591.
 
-<4-1.png, id=370, 451.6875pt x 326.21875pt>
+<4-1.png, id=371, 451.6875pt x 326.21875pt>
 File: 4-1.png Graphic file (type png)
  <use 4-1.png>
 Package pdftex.def Info: 4-1.png used on input line 594.
@@ -1366,7 +1366,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 594--596
 [][]
  []
 
-[25 <./3-8.png> <./3-9.png>] <4-2.png, id=378, 451.6875pt x 326.21875pt>
+[25 <./3-8.png> <./3-9.png>] <4-2.png, id=379, 451.6875pt x 326.21875pt>
 File: 4-2.png Graphic file (type png)
 
 <use 4-2.png>
@@ -1377,7 +1377,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 597--599
 [][]
  []
 
-[26 <./4-1.png>] <4-3.png, id=384, 451.6875pt x 326.21875pt>
+[26 <./4-1.png>] <4-3.png, id=385, 451.6875pt x 326.21875pt>
 File: 4-3.png Graphic file (type png)
  <use 4-3.png>
 Package pdftex.def Info: 4-3.png used on input line 600.
@@ -1429,9 +1429,9 @@ al/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local
 exlive/2012/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/tex
 live/2012/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texli
 ve/2012/texmf-dist/fonts/type1/public/cm-super/sfti1440.pfb>
-Output written on Отчет.pdf (29 pages, 1001573 bytes).
+Output written on Отчет.pdf (29 pages, 1016927 bytes).
 PDF statistics:
- 505 PDF objects out of 1000 (max. 8388607)
+ 506 PDF objects out of 1000 (max. 8388607)
  424 compressed objects within 5 object streams
  200 named destinations out of 1000 (max. 500000)
  189 words of extra memory for PDF output out of 10000 (max. 10000000)

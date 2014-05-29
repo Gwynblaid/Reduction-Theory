@@ -11,5 +11,7 @@
 @interface MatrixOperation : NSObject
 
 +(void)zRotationCoordinates:(float*)coord withNumCoordinates:(NSInteger)numCoord byAngle:(float)angle;
++(void)yRotationCoordinates:(float*)coord withNumCoordinates:(NSInteger)numCoord byAngle:(float)angle;
++(void)xRotationCoordinates:(float*)coord withNumCoordinates:(NSInteger)numCoord byAngle:(float)angle;
 
 @end

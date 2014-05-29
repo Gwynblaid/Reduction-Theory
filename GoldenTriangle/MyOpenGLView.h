@@ -18,6 +18,7 @@ struct MyGLColor{
     double red;
     double green;
     double blue;
+    double alplha;
 };
 
 @class ProbalisticLow;
@@ -36,6 +37,8 @@ struct MyGLColor{
 
 @property (assign) BOOL writeToFile;
 @property (retain, nonatomic) NSString* fileName;
+@property (strong, nonatomic) NSString* yLabel;
+@property (strong, nonatomic) NSString* xLabel;
 
 -(void)drawGrawWithGraphType:(ushort)  graphType andGraphCount:(uint)graphCount withParameter1:(float)parametr1 andParametr2:(float)parametr2;
 -(void)clearGraphWithXStart:(float)xStart xEnd:(float)xEnd yStart:(float)yStart yEnd:(float)yEnd;
@@ -49,6 +52,9 @@ struct MyGLColor{
 
 -(double)kernelWithX:(double)x andT:(double)t;
 -(double)fX:(double)x;
--(double)solution:(double)x; 
+-(double)solution:(double)x;
+-(void)drawLabGraph;
+-(void)drawLabGraph2;
+-(void)drawLabGraph3;
 
 @end

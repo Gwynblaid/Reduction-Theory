@@ -14,7 +14,18 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    /*NSArray * array = [NSArray arrayWithContentsOfFile:@"result"];
+    //FILE* f = fopen("result_matlab.txt", "+w");
+    printf("[");
+    for(NSArray* ar in array){
+        for(NSNumber* num in ar){
+            printf(" %f", [num doubleValue]);
+        }
+        printf(";");
+    }
+    printf(" ];");
+    //fclose(f);
+    // Insert code here to initialize your application*/
 }
 
 @end

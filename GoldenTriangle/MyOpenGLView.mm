@@ -19,6 +19,12 @@
 #import "MathMehods.h"
 #import "TestData.h"
 #import "CoefficientsOfPreparing.h"
+#include "NestedObject.h"
+#include "Scheme.h"
+#include "NormalizeDestribution.h"
+#include "VeibulGnedenkoDestribution.h"
+#include "EstimationTest.h"
+#include "Equation.h"
 
 static double a = 0;
 
@@ -45,6 +51,20 @@ static CGFloat step_delta = 1.9/11.0;
 static float max_delta = 0.05;
 static double eps = 0.00001;
 
+-(NSString *)xLabel{
+    if(!_xLabel){
+        _xLabel = @"x";
+    }
+    return _xLabel;
+}
+
+-(NSString *)yLabel{
+    if(!_yLabel){
+        _yLabel = @"y";
+    }
+    return _yLabel;
+}
+
 -(NSString*)fileName{
     if(!_fileName){
         _fileName = @"Output.txt";
@@ -67,8 +87,8 @@ static double eps = 0.00001;
     CGFloat delta_x = [self getStepInRange:CGPointMake(xStart, xEnd)];
     CGFloat delta_y = [self getStepInRange:CGPointMake(yStart, yEnd)];
     
-    CGFloat curr_x = (int(xStart/delta_x)+sign(xStart))*delta_x;
-    CGFloat curr_y = (int(yStart/delta_y)+sign(yStart))*delta_y;
+    CGFloat curr_x = ((xStart/delta_x)+sign(xStart))*delta_x;
+    CGFloat curr_y = ((yStart/delta_y)+sign(yStart))*delta_y;
     // If something went wrong, bail out.
     
     startPointCoordinates = CGPointMake(curr_x, curr_y);
@@ -117,14 +137,14 @@ static double eps = 0.00001;
     [self drawArrowInPoint:CGPointMake(0.9, 0.9) withColor:color andAngle:M_PI_2];
     [self drawArrowInPoint:CGPointMake(0.9, -0.9) withColor:color andAngle:0];
     glColor3f( 1.0, 0.0, 0.0);
-    [self drawText:@"T" inPoint:CGPointMake(0.92, -0.9) withFontSize:20];
-    [self drawText:@"Kx" inPoint:CGPointMake(-0.89, 0.89) withFontSize:20];
+    [self drawText:self.xLabel inPoint:CGPointMake(0.92, -0.9) withFontSize:20];
+    [self drawText:self.yLabel inPoint:CGPointMake(-0.89, 0.89) withFontSize:20];
     delete []color;
     delete []colorDottedLines;
 }
 
 -(CGFloat)getStepInRange:(CGPoint)range{
-    CGFloat delta = fabs(range.x)+fabs(range.y);
+    CGFloat delta = fabs(range.x -range.y);
     /*int it = 0;
     if(delta < 1){
         while (delta < 1) {
@@ -184,7 +204,7 @@ static double eps = 0.00001;
 }
 
 -(void)drawText:(NSString*)text inPoint:(CGPoint)textPoint withFontSize:(int)font_size{
-    FTGLBitmapFont* font = new FTGLBitmapFont( "/Library/Fonts/Arial Bold.ttf" );
+    FTGLBitmapFont* font = new FTGLBitmapFont( "/Library/Fonts/Apple Chancery.ttf" );
     
     if( font->Error() )
     {
@@ -387,6 +407,98 @@ static double eps = 0.00001;
             NSLog(@"error: %@",err);
         }
     }
+}
+
+-(void)drawLabGraph3{
+    self.xLabel = @"t";
+    self.yLabel = @"N/N0";
+    
+    Scheme* scheme = Scheme::initTestData();
+    vector<double>* tau_s = scheme->tau_s(10000);
+    double xBegin = scheme->min(tau_s);
+    double xEnd = scheme->max(tau_s);
+    [self clearGraphWithXStart:0 xEnd:2000 yStart:0 yEnd:0.5];
+    double dt = (xEnd-xBegin) / 20.f;
+    glColor3f(0, 1, 0);
+    for (double i = xBegin; i <= xEnd ; i+=(2*dt)) {
+        glBegin(GL_QUADS);
+        double y_s = double(scheme->n(tau_s, i - dt, 2*dt)) / double(tau_s->size());
+        CGPoint x = [self transformCoordinate:CGPointMake(i-dt*0.5, 0)];
+        CGPoint y = [self transformCoordinate:CGPointMake(i+dt*0.5, y_s)];
+        glVertex2f(x.x, x.y);
+        glVertex2f(x.x, y.y);
+        glVertex2f(y.x, y.y);
+        glVertex2f(y.x, x.y);
+        glEnd();
+        glFlush();
+    }
+}
+
+-(void)drawLabGraph{
+    self.xLabel = @"t";
+    self.yLabel = @"y";
+    ReliabilityEstimationTest* tes = new ReliabilityEstimationTest();
+    tes->calculateProbability();
+    double xEnd = tes->T;
+    [self clearGraphWithXStart:0 xEnd:xEnd yStart:0 yEnd:1];
+    //glClear(GL_COLOR_BUFFER_BIT);
+    MyGLColor* color = new MyGLColor;
+    color -> red = 1;
+    color -> green = 0;
+    color -> blue = 0;
+    color -> alplha = 0;
+    MyGLColor* color1 = new MyGLColor;
+    color1 -> red = 0;
+    color1 -> green = 1;
+    color1 -> blue = 0;
+    color1 -> alplha = 0.8;
+    MyGLColor* color2 = new MyGLColor;
+    color2 -> red = 0;
+    color2 -> green = 0;
+    color2 -> blue = 1;
+    color2 -> alplha = 0.8;
+    double*x = new double[tes->SEGMENT_NUMBER];
+    for(int i = 0; i < tes->SEGMENT_NUMBER; ++ i){
+        x[i] = i * xEnd / (double (tes->SEGMENT_NUMBER));
+    }
+    [self plotGraphWithXArray:x andYArray:tes->stateProbabilityLow andNumPoints:tes->SEGMENT_NUMBER withColor:*color1];
+    [self plotGraphWithXArray:x andYArray:tes->stateProbabilityHigh andNumPoints:tes->SEGMENT_NUMBER withColor:*color2];
+    [self plotGraphWithXArray:x andYArray:tes->stateProbability andNumPoints:tes->SEGMENT_NUMBER withColor:*color];
+}
+
+-(void)drawLabGraph2{
+    self.xLabel = @"t";
+    self.yLabel = @"y";
+    ReliabilityEstimationTest* tes = new ReliabilityEstimationTest();
+    tes->calculateProbability();
+    double xEnd = tes->T;
+    tes->calculateIntensity();
+    [self clearGraphWithXStart:0 xEnd:xEnd-200 yStart:0 yEnd:0.6];
+    MyGLColor* color = new MyGLColor;
+    color -> red = 1;
+    color -> green = 0;
+    color -> blue = 0;
+    color -> alplha = 0;
+    MyGLColor* color1 = new MyGLColor;
+    color1 -> red = 0;
+    color1 -> green = 1;
+    color1 -> blue = 0;
+    color1 -> alplha = 0.8;
+    MyGLColor* color2 = new MyGLColor;
+    color2 -> red = 0;
+    color2 -> green = 0;
+    color2 -> blue = 1;
+    color2 -> alplha = 0.8;
+    double*x = new double[tes->SEGMENT_NUMBER];
+    for(int i = 0; i < tes->SEGMENT_NUMBER; ++ i){
+        x[i] = i * xEnd / (double (tes->SEGMENT_NUMBER));
+    }
+    [self plotGraphWithXArray:x andYArray:tes->intensityLow andNumPoints:tes->SEGMENT_NUMBER withColor:*color1];
+    [self plotGraphWithXArray:x andYArray:tes->intensityHigh andNumPoints:tes->SEGMENT_NUMBER withColor:*color2];
+    [self plotGraphWithXArray:x andYArray:tes->intensity andNumPoints:tes->SEGMENT_NUMBER withColor:*color];
+    /*
+    Equation* eq = [[Equation alloc] init];
+    NSLog(@"%@",[eq solutionForx:5 y:5]);*/
 }
 
 -(void)plotGraphWithXArray:(CGFloat*)xArray andYArray:(CGFloat*)yArray andNumPoints:(uint)numPoints withColor:(struct MyGLColor)color{

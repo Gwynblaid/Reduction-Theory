@@ -34,6 +34,10 @@
     NSTextField* _parametrX;
     NSTextField* _parametrT;
     
+    MyOpenGLView *_graph4View;
+    NSButton *_clickDrawCake;
+    NSButton *_calculateMt;
+    NSButton *_calculateMx;
 }
 
 @property (retain) IBOutlet NSView* mainWindow;
@@ -43,6 +47,8 @@
 @property (retain) IBOutlet StepperController* numGraphsStepperController;
 @property (retain) IBOutlet NSComboBox* selectedGraph;
 @property (retain) IBOutlet NSComboBox* selectedDistribution2;
+@property (assign) IBOutlet MyOpenGLView *graph3View;
+@property (assign) IBOutlet MyOpenGLView *graph4View;
 
 @property (retain) IBOutlet NSTextField* parametr1;
 @property (retain) IBOutlet NSTextField* parametr2;
@@ -62,5 +68,11 @@
 -(IBAction) touchCleanButton:(id)sender;
 -(IBAction) clickWriteToFileCheckBox:(id)sender;
 -(IBAction) clickCalculateButton:(id)sender;
+-(IBAction) clickDrawButton:(id)sender;
+- (IBAction)clickDrawRate:(id)sender;
+- (IBAction)clickDrawCake:(id)sender;
+- (IBAction)calculatePtx:(id)sender;
+- (IBAction)calculateMt:(id)sender;
+- (IBAction)calculateMx:(id)sender;
 
 @end

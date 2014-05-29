@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F98A2D24147993640062B0A0 /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F98A2D22147993640062B0A0 /* libfreetype.a */; };
-		F98A2D25147993640062B0A0 /* libftgl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F98A2D23147993640062B0A0 /* libftgl.a */; };
+		6C70830017426F4000DA2332 /* libMyLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7082FF17426ED600DA2332 /* libMyLib.a */; };
+		6C830D3219366ED10015D3C6 /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C830D3019366ED10015D3C6 /* libfreetype.a */; };
+		6C830D3319366ED10015D3C6 /* libftgl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C830D3119366ED10015D3C6 /* libftgl.a */; };
+		6CDD5563175ECD6200E4877A /* Equation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD5562175ECD6200E4877A /* Equation.mm */; };
+		6CE29CBE174991BA00C79FA9 /* GraphView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CE29CBD174991BA00C79FA9 /* GraphView.mm */; };
 		F98FBA1C156B21AD00C672AD /* CoefficientsOfPreparing.m in Sources */ = {isa = PBXBuildFile; fileRef = F98FBA1B156B21AD00C672AD /* CoefficientsOfPreparing.m */; };
 		F98FDD471592D37500C904BC /* Gamma.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F98FDD451592D37500C904BC /* Gamma.cpp */; };
 		F9903DFD14782C4F00AE739A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9903DFC14782C4F00AE739A /* Cocoa.framework */; };
@@ -20,8 +23,8 @@
 		F9903E1D14782CC700AE739A /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9903E1B14782CB800AE739A /* OpenGL.framework */; };
 		F9903E2014782CFE00AE739A /* MyOpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = F9903E1F14782CFE00AE739A /* MyOpenGLView.mm */; };
 		F990C6551572F339000BB8E0 /* CustomTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F990C6541572F339000BB8E0 /* CustomTextField.m */; };
-		F992441F147943DD00049E8E /* MatrixOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F992441E147943DD00049E8E /* MatrixOperation.m */; };
-		F99365CC148253BF0059EACA /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = F99365CB148253BF0059EACA /* AppController.m */; };
+		F992441F147943DD00049E8E /* MatrixOperation.mm in Sources */ = {isa = PBXBuildFile; fileRef = F992441E147943DD00049E8E /* MatrixOperation.mm */; };
+		F99365CC148253BF0059EACA /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F99365CB148253BF0059EACA /* AppController.mm */; };
 		F9941F1614950A4000851A8F /* libobjc.A.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F9941F1514950A4000851A8F /* libobjc.A.dylib */; };
 		F995595B14BB840B00AA1E13 /* TestData.m in Sources */ = {isa = PBXBuildFile; fileRef = F995595A14BB840B00AA1E13 /* TestData.m */; };
 		F999D46F148BC70600B8D105 /* CheckNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F999D46E148BC70600B8D105 /* CheckNumberFormatter.m */; };
@@ -32,9 +35,33 @@
 		F9E9E2B91497CBC100791C1D /* MathMehods.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E9E2B81497CBC100791C1D /* MathMehods.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6C7082FC17426ED600DA2332 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CDAF69E17408BF5008557D7 /* Laba.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6C4A8719171A83C800344F67;
+			remoteInfo = Laba;
+		};
+		6C7082FE17426ED600DA2332 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CDAF69E17408BF5008557D7 /* Laba.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6CDAF6CD17408F68008557D7;
+			remoteInfo = MyLib;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		F98A2D22147993640062B0A0 /* libfreetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfreetype.a; path = ../../../../../usr/local/lib/libfreetype.a; sourceTree = "<group>"; };
-		F98A2D23147993640062B0A0 /* libftgl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libftgl.a; path = ../../../../../usr/local/lib/libftgl.a; sourceTree = "<group>"; };
+		6C830D3019366ED10015D3C6 /* libfreetype.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfreetype.a; path = ../../../../../opt/local/lib/libfreetype.a; sourceTree = "<group>"; };
+		6C830D3119366ED10015D3C6 /* libftgl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libftgl.a; path = ../../../../../opt/local/lib/libftgl.a; sourceTree = "<group>"; };
+		6C9AE5FD176CDCDD00B78B75 /* Plot3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plot3D.h; sourceTree = "<group>"; };
+		6C9AE5FE176CDCDD00B78B75 /* Plot3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plot3D.m; sourceTree = "<group>"; };
+		6CDAF69E17408BF5008557D7 /* Laba.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Laba.xcodeproj; path = ../Labs/Laba/Laba.xcodeproj; sourceTree = "<group>"; };
+		6CDD5561175ECD6200E4877A /* Equation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Equation.h; sourceTree = "<group>"; };
+		6CDD5562175ECD6200E4877A /* Equation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Equation.mm; sourceTree = "<group>"; };
+		6CE29CBC174991BA00C79FA9 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
+		6CE29CBD174991BA00C79FA9 /* GraphView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GraphView.mm; sourceTree = "<group>"; };
 		F98FBA1A156B21AD00C672AD /* CoefficientsOfPreparing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoefficientsOfPreparing.h; sourceTree = "<group>"; };
 		F98FBA1B156B21AD00C672AD /* CoefficientsOfPreparing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoefficientsOfPreparing.m; sourceTree = "<group>"; };
 		F98FDD451592D37500C904BC /* Gamma.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gamma.cpp; sourceTree = "<group>"; };
@@ -58,9 +85,9 @@
 		F990C6531572F339000BB8E0 /* CustomTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTextField.h; sourceTree = "<group>"; };
 		F990C6541572F339000BB8E0 /* CustomTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTextField.m; sourceTree = "<group>"; };
 		F992441D147943DD00049E8E /* MatrixOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatrixOperation.h; sourceTree = "<group>"; };
-		F992441E147943DD00049E8E /* MatrixOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatrixOperation.m; sourceTree = "<group>"; };
+		F992441E147943DD00049E8E /* MatrixOperation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MatrixOperation.mm; sourceTree = "<group>"; };
 		F99365CA148253BF0059EACA /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
-		F99365CB148253BF0059EACA /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		F99365CB148253BF0059EACA /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = "<group>"; };
 		F9941F1514950A4000851A8F /* libobjc.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.A.dylib; path = usr/lib/libobjc.A.dylib; sourceTree = SDKROOT; };
 		F995595914BB840B00AA1E13 /* TestData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestData.h; sourceTree = "<group>"; };
 		F995595A14BB840B00AA1E13 /* TestData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestData.m; sourceTree = "<group>"; };
@@ -84,27 +111,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C70830017426F4000DA2332 /* libMyLib.a in Frameworks */,
 				F9941F1614950A4000851A8F /* libobjc.A.dylib in Frameworks */,
+				6C830D3319366ED10015D3C6 /* libftgl.a in Frameworks */,
+				6C830D3219366ED10015D3C6 /* libfreetype.a in Frameworks */,
 				F9903DFD14782C4F00AE739A /* Cocoa.framework in Frameworks */,
 				F9903E1D14782CC700AE739A /* OpenGL.framework in Frameworks */,
-				F98A2D24147993640062B0A0 /* libfreetype.a in Frameworks */,
-				F98A2D25147993640062B0A0 /* libftgl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C7082F817426ED600DA2332 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6C7082FD17426ED600DA2332 /* Laba */,
+				6C7082FF17426ED600DA2332 /* libMyLib.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6CDAF6BC17408DCA008557D7 /* C++Headers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "C++Headers";
+			sourceTree = "<group>";
+		};
 		F9903DED14782C4F00AE739A = {
 			isa = PBXGroup;
 			children = (
+				6CDAF69E17408BF5008557D7 /* Laba.xcodeproj */,
 				F995595914BB840B00AA1E13 /* TestData.h */,
 				F995595A14BB840B00AA1E13 /* TestData.m */,
 				F9CFDB99149DEF3C0089C072 /* ProbalisticLow.h */,
 				F9CFDB9A149DEF3C0089C072 /* ProbalisticLow.m */,
 				F9941F1514950A4000851A8F /* libobjc.A.dylib */,
-				F98A2D22147993640062B0A0 /* libfreetype.a */,
-				F98A2D23147993640062B0A0 /* libftgl.a */,
+				6C830D3019366ED10015D3C6 /* libfreetype.a */,
+				6C830D3119366ED10015D3C6 /* libftgl.a */,
 				F9903E0214782C4F00AE739A /* GoldenTriangle */,
 				F9903DFB14782C4F00AE739A /* Frameworks */,
 				F9903DF914782C4F00AE739A /* Products */,
@@ -142,6 +187,7 @@
 		F9903E0214782C4F00AE739A /* GoldenTriangle */ = {
 			isa = PBXGroup;
 			children = (
+				6CDAF6BC17408DCA008557D7 /* C++Headers */,
 				F99D90C7147ADFF900D24799 /* MathFunctions.h */,
 				F9903E0E14782C4F00AE739A /* GoldenTriangleAppDelegate.h */,
 				F9903E0F14782C4F00AE739A /* GoldenTriangleAppDelegate.m */,
@@ -152,11 +198,11 @@
 				F9903E1E14782CFE00AE739A /* MyOpenGLView.h */,
 				F9903E1F14782CFE00AE739A /* MyOpenGLView.mm */,
 				F992441D147943DD00049E8E /* MatrixOperation.h */,
-				F992441E147943DD00049E8E /* MatrixOperation.m */,
+				F992441E147943DD00049E8E /* MatrixOperation.mm */,
 				F9B407A914816A60003E9C95 /* ProbabilityDistribution.h */,
 				F9B407AA14816A60003E9C95 /* ProbabilityDistribution.mm */,
 				F99365CA148253BF0059EACA /* AppController.h */,
-				F99365CB148253BF0059EACA /* AppController.m */,
+				F99365CB148253BF0059EACA /* AppController.mm */,
 				F9CB191F1482A5B7005B81C2 /* StepperController.h */,
 				F9CB19201482A5B7005B81C2 /* StepperController.m */,
 				F9CB191B14829B08005B81C2 /* ObjectController.h */,
@@ -169,6 +215,12 @@
 				F98FBA1B156B21AD00C672AD /* CoefficientsOfPreparing.m */,
 				F990C6531572F339000BB8E0 /* CustomTextField.h */,
 				F990C6541572F339000BB8E0 /* CustomTextField.m */,
+				6CE29CBC174991BA00C79FA9 /* GraphView.h */,
+				6CE29CBD174991BA00C79FA9 /* GraphView.mm */,
+				6CDD5561175ECD6200E4877A /* Equation.h */,
+				6CDD5562175ECD6200E4877A /* Equation.mm */,
+				6C9AE5FD176CDCDD00B78B75 /* Plot3D.h */,
+				6C9AE5FE176CDCDD00B78B75 /* Plot3D.m */,
 			);
 			path = GoldenTriangle;
 			sourceTree = "<group>";
@@ -223,12 +275,35 @@
 			mainGroup = F9903DED14782C4F00AE739A;
 			productRefGroup = F9903DF914782C4F00AE739A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6C7082F817426ED600DA2332 /* Products */;
+					ProjectRef = 6CDAF69E17408BF5008557D7 /* Laba.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F9903DF714782C4F00AE739A /* Reduction Theory */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6C7082FD17426ED600DA2332 /* Laba */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = Laba;
+			remoteRef = 6C7082FC17426ED600DA2332 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6C7082FF17426ED600DA2332 /* libMyLib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMyLib.a;
+			remoteRef = 6C7082FE17426ED600DA2332 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F9903DF614782C4F00AE739A /* Resources */ = {
@@ -251,9 +326,9 @@
 				F9903E0914782C4F00AE739A /* main.m in Sources */,
 				F9903E1014782C4F00AE739A /* GoldenTriangleAppDelegate.m in Sources */,
 				F9903E2014782CFE00AE739A /* MyOpenGLView.mm in Sources */,
-				F992441F147943DD00049E8E /* MatrixOperation.m in Sources */,
+				F992441F147943DD00049E8E /* MatrixOperation.mm in Sources */,
 				F9B407AB14816A60003E9C95 /* ProbabilityDistribution.mm in Sources */,
-				F99365CC148253BF0059EACA /* AppController.m in Sources */,
+				F99365CC148253BF0059EACA /* AppController.mm in Sources */,
 				F9CB191D14829B08005B81C2 /* ObjectController.m in Sources */,
 				F9CB19211482A5B7005B81C2 /* StepperController.m in Sources */,
 				F999D46F148BC70600B8D105 /* CheckNumberFormatter.m in Sources */,
@@ -263,6 +338,8 @@
 				F98FBA1C156B21AD00C672AD /* CoefficientsOfPreparing.m in Sources */,
 				F990C6551572F339000BB8E0 /* CustomTextField.m in Sources */,
 				F98FDD471592D37500C904BC /* Gamma.cpp in Sources */,
+				6CE29CBE174991BA00C79FA9 /* GraphView.mm in Sources */,
+				6CDD5563175ECD6200E4877A /* Equation.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +377,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
@@ -331,7 +408,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
@@ -354,7 +431,9 @@
 		F9903E1714782C4F00AE739A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -363,14 +442,17 @@
 				HEADER_SEARCH_PATHS = (
 					"/usr/local/include/**",
 					/usr/local,
+					"/Users/sergeyharchenko/Dropbox/Projects/Labs/Laba/Laba/**",
+					"/opt/local/include/**",
 				);
 				INFOPLIST_FILE = "GoldenTriangle/GoldenTriangle-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
 					"/usr/local/lib/**",
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
 					"\"$(SRCROOT)/../../libfreetype\"",
+					/opt/local/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PUBLIC_HEADERS_FOLDER_PATH[sdk=*]" = "$(CONTENTS_FOLDER_PATH)/Headers";
@@ -382,7 +464,9 @@
 		F9903E1814782C4F00AE739A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -391,14 +475,17 @@
 				HEADER_SEARCH_PATHS = (
 					"/usr/local/include/**",
 					/usr/local,
+					"/Users/sergeyharchenko/Dropbox/Projects/Labs/Laba/Laba/**",
+					"/opt/local/include/**",
 				);
 				INFOPLIST_FILE = "GoldenTriangle/GoldenTriangle-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
 					"/usr/local/lib/**",
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
 					"\"$(SRCROOT)/../../libfreetype\"",
+					/opt/local/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;

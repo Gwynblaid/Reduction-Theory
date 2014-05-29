@@ -12,12 +12,14 @@
 #import "CoefficientsOfPreparing.h"
 #import "ProbalisticLow.h"
 #import "ProbabilityDistribution.h"
+#import "Equation.h"
 
 @implementation AppController
 @synthesize graphView = _graphView;
 @synthesize numGraphsStepperController = _numGraphsStepperController;
 @synthesize selectedGraph = _selectedGraph;
 @synthesize selectedDistribution2 = _selectedDistribution2;
+@synthesize graph4View = _graph4View;
 @synthesize parametr1 = _parametr1;
 @synthesize parametr2 = _parametr2;
 @synthesize parametr2_1 = _parametr2_1;
@@ -173,9 +175,33 @@
     
 }
 
+- (IBAction)clickDrawButton:(id)sender {
+    [self.graph3View drawLabGraph];
+    //[self.graph4View drawLabGraph2];
+}
+
+- (IBAction)clickDrawRate:(id)sender {
+    [self.graph3View drawLabGraph2];
+}
+
+- (IBAction)clickDrawCake:(id)sender {
+    [self.graph3View drawLabGraph3];
+}
+
+
 -(void)controlTextDidEndEditing:(NSNotification *)obj{
     [self.mainWindow.window makeFirstResponder:self.mainWindow];
 }
 
+- (IBAction)calculatePtx:(id)sender {
+    Equation* eq = [[Equation alloc] init];
+    NSLog(@"%@",[eq solutionForx:5 y:5]);
+}
 
+
+- (IBAction)calculateMt:(id)sender {
+}
+
+- (IBAction)calculateMx:(id)sender {
+}
 @end

@@ -35,22 +35,26 @@ void writeResToFile(const char * file_name, double ** mat, int n, int m, double 
 
 @implementation Equation
 
+@synthesize x_size = _x_size;
+@synthesize y_size = _y_size;
+@synthesize result = _result;
+
 -(id)init{
     self = [super init];
     assert(self);
-    normalDestr = new NormalizeDestribution(7, 2);
     return self;
 }
 
 -(double)Kx:(double)x s:(double)s y:(double)y l:(double)l{
     
-    return normalDestr->density(x - s) * normalDestr->density(y - l);
+    return self.FDestribution->density(x - s) * self.GDestribution->density(y - l);
 }
 -(double)fx:(double)x y:(double)y{
-    return (1 - normalDestr->destribution_function(y)) * normalDestr->destribution_function(x);
+    return (1 - self.GDestribution->destribution_function(y)) * self.FDestribution->destribution_function(x);
 }
 
--(NSArray *)solutionForx:(double)x y:(double)y{
+-(double **)solutionForx:(double)x y:(double)y{
+    NSAssert(self.FDestribution != NULL && self.GDestribution != NULL, @"F or G is NULL or both");
     double h = 0.01;
     int x_size = x / h + 1;
     int y_size = y / h + 1;
@@ -119,13 +123,23 @@ void writeResToFile(const char * file_name, double ** mat, int n, int m, double 
             c_result[i][j] = z;
         }
     }
-    writeResToFile("resultvn_7_2.m", c_result, x_size, y_size, 0, h, x, 0, h, y);
-    return nil;
+    writeResToFile([self.resultFile cStringUsingEncoding:NSUTF8StringEncoding], c_result, x_size, y_size, 0, h, x, 0, h, y);
+    _y_size = y_size;
+    _x_size = x_size;
+    _result = c_result;
+    return c_result;
 }
 
 -(NSArray *)solutionForFile:(NSString *)fileName{
     return [NSArray arrayWithContentsOfFile:fileName];
 }
 
+
+-(void)dealloc{
+    delete _FDestribution;
+    delete _GDestribution;
+    delete _result;
+    [super dealloc];
+}
 
 @end

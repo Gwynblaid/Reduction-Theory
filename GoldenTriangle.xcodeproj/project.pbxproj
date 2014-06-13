@@ -10,6 +10,7 @@
 		6C70830017426F4000DA2332 /* libMyLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C7082FF17426ED600DA2332 /* libMyLib.a */; };
 		6C830D3219366ED10015D3C6 /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C830D3019366ED10015D3C6 /* libfreetype.a */; };
 		6C830D3319366ED10015D3C6 /* libftgl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C830D3119366ED10015D3C6 /* libftgl.a */; };
+		6CAEA733193FEEDC00E19FBF /* FullEquation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CAEA732193FEEDC00E19FBF /* FullEquation.mm */; };
 		6CDD5563175ECD6200E4877A /* Equation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CDD5562175ECD6200E4877A /* Equation.mm */; };
 		6CE29CBE174991BA00C79FA9 /* GraphView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6CE29CBD174991BA00C79FA9 /* GraphView.mm */; };
 		F98FBA1C156B21AD00C672AD /* CoefficientsOfPreparing.m in Sources */ = {isa = PBXBuildFile; fileRef = F98FBA1B156B21AD00C672AD /* CoefficientsOfPreparing.m */; };
@@ -57,6 +58,8 @@
 		6C830D3119366ED10015D3C6 /* libftgl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libftgl.a; path = ../../../../../opt/local/lib/libftgl.a; sourceTree = "<group>"; };
 		6C9AE5FD176CDCDD00B78B75 /* Plot3D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plot3D.h; sourceTree = "<group>"; };
 		6C9AE5FE176CDCDD00B78B75 /* Plot3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plot3D.m; sourceTree = "<group>"; };
+		6CAEA731193FEEDC00E19FBF /* FullEquation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullEquation.h; sourceTree = "<group>"; };
+		6CAEA732193FEEDC00E19FBF /* FullEquation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FullEquation.mm; sourceTree = "<group>"; };
 		6CDAF69E17408BF5008557D7 /* Laba.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Laba.xcodeproj; path = ../Labs/Laba/Laba.xcodeproj; sourceTree = "<group>"; };
 		6CDD5561175ECD6200E4877A /* Equation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Equation.h; sourceTree = "<group>"; };
 		6CDD5562175ECD6200E4877A /* Equation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Equation.mm; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 				6CE29CBD174991BA00C79FA9 /* GraphView.mm */,
 				6CDD5561175ECD6200E4877A /* Equation.h */,
 				6CDD5562175ECD6200E4877A /* Equation.mm */,
+				6CAEA731193FEEDC00E19FBF /* FullEquation.h */,
+				6CAEA732193FEEDC00E19FBF /* FullEquation.mm */,
 				6C9AE5FD176CDCDD00B78B75 /* Plot3D.h */,
 				6C9AE5FE176CDCDD00B78B75 /* Plot3D.m */,
 			);
@@ -333,6 +338,7 @@
 				F9CB19211482A5B7005B81C2 /* StepperController.m in Sources */,
 				F999D46F148BC70600B8D105 /* CheckNumberFormatter.m in Sources */,
 				F9E9E2B91497CBC100791C1D /* MathMehods.m in Sources */,
+				6CAEA733193FEEDC00E19FBF /* FullEquation.mm in Sources */,
 				F9CFDB9B149DEF3C0089C072 /* ProbalisticLow.m in Sources */,
 				F995595B14BB840B00AA1E13 /* TestData.m in Sources */,
 				F98FBA1C156B21AD00C672AD /* CoefficientsOfPreparing.m in Sources */,

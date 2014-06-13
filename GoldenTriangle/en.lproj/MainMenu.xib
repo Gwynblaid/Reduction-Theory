@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1070" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
@@ -650,420 +650,262 @@
         <window title="Probability Distribution" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371" userLabel="Window - Probability Distribution">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="1000" height="700"/>
+            <rect key="contentRect" x="335" y="390" width="511" height="270"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="372" userLabel="View">
-                <rect key="frame" x="0.0" y="0.0" width="1000" height="700"/>
+                <rect key="frame" x="0.0" y="0.0" width="511" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <tabView id="664">
-                        <rect key="frame" x="0.0" y="-2" width="1000" height="700"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Vr-HO-Vyl">
+                        <rect key="frame" x="18" y="233" width="202" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <font key="font" metaFont="system"/>
-                        <tabViewItems>
-                            <tabViewItem label="Восстановление без задержек" identifier="1" id="665">
-                                <view key="view" id="668">
-                                    <rect key="frame" x="10" y="33" width="980" height="654"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <openGLView depthSize="32bit" antiAliasingType="supersample" rendererType="accelerated" samplingRate="16" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" id="536" userLabel="GraphView" customClass="MyOpenGLView">
-                                            <rect key="frame" x="0.0" y="0.0" width="700" height="700"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </openGLView>
-                                        <button verticalHuggingPriority="750" id="541">
-                                            <rect key="frame" x="858" y="526" width="122" height="19"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="roundRect" title="Draw graph" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="542">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="cellTitle"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="touchBulidGraphButton:" target="539" id="543"/>
-                                            </connections>
-                                        </button>
-                                        <comboBox verticalHuggingPriority="750" id="564">
-                                            <rect key="frame" x="721" y="627" width="262" height="26"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Выберите распределение" drawsBackground="YES" completes="NO" numberOfVisibleItems="3" id="565">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                <objectValues>
-                                                    <string>Гамма распределение</string>
-                                                    <string>Нормальное распределение</string>
-                                                    <string>Распределение Вейбула</string>
-                                                </objectValues>
-                                            </comboBoxCell>
-                                            <connections>
-                                                <outlet property="delegate" destination="539" id="651"/>
-                                            </connections>
-                                        </comboBox>
-                                        <textField verticalHuggingPriority="750" id="601">
-                                            <rect key="frame" x="721" y="527" width="96" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="602">
-                                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="603"/>
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                <connections>
-                                                    <binding destination="606" name="value" keyPath="selection.stepperValue" id="613"/>
-                                                </connections>
-                                            </textFieldCell>
-                                            <connections>
-                                                <binding destination="606" name="value" keyPath="selection.stepperValue" id="617"/>
-                                            </connections>
-                                        </textField>
-                                        <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" id="604">
-                                            <rect key="frame" x="815" y="524" width="19" height="27"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="605"/>
-                                            <connections>
-                                                <binding destination="606" name="value" keyPath="selection.stepperValue" id="615"/>
-                                            </connections>
-                                        </stepper>
-                                        <button verticalHuggingPriority="750" id="622">
-                                            <rect key="frame" x="789" y="413" width="122" height="19"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="roundRect" title="Clean graph field" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="623">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="cellTitle"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="touchCleanButton:" target="539" id="624"/>
-                                            </connections>
-                                        </button>
-                                        <textField verticalHuggingPriority="750" id="627">
-                                            <rect key="frame" x="718" y="579" width="86" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Parameters:" id="628">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" id="643">
-                                            <rect key="frame" x="813" y="576" width="75" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="k" drawsBackground="YES" id="644" customClass="CustomTextField">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <outlet property="delegate" destination="539" id="783"/>
-                                            </connections>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" id="646">
-                                            <rect key="frame" x="905" y="574" width="75" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="θ" drawsBackground="YES" id="647" customClass="CustomTextField">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <outlet property="delegate" destination="539" id="782"/>
-                                            </connections>
-                                        </textField>
-                                        <button id="652">
-                                            <rect key="frame" x="719" y="462" width="121" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Write to file." bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="653">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="clickWriteToFileCheckBox:" target="539" id="657"/>
-                                            </connections>
-                                        </button>
-                                        <textField hidden="YES" verticalHuggingPriority="750" id="654">
-                                            <rect key="frame" x="846" y="467" width="134" height="22"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" title="fileOutput.txt" placeholderString="file name " bezelStyle="round" id="655">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                    </subviews>
-                                </view>
-                            </tabViewItem>
-                            <tabViewItem label="Восстановление с задержками" identifier="2" id="666">
-                                <view key="view" id="667">
-                                    <rect key="frame" x="10" y="33" width="980" height="654"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view id="700">
-                                            <rect key="frame" x="0.0" y="7" width="980" height="654"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <comboBox verticalHuggingPriority="750" id="711">
-                                                    <rect key="frame" x="709" y="546" width="262" height="26"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Выберите распределение" drawsBackground="YES" completes="NO" numberOfVisibleItems="3" id="712">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                        <objectValues>
-                                                            <string>Гамма распределение</string>
-                                                            <string>Нормальное распределение</string>
-                                                            <string>Распределение Вейбула</string>
-                                                        </objectValues>
-                                                    </comboBoxCell>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="732" id="744"/>
-                                                    </connections>
-                                                </comboBox>
-                                                <textField verticalHuggingPriority="750" id="707">
-                                                    <rect key="frame" x="706" y="515" width="86" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Parameters:" id="717">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
-                                                <textField verticalHuggingPriority="750" id="706" userLabel="Parametr1_1">
-                                                    <rect key="frame" x="801" y="512" width="75" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="k" drawsBackground="YES" id="718" customClass="CustomTextField">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="732" id="789"/>
-                                                    </connections>
-                                                </textField>
-                                                <textField verticalHuggingPriority="750" id="705" userLabel="Parametr1_2">
-                                                    <rect key="frame" x="893" y="510" width="75" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="θ" drawsBackground="YES" id="720" customClass="CustomTextField">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="732" id="790"/>
-                                                    </connections>
-                                                </textField>
-                                                <comboBox verticalHuggingPriority="750" id="753" userLabel="Choose low 2">
-                                                    <rect key="frame" x="709" y="382" width="262" height="26"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Выберите распределение" drawsBackground="YES" completes="NO" numberOfVisibleItems="3" id="762">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                        <objectValues>
-                                                            <string>Гамма распределение</string>
-                                                            <string>Нормальное распределение</string>
-                                                            <string>Распределение Вейбула</string>
-                                                        </objectValues>
-                                                    </comboBoxCell>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="732" id="763"/>
-                                                    </connections>
-                                                </comboBox>
-                                                <textField verticalHuggingPriority="750" id="754">
-                                                    <rect key="frame" x="706" y="351" width="86" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Parameters:" id="761">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
-                                                <textField verticalHuggingPriority="750" id="755" userLabel="Parametr2_1">
-                                                    <rect key="frame" x="801" y="348" width="75" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="k" drawsBackground="YES" id="759" customClass="CustomTextField">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="732" id="791"/>
-                                                    </connections>
-                                                </textField>
-                                                <textField verticalHuggingPriority="750" id="756" userLabel="Parametr2_2">
-                                                    <rect key="frame" x="893" y="346" width="75" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="θ" drawsBackground="YES" id="757" customClass="CustomTextField">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="732" id="792"/>
-                                                    </connections>
-                                                </textField>
-                                                <textField verticalHuggingPriority="750" id="764">
-                                                    <rect key="frame" x="706" y="599" width="265" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Destribution low for working state" id="765">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
-                                                <textField verticalHuggingPriority="750" id="766">
-                                                    <rect key="frame" x="706" y="435" width="265" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Destribution low for repearing state" id="767">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
-                                                <button verticalHuggingPriority="750" id="768">
-                                                    <rect key="frame" x="731" y="181" width="215" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="push" title="Calculate" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="769">
-                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="system"/>
-                                                    </buttonCell>
-                                                    <connections>
-                                                        <action selector="clickCalculateButton:" target="732" id="775"/>
-                                                    </connections>
-                                                </button>
-                                                <textField verticalHuggingPriority="750" id="776">
-                                                    <rect key="frame" x="713" y="273" width="96" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="X" drawsBackground="YES" id="777" customClass="CustomTextField">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="732" id="794"/>
-                                                    </connections>
-                                                </textField>
-                                                <textField verticalHuggingPriority="750" id="778">
-                                                    <rect key="frame" x="868" y="273" width="96" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="T" drawsBackground="YES" id="779" customClass="CustomTextField">
-                                                        <font key="font" metaFont="system"/>
-                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="732" id="793"/>
-                                                    </connections>
-                                                </textField>
-                                                <openGLView depthSize="32bit" antiAliasingType="supersample" rendererType="accelerated" samplingRate="16" useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" id="795" userLabel="GraphView" customClass="MyOpenGLView">
-                                                    <rect key="frame" x="0.0" y="-47" width="681" height="681"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                </openGLView>
-                                            </subviews>
-                                        </view>
-                                    </subviews>
-                                </view>
-                            </tabViewItem>
-                            <tabViewItem label="Лаба" identifier="" id="797">
-                                <view key="view" id="798">
-                                    <rect key="frame" x="10" y="33" width="980" height="654"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <openGLView useAuxiliaryDepthBufferStencil="NO" allowOffline="YES" id="799" customClass="MyOpenGLView">
-                                            <rect key="frame" x="17" y="29" width="831" height="600"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        </openGLView>
-                                        <button verticalHuggingPriority="750" id="800">
-                                            <rect key="frame" x="866" y="568" width="97" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Draw F" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="801">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="clickDrawButton:" target="539" id="803"/>
-                                            </connections>
-                                        </button>
-                                        <button verticalHuggingPriority="750" id="810">
-                                            <rect key="frame" x="866" y="520" width="97" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Draw Rate" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="811">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="clickDrawRate:" target="539" id="814"/>
-                                            </connections>
-                                        </button>
-                                        <button verticalHuggingPriority="750" id="812">
-                                            <rect key="frame" x="866" y="475" width="97" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Draw Cake" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="813">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="clickDrawCake:" target="539" id="816"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </view>
-                            </tabViewItem>
-                            <tabViewItem label="3D" identifier="" id="819">
-                                <view key="view" id="820">
-                                    <rect key="frame" x="10" y="33" width="980" height="654"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <button verticalHuggingPriority="750" id="825">
-                                            <rect key="frame" x="184" y="583" width="145" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Calculate P(t,x)" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="826">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="calculatePtx:" target="539" id="831"/>
-                                            </connections>
-                                        </button>
-                                        <button verticalHuggingPriority="750" id="827">
-                                            <rect key="frame" x="184" y="543" width="145" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Calculate Mt" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="828">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="calculateMt:" target="539" id="833"/>
-                                            </connections>
-                                        </button>
-                                        <button verticalHuggingPriority="750" id="829">
-                                            <rect key="frame" x="184" y="505" width="145" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Calculate Mx" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="830">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="calculateMx:" target="539" id="835"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </view>
-                            </tabViewItem>
-                        </tabViewItems>
-                    </tabView>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="kcA-WK-Lb8"/>
+                            <constraint firstAttribute="width" constant="198" id="xIV-63-zYe"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Выберите распределение F(x):" id="2oZ-wZ-9hg">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X2o-pC-4Bj">
+                        <rect key="frame" x="20" y="191" width="200" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="KDy-M4-mYw"/>
+                            <constraint firstAttribute="width" constant="197" id="rEY-Kc-91P"/>
+                        </constraints>
+                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="2" id="22o-GV-9kr">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <objectValues>
+                                <string>Нормальное распреде</string>
+                                <string>Распределение Вейбула</string>
+                            </objectValues>
+                        </comboBoxCell>
+                    </comboBox>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="91P-rk-VzC">
+                        <rect key="frame" x="43" y="155" width="43" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="LQx-Lv-frE"/>
+                            <constraint firstAttribute="width" constant="43" id="pmi-XA-47K"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="dLu-1g-zDZ">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f1l-Ed-r1R">
+                        <rect key="frame" x="20" y="158" width="17" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="13" id="ktZ-ip-D5h"/>
+                            <constraint firstAttribute="height" constant="17" id="t8I-1X-yon"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="X:" id="sWN-A4-2gU">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UtH-bY-MQK">
+                        <rect key="frame" x="131" y="155" width="43" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="43" id="ak1-XA-w5w"/>
+                            <constraint firstAttribute="height" constant="22" id="bcH-h6-m6G"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Q59-2Y-Oo0">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="O7E-iM-iGp">
+                        <rect key="frame" x="108" y="158" width="17" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="PJD-CU-7Gi"/>
+                            <constraint firstAttribute="width" constant="13" id="eiR-Ff-63B"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Y:" id="uko-TH-R1v">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="50O-mr-76A">
+                        <rect key="frame" x="283" y="233" width="202" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="NoW-aR-Fbj"/>
+                            <constraint firstAttribute="width" constant="198" id="a9z-Br-svB"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Выберите распределение G(x):" id="3mx-fP-kDT">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="15X-OB-CVt">
+                        <rect key="frame" x="285" y="191" width="200" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="197" id="hl4-4N-bnp"/>
+                            <constraint firstAttribute="height" constant="20" id="ujQ-SK-Zit"/>
+                        </constraints>
+                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="xmf-V9-Tp1">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            <objectValues>
+                                <string>Нормальное распреде</string>
+                                <string>Распределение Вейбула</string>
+                            </objectValues>
+                        </comboBoxCell>
+                    </comboBox>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X0q-lE-d1C">
+                        <rect key="frame" x="308" y="155" width="43" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="HuZ-aD-WlN"/>
+                            <constraint firstAttribute="width" constant="43" id="KL3-zY-ZFY"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="UPd-CP-hpr">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="i2R-HQ-rUI">
+                        <rect key="frame" x="285" y="158" width="17" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="13" id="6zE-H2-Zbd"/>
+                            <constraint firstAttribute="height" constant="17" id="fkO-bZ-tsE"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="X:" id="uc6-R3-Vog">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zsf-Eq-m37">
+                        <rect key="frame" x="396" y="155" width="43" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="43" id="D9k-oN-5nH"/>
+                            <constraint firstAttribute="height" constant="22" id="EQa-Bw-aAo"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="SEE-bh-li4">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eP6-NL-oVL">
+                        <rect key="frame" x="373" y="158" width="17" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="13" id="EL6-P6-OVa"/>
+                            <constraint firstAttribute="height" constant="17" id="mSY-Y8-lez"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Y:" id="caa-Ex-y2r">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xtC-xl-evB">
+                        <rect key="frame" x="51" y="65" width="230" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="UQ4-Ja-bzf"/>
+                            <constraint firstAttribute="width" constant="226" id="vmw-BJ-lbl"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Имя файла для записи результата:" id="jSY-HD-pTp">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9wf-Hc-tyN">
+                        <rect key="frame" x="304" y="62" width="145" height="22"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="NZU-vL-peK"/>
+                            <constraint firstAttribute="width" constant="145" id="WAZ-Uu-bcF"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="otu-VO-moR">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b6E-Zs-2lV">
+                        <rect key="frame" x="194" y="4" width="123" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Вычислить" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Auk-Uw-Pof">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="calculateAction:" target="539" id="qQy-QS-kEP"/>
+                        </connections>
+                    </button>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="15X-OB-CVt" firstAttribute="leading" secondItem="50O-mr-76A" secondAttribute="leading" id="2Y4-4F-uN0"/>
+                    <constraint firstItem="1Vr-HO-Vyl" firstAttribute="top" secondItem="372" secondAttribute="top" constant="20" id="7sk-6t-MtL"/>
+                    <constraint firstItem="50O-mr-76A" firstAttribute="leading" secondItem="1Vr-HO-Vyl" secondAttribute="trailing" constant="67" id="8Gh-ln-dMa"/>
+                    <constraint firstItem="zsf-Eq-m37" firstAttribute="leading" secondItem="eP6-NL-oVL" secondAttribute="trailing" constant="8" id="A5x-EX-mx7"/>
+                    <constraint firstItem="X0q-lE-d1C" firstAttribute="leading" secondItem="i2R-HQ-rUI" secondAttribute="trailing" constant="8" id="AF0-eM-q6C"/>
+                    <constraint firstItem="O7E-iM-iGp" firstAttribute="top" secondItem="X2o-pC-4Bj" secondAttribute="bottom" constant="20" id="BNQ-E7-Tu2"/>
+                    <constraint firstItem="eP6-NL-oVL" firstAttribute="top" secondItem="15X-OB-CVt" secondAttribute="bottom" constant="20" id="DwT-SK-Qkg"/>
+                    <constraint firstItem="1Vr-HO-Vyl" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="20" id="EeG-9z-JS3"/>
+                    <constraint firstItem="91P-rk-VzC" firstAttribute="top" secondItem="X2o-pC-4Bj" secondAttribute="bottom" constant="18" id="GYZ-IH-Juw"/>
+                    <constraint firstItem="zsf-Eq-m37" firstAttribute="leading" secondItem="eP6-NL-oVL" secondAttribute="trailing" constant="8" id="HI1-fz-ufB"/>
+                    <constraint firstItem="1Vr-HO-Vyl" firstAttribute="top" secondItem="50O-mr-76A" secondAttribute="top" id="JBk-fJ-xd0"/>
+                    <constraint firstItem="X2o-pC-4Bj" firstAttribute="top" secondItem="1Vr-HO-Vyl" secondAttribute="bottom" constant="18" id="Kd4-SS-gGe"/>
+                    <constraint firstItem="i2R-HQ-rUI" firstAttribute="leading" secondItem="UtH-bY-MQK" secondAttribute="trailing" constant="113" id="MEY-Mf-xWg"/>
+                    <constraint firstItem="UtH-bY-MQK" firstAttribute="top" secondItem="X2o-pC-4Bj" secondAttribute="bottom" constant="18" id="N9H-X7-a1M"/>
+                    <constraint firstItem="f1l-Ed-r1R" firstAttribute="top" secondItem="X2o-pC-4Bj" secondAttribute="bottom" constant="20" id="NjZ-o7-VU0"/>
+                    <constraint firstItem="f1l-Ed-r1R" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="22" id="O4M-P8-Ff8"/>
+                    <constraint firstItem="X0q-lE-d1C" firstAttribute="leading" secondItem="i2R-HQ-rUI" secondAttribute="trailing" constant="8" id="Q0i-DR-W8f"/>
+                    <constraint firstItem="O7E-iM-iGp" firstAttribute="leading" secondItem="91P-rk-VzC" secondAttribute="trailing" constant="24" id="YDb-q3-caR"/>
+                    <constraint firstItem="eP6-NL-oVL" firstAttribute="leading" secondItem="X0q-lE-d1C" secondAttribute="trailing" constant="24" id="YdU-6Q-jGu"/>
+                    <constraint firstItem="UtH-bY-MQK" firstAttribute="leading" secondItem="O7E-iM-iGp" secondAttribute="trailing" constant="8" id="a0d-uM-yV2"/>
+                    <constraint firstItem="X2o-pC-4Bj" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="20" id="a1V-Bh-6F4"/>
+                    <constraint firstItem="91P-rk-VzC" firstAttribute="leading" secondItem="f1l-Ed-r1R" secondAttribute="trailing" constant="8" id="cwQ-XL-G09"/>
+                    <constraint firstItem="9wf-Hc-tyN" firstAttribute="leading" secondItem="xtC-xl-evB" secondAttribute="trailing" constant="25" id="dMe-Cc-Z8a"/>
+                    <constraint firstItem="15X-OB-CVt" firstAttribute="top" secondItem="50O-mr-76A" secondAttribute="bottom" constant="18" id="e7K-JU-qqX"/>
+                    <constraint firstItem="X0q-lE-d1C" firstAttribute="top" secondItem="15X-OB-CVt" secondAttribute="bottom" constant="18" id="ea4-wc-qWa"/>
+                    <constraint firstItem="xtC-xl-evB" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="53" id="jaA-ZH-Jgm"/>
+                    <constraint firstItem="i2R-HQ-rUI" firstAttribute="top" secondItem="15X-OB-CVt" secondAttribute="bottom" constant="20" id="kLc-7d-bzy"/>
+                    <constraint firstItem="9wf-Hc-tyN" firstAttribute="top" secondItem="zsf-Eq-m37" secondAttribute="bottom" constant="71" id="mi4-4f-202"/>
+                    <constraint firstItem="eP6-NL-oVL" firstAttribute="leading" secondItem="X0q-lE-d1C" secondAttribute="trailing" constant="24" id="rel-Ah-s8d"/>
+                    <constraint firstItem="xtC-xl-evB" firstAttribute="top" secondItem="UtH-bY-MQK" secondAttribute="bottom" constant="73" id="u5T-0V-hs7"/>
+                    <constraint firstItem="zsf-Eq-m37" firstAttribute="top" secondItem="15X-OB-CVt" secondAttribute="bottom" constant="18" id="x4w-uS-cPj"/>
+                </constraints>
             </view>
         </window>
         <customObject id="494" customClass="GoldenTriangleAppDelegate"/>
         <customObject id="420" customClass="NSFontManager"/>
         <customObject id="539" userLabel="App Controller" customClass="AppController">
             <connections>
-                <outlet property="fileNameTextField" destination="654" id="656"/>
-                <outlet property="graph3View" destination="799" id="818"/>
-                <outlet property="graphView" destination="536" id="540"/>
+                <outlet property="FComboBox" destination="X2o-pC-4Bj" id="say-KT-bJo"/>
+                <outlet property="FXTextField" destination="91P-rk-VzC" id="NP1-hY-Yi9"/>
+                <outlet property="FYTextField" destination="UtH-bY-MQK" id="spo-UP-ttF"/>
+                <outlet property="GComboBox" destination="15X-OB-CVt" id="Yek-B2-zl5"/>
+                <outlet property="GXTextField" destination="X0q-lE-d1C" id="hrK-cM-fJl"/>
+                <outlet property="GYTextField" destination="zsf-Eq-m37" id="YmB-xi-egT"/>
+                <outlet property="fileResultTextField" destination="9wf-Hc-tyN" id="zlL-3v-mSw"/>
                 <outlet property="mainWindow" destination="372" id="788"/>
                 <outlet property="numGraphsStepperController" destination="607" id="618"/>
-                <outlet property="parametr1" destination="643" id="650"/>
-                <outlet property="parametr2" destination="646" id="649"/>
-                <outlet property="selectedGraph" destination="564" id="619"/>
-                <outlet property="writeToFileCheckBox" destination="652" id="658"/>
             </connections>
         </customObject>
         <userDefaultsController representsSharedInstance="YES" id="572"/>
@@ -1076,17 +918,8 @@
         <customObject id="732" userLabel="App Controller 2" customClass="AppController">
             <connections>
                 <outlet property="calculationCoeffModule" destination="773" id="774"/>
-                <outlet property="graph2View" destination="795" id="796"/>
                 <outlet property="mainWindow" destination="372" id="787"/>
                 <outlet property="numGraphsStepperController" destination="735" id="736"/>
-                <outlet property="parametr1" destination="706" id="740"/>
-                <outlet property="parametr2" destination="705" id="741"/>
-                <outlet property="parametr2_1" destination="755" id="771"/>
-                <outlet property="parametr2_2" destination="756" id="772"/>
-                <outlet property="parametrT" destination="778" id="781"/>
-                <outlet property="parametrX" destination="776" id="780"/>
-                <outlet property="selectedDistribution2" destination="753" id="770"/>
-                <outlet property="selectedGraph" destination="711" id="742"/>
             </connections>
         </customObject>
         <customObject id="735" userLabel="StepperController 2" customClass="StepperController"/>
